@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const PostSchema = new mongoose.Schema(
+const BlogSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -20,11 +20,11 @@ const PostSchema = new mongoose.Schema(
       required: false,
     },
     categories: {
-      type: Array,
+      type: String,
       required: false,
     },
   },
   { timestamps: true }
 )
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('Blog', BlogSchema)
