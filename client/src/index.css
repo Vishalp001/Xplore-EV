@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+/* font-family: 'Nunito', sans-serif;
+font-family: 'Quicksand', sans-serif; */
+
+@media only screen and (max-width: 1000px) {
+  .swiper-slide {
+    height: auto !important;
+  }
+}

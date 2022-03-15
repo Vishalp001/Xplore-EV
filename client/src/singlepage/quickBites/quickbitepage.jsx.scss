@@ -1,0 +1,94 @@
+/* font-family: 'Nunito', sans-serif; */
+.spHeader {
+  font-family: 'Quicksand', sans-serif;
+  color: #3c484e;
+  text-align: center;
+  padding: 3vw 4vw;
+  h1 {
+    font-size: 38px;
+    line-height: 44px;
+    font-weight: 700;
+  }
+  p {
+    margin-top: 43px;
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: 400;
+  }
+}
+.spQuickbitesWrapper {
+  // background-color: #f4f8fb;
+}
+
+.gridContainer {
+  margin: 0 4.1875rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-items: center;
+  align-items: center;
+  justify-content: space-evenly;
+  grid-gap: 1.25rem;
+  .gridItem {
+    cursor: pointer;
+    width: 300px;
+    height: auto;
+    padding: 0;
+    margin-top: 3rem;
+    min-height: 300px;
+    background: #fff 50%;
+    background-size: cover;
+    border-radius: 5px;
+    -webkit-box-shadow: rgb(39 44 49 / 6%) 8px 14px 38px,
+      rgb(39 44 49 / 3%) 1px 3px 8px;
+    box-shadow: 8px 14px 38px rgb(39 44 49 / 6%), 1px 3px 8px rgb(39 44 49 / 3%);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    &:hover {
+      -webkit-box-shadow: rgb(39 44 49 / 7%) 8px 28px 50px,
+        rgb(39 44 49 / 4%) 1px 6px 12px;
+      box-shadow: 8px 28px 50px rgb(39 44 49 / 7%),
+        1px 6px 12px rgb(39 44 49 / 4%);
+      -webkit-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      -webkit-transform: translate3D(0, -1px, 0) scale(1.02);
+      transform: translate3D(0, -1px, 0) scale(1.02);
+    }
+    .imgDiv {
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+    .cardContain {
+      padding: 25px;
+      .title {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 20px;
+        color: #15171a;
+        line-height: 1.15;
+        font-weight: 700;
+      }
+      .desc {
+        font-size: 15px;
+        font-family: 'Nunito', sans-serif;
+      }
+      .shareIcons {
+        padding: 0;
+        font-size: 25px;
+        display: flex;
+        justify-content: flex-end;
+        p {
+          margin-right: 15px;
+          transition: 0.1s ease-in;
+          color: #66c600;
+
+          :hover {
+            color: #66c600;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
