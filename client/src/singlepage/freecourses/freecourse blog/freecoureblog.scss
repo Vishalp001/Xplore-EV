@@ -74,6 +74,29 @@ font-family: 'Quicksand', sans-serif; */
       }
     }
   }
+  .MuiButtonBase-root {
+    font-family: 'Nunito', sans-serif !important;
+    text-transform: capitalize !important;
+    font-size: 22px !important;
+  }
+  .Mui-selected {
+    color: rgb(76, 182, 40) !important;
+  }
+  .MuiTouchRipple-root {
+    color: rgb(76, 182, 40) !important;
+  }
+  .MuiTabs-indicator {
+    background-color: rgb(76, 182, 40) !important;
+  }
+  .MuiBox-root {
+    margin-top: 50px !important;
+    max-width: 1200px !important;
+    margin: 0 auto;
+  }
+  .MuiTabs-flexContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -119,28 +142,4 @@ font-family: 'Quicksand', sans-serif; */
   .MuiButtonBase-root {
     font-size: 18px !important;
   }
-}
-
-.MuiButtonBase-root {
-  font-family: 'Nunito', sans-serif !important;
-  text-transform: capitalize !important;
-  font-size: 22px !important;
-}
-.Mui-selected {
-  color: rgb(76, 182, 40) !important;
-}
-.MuiTouchRipple-root {
-  color: rgb(76, 182, 40) !important;
-}
-.MuiTabs-indicator {
-  background-color: rgb(76, 182, 40) !important;
-}
-.MuiBox-root {
-  margin-top: 50px !important;
-  max-width: 1200px !important;
-  margin: 0 auto;
-}
-.MuiTabs-flexContainer {
-  display: flex;
-  justify-content: space-between;
 }

@@ -43,14 +43,14 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 })
 
 app.use('/api/auth', authRoute)
-app.use('/api/users', userRoute)
-app.use('/api/blogs', blogRoute)
+app.use('/api/user', userRoute)
+app.use('/api/blog', blogRoute)
 app.use('/api/news', newsRoute)
-app.use('/api/posts', postRoute)
-app.use('/api/videos', videosRoute)
+app.use('/api/post', postRoute)
+app.use('/api/video', videosRoute)
 app.use('/api/trending', trendingRoute)
 app.use('/api/quickbyte', quickByteRoute)
-app.use('/api/categories', categoryRoute)
+app.use('/api/categorie', categoryRoute)
 
 app.listen('5000', () => {
   console.log('Backend is running.')

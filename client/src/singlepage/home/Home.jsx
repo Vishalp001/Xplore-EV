@@ -10,6 +10,7 @@ import Topbar from '../../components/topBar/Topbar'
 import Trending from '../../components/trending/Trending'
 import Find from '../../components/find/Find'
 import OurVideos from '../../components/ourVideos/OurVideos'
+import { useLocation } from 'react-router-dom'
 
 const Home = () => {
   return (

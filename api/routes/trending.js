@@ -3,9 +3,9 @@ const Trending = require('../models/Trending')
 
 //CREATE Trending
 router.post('/', async (req, res) => {
-  const newTrending = new Trending(req.body)
+  const newTrendingPost = new Trending(req.body)
   try {
-    const saveTrending = await newTrending.save()
+    const saveTrending = await newTrendingPost.save()
     res.status(200).json(saveTrending)
   } catch (err) {
     res.status(500).json(err)
