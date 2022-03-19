@@ -59,4 +59,4 @@ const FreeCourseSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('QuickByte', FreeCourseSchema)
+module.exports = mongoose.model('FreeCourse', FreeCourseSchema)

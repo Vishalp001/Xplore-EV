@@ -11,6 +11,9 @@ const quickByteRoute = require('./routes/quickByte')
 const trendingRoute = require('./routes/trending')
 const videosRoute = require('./routes/ourVideos')
 const categoryRoute = require('./routes/categories')
+const freeCourseRoute = require('./routes/freeCourse')
+const electricCarRoute = require('./routes/electricCar')
+const electricBikeRoute = require('./routes/electricBike')
 const multer = require('multer')
 const path = require('path')
 
@@ -23,7 +26,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
   })
   .then(console.log('Connected to MongoDB'))
   .catch((err) => console.log(err))
@@ -37,8 +40,8 @@ const storage = multer.diskStorage({
   },
 })
 
-const upload = multer({ storage: storage })
-app.post('/api/upload', upload.single('file'), (req, res) => {
+const uploads = multer({ storage: storage })
+app.post('/api/upload', uploads.any(), (req, res) => {
   res.status(200).json('File has been uploaded')
 })
 
@@ -51,6 +54,9 @@ app.use('/api/video', videosRoute)
 app.use('/api/trending', trendingRoute)
 app.use('/api/quickbyte', quickByteRoute)
 app.use('/api/categorie', categoryRoute)
+app.use('/api/freecourse', freeCourseRoute)
+app.use('/api/ecar', electricCarRoute)
+app.use('/api/ebike', electricBikeRoute)
 
 app.listen('5000', () => {
   console.log('Backend is running.')

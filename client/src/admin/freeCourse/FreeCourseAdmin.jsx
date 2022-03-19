@@ -5,12 +5,12 @@ const FreeCourseAdmin = ({ freeCourse }) => {
   return (
     <>
       <div className='CreatePost'>
-        <h1>Create News Post</h1>
-        <Link to='/create_news_post'>
+        <h1>Create FreeCourse Post</h1>
+        <Link to='/create_free_course_post'>
           <button className='readMore'>Create Post</button>
         </Link>
       </div>
-      <div className='trendingAdmin'>
+      <div className='freeCourse'>
         <table class='table'>
           <thead>
             <tr>
@@ -27,7 +27,7 @@ const FreeCourseAdmin = ({ freeCourse }) => {
                 Date
               </th>
               <th className='cate' scope='col'>
-                Categories
+                Instructor Name
               </th>
               <th className='edit' scope='col'>
                 View/Edit
@@ -38,23 +38,23 @@ const FreeCourseAdmin = ({ freeCourse }) => {
             </tr>
           </thead>
           <tbody>
-            {news &&
-              news.map((n) => (
+            {freeCourse &&
+              freeCourse.map((c) => (
                 <tr>
                   <th scope='row'>1</th>
-                  <td>{n.title}</td>
+                  <td>{c.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
-                      __html: `${n.desc.substring(0, 150)}...`,
+                      __html: `${c.desc.substring(0, 150)}...`,
                     }}
                   ></td>
-                  <td>{new Date(n.createdAt).toDateString()}</td>
+                  <td>{new Date(c.createdAt).toDateString()}</td>
 
+                  <td>{c.insName}</td>
                   <td>
-                    <Link to={`/?cat=${n.categories}`}>{n.categories}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/news_admin_post/${n._id}`}>View/Edit</Link>
+                    <Link to={`/free_course_admin_post/${c._id}`}>
+                      View/Edit
+                    </Link>
                   </td>
                   <td>Delete</td>
                 </tr>

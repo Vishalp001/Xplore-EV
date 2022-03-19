@@ -11,24 +11,24 @@ font-family: 'Quicksand', sans-serif; */
     margin-right: 20px;
   }
 }
-.trendingAdmin {
+.freeCourse {
+  width: calc(100vw - 248px);
   table {
     width: 100%;
-    overflow: hidden;
     .title {
       width: 20%;
     }
     .desc {
-      width: 30%;
+      width: 40%;
     }
-    .date,
-    .cate,
-    .delete,
-    .edit {
-      width: 10%;
-    }
-    .srNo {
-      width: 2%;
-    }
+    //   .date,
+    //   .cate,
+    //   .delete,
+    //   .edit {
+    //     width: 20%;
+    //   }
+    //   .srNo {
+    //     width: 2%;
+    //   }
   }
 }

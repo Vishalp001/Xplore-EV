@@ -12,6 +12,7 @@ import QuickBitesAdmin from '../quickbites/QuickBitesAdmin'
 import VideoAdmin from '../video/VideoAdmin'
 import NewsAdmin from '../news/NewsAdmin'
 import BlogAdmin from '../blog/BlogAdmin'
+import FreeCourseAdmin from '../freeCourse/FreeCourseAdmin'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -52,10 +53,10 @@ export default function VerticalTabs({
   video,
   news,
   blog,
+  freeCourse,
 }) {
-  console.log(news, 'Dashboard')
   const { user, dispatch } = useContext(Context)
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState(2)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -111,7 +112,7 @@ export default function VerticalTabs({
             <NewsAdmin news={news} />
           </TabPanel>
           <TabPanel value={value} index={6}>
-            Item Seven
+            <FreeCourseAdmin freeCourse={freeCourse} />
           </TabPanel>
           <TabPanel value={value} index={7}>
             <BlogAdmin blog={blog} />

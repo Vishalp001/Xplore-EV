@@ -1,0 +1,48 @@
+.writeCourseBlog {
+  input {
+    border-radius: 6px;
+    padding: 3px;
+  }
+  .courseImage {
+    margin-top: 20px;
+  }
+  .courseBio {
+    margin-top: 20px;
+    height: 250px;
+
+    textarea {
+      padding: 15px;
+      width: 100%;
+      min-height: 80%;
+      outline: 1px solid #4fb62c;
+      border-radius: 5px;
+      &:focus {
+      }
+    }
+  }
+  .aboutInputs {
+    min-height: 250px !important;
+    border: 2px solid #4fb62c;
+    border-radius: 5px;
+  }
+  .courseBlogTab {
+    // margin-bottom: 250px;
+  }
+  .publishBtnDiv {
+    width: 100%;
+    display: flex;
+  }
+  .publishBtn {
+    background: #4fb62c;
+    width: 250px;
+    height: 40px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    margin: 15px auto;
+  }
+  .FreeCourseQuillEditor {
+    margin-top: 20px;
+  }
+}

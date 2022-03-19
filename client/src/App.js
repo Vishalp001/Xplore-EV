@@ -35,6 +35,8 @@ import NewsAdminPost from './admin/news/newsAdminPost/NewsAdminPost'
 import WriteNewsPost from './admin/news/writeNewsPost/WriteNewsPost'
 import WriteBlogPost from './admin/blog/WriteBlogPost/WriteBlogPost'
 import BlogAdminPost from './admin/blog/blogAdminPost/BlogAdminPost'
+import WriteFreeCoursePost from './admin/freeCourse/writefreeCoursePost/WriteFreeCoursePost'
+import FreeCourseAdminPost from './admin/freeCourse/freeCourseAdminPost/FreeCourseAdminPost'
 
 function App() {
   const { user } = useContext(Context)
@@ -43,6 +45,7 @@ function App() {
   const [video, setVideo] = useState([])
   const [news, setNews] = useState([])
   const [blog, setBlog] = useState([])
+  const [freeCourse, setFreeCourse] = useState([])
 
   useEffect(() => {
     const fetchTrendingPost = async () => {
@@ -66,11 +69,16 @@ function App() {
       const res = await axios.get('/blog')
       setBlog(res.data)
     }
+    const fetchFreeCourse = async () => {
+      const res = await axios.get('/freecourse')
+      setFreeCourse(res.data)
+    }
     fetchTrendingPost()
     fetchQuickBitesPost()
     fetchVideoPost()
     fetchNewsPost()
     fetchBlogPost()
+    fetchFreeCourse()
   }, [])
 
   return (
@@ -109,6 +117,7 @@ function App() {
                   video={video}
                   news={news}
                   blog={blog}
+                  freeCourse={freeCourse}
                 />
               ) : (
                 <Login />
@@ -170,6 +179,19 @@ function App() {
           />
 
           <Route exact path='/create_blog_post' element={<WriteBlogPost />} />
+
+          {/* --------Admin FreeCourse Route------ */}
+          <Route
+            exact
+            path='/free_course_admin_post/:id'
+            element={<FreeCourseAdminPost />}
+          />
+
+          <Route
+            exact
+            path='/create_free_course_post'
+            element={<WriteFreeCoursePost />}
+          />
         </Routes>
       </Router>
       {/* <Subscribe /> */}
