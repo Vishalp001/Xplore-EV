@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './newsAdmin.scss'
 const NewsAdmin = ({ news }) => {
-  console.log(news)
   return (
     <>
       <div className='CreatePost'>
@@ -12,7 +11,7 @@ const NewsAdmin = ({ news }) => {
         </Link>
       </div>
       <div className='trendingAdmin'>
-        <table class='table'>
+        <table className='table'>
           <thead>
             <tr>
               <th className='srNo' scope='col'>
@@ -41,7 +40,7 @@ const NewsAdmin = ({ news }) => {
           <tbody>
             {news &&
               news.map((n) => (
-                <tr>
+                <tr key={n._id}>
                   <th scope='row'>1</th>
                   <td>{n.title}</td>
                   <td

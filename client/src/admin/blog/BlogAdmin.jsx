@@ -11,7 +11,7 @@ const BlogAdmin = ({ blog }) => {
         </Link>
       </div>
       <div className='trendingAdmin'>
-        <table class='table'>
+        <table className='table'>
           <thead>
             <tr>
               <th className='srNo' scope='col'>
@@ -40,7 +40,7 @@ const BlogAdmin = ({ blog }) => {
           <tbody>
             {blog &&
               blog.map((b) => (
-                <tr>
+                <tr key={b._id}>
                   <th scope='row'>1</th>
                   <td>{b.title}</td>
                   <td

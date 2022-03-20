@@ -13,6 +13,8 @@ import VideoAdmin from '../video/VideoAdmin'
 import NewsAdmin from '../news/NewsAdmin'
 import BlogAdmin from '../blog/BlogAdmin'
 import FreeCourseAdmin from '../freeCourse/FreeCourseAdmin'
+import ECarAdmin from '../electricCar/ECarAdmin'
+import EBikeAdmin from '../electricBike/EBikeAdmin'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -27,7 +29,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <Typography component={'span'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -54,9 +56,11 @@ export default function VerticalTabs({
   news,
   blog,
   freeCourse,
+  eCar,
+  eBike,
 }) {
   const { user, dispatch } = useContext(Context)
-  const [value, setValue] = React.useState(2)
+  const [value, setValue] = React.useState(3)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -100,10 +104,10 @@ export default function VerticalTabs({
             <QuickBitesAdmin quickBites={quickBites} />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            Item Three
+            <ECarAdmin eCar={eCar} />
           </TabPanel>
           <TabPanel value={value} index={3}>
-            Item Four
+            <EBikeAdmin eBike={eBike} />
           </TabPanel>
           <TabPanel value={value} index={4}>
             <VideoAdmin video={video} />

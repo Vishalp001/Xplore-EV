@@ -38,6 +38,12 @@ import BlogAdminPost from './admin/blog/blogAdminPost/BlogAdminPost'
 import WriteFreeCoursePost from './admin/freeCourse/writefreeCoursePost/WriteFreeCoursePost'
 import FreeCourseAdminPost from './admin/freeCourse/freeCourseAdminPost/FreeCourseAdminPost'
 
+import WriteECarPost from './admin/electricCar/writeECarPost/WriteECarPost'
+import ECarAdminPost from './admin/electricCar/eCarAdminPost/ECarAdminPost'
+
+import WriteEBikePost from './admin/electricBike/writeEBikePost/WriteEBikePost'
+import EBikeAdminPost from './admin/electricBike/eBikeAdminPost/EBikeAdminPost'
+
 function App() {
   const { user } = useContext(Context)
   const [trendings, setTrengings] = useState([])
@@ -46,11 +52,12 @@ function App() {
   const [news, setNews] = useState([])
   const [blog, setBlog] = useState([])
   const [freeCourse, setFreeCourse] = useState([])
+  const [eCar, setECar] = useState([])
+  const [eBike, setEBike] = useState([])
 
   useEffect(() => {
     const fetchTrendingPost = async () => {
       const res = await axios.get('/trending')
-      // console.log(res.data)
       setTrengings(res.data)
     }
     const fetchQuickBitesPost = async () => {
@@ -73,12 +80,22 @@ function App() {
       const res = await axios.get('/freecourse')
       setFreeCourse(res.data)
     }
+    const fetchECar = async () => {
+      const res = await axios.get('/ecar')
+      setECar(res.data)
+    }
+    const fetchEBike = async () => {
+      const res = await axios.get('/ebike')
+      setEBike(res.data)
+    }
     fetchTrendingPost()
     fetchQuickBitesPost()
     fetchVideoPost()
     fetchNewsPost()
     fetchBlogPost()
     fetchFreeCourse()
+    fetchECar()
+    fetchEBike()
   }, [])
 
   return (
@@ -118,6 +135,8 @@ function App() {
                   news={news}
                   blog={blog}
                   freeCourse={freeCourse}
+                  eCar={eCar}
+                  eBike={eBike}
                 />
               ) : (
                 <Login />
@@ -191,6 +210,28 @@ function App() {
             exact
             path='/create_free_course_post'
             element={<WriteFreeCoursePost />}
+          />
+
+          {/* --------Admin E Car Route------ */}
+          <Route
+            exact
+            path='/e_car_admin_post/:id'
+            element={<ECarAdminPost />}
+          />
+
+          <Route exact path='/create_e_car_post' element={<WriteECarPost />} />
+
+          {/* --------Admin E Bike Route------ */}
+          <Route
+            exact
+            path='/e_bike_admin_post/:id'
+            element={<EBikeAdminPost />}
+          />
+
+          <Route
+            exact
+            path='/create_e_bike_post'
+            element={<WriteEBikePost />}
           />
         </Routes>
       </Router>

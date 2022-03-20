@@ -7,10 +7,34 @@ const ElectricCarSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
+    eCarPrice: {
+      type: String,
+      required: true,
+    },
+    imgOne: {
+      type: String,
+      required: false,
+    },
+    imgTwo: {
+      type: String,
+      required: false,
+    },
+    imgThree: {
+      type: String,
+      required: false,
+    },
+    imgFour: {
+      type: String,
+      required: false,
+    },
+    imgFive: {
+      type: String,
+      required: false,
+    },
+
     brand: {
       type: String,
       required: false,
-      unique: false,
     },
     type: {
       type: String,

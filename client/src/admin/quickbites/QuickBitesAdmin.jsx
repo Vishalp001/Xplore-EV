@@ -11,7 +11,7 @@ const QuickBitesAdmin = ({ quickBites }) => {
         </Link>
       </div>
       <div className='trendingAdmin'>
-        <table class='table'>
+        <table className='table'>
           <thead>
             <tr>
               <th className='srNo' scope='col'>
@@ -40,7 +40,7 @@ const QuickBitesAdmin = ({ quickBites }) => {
           <tbody>
             {quickBites &&
               quickBites.map((p) => (
-                <tr>
+                <tr key={p._id}>
                   <th scope='row'>1</th>
                   <td>{p.title}</td>
                   <td

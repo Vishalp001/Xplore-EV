@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './freeCourseAdmin.scss'
-const FreeCourseAdmin = ({ freeCourse }) => {
+import './eCarAdmin.scss'
+const ECarAdmin = ({ eCar }) => {
   return (
     <>
       <div className='CreatePost'>
-        <h1>Create FreeCourse Post</h1>
-        <Link to='/create_free_course_post'>
+        <h1>Create Electric Car Post</h1>
+        <Link to='/create_e_car_post'>
           <button className='readMore'>Create Post</button>
         </Link>
       </div>
-      <div className='freeCourse'>
+      <div className='ECarAdmin'>
         <table className='table'>
           <thead>
             <tr>
@@ -18,16 +18,16 @@ const FreeCourseAdmin = ({ freeCourse }) => {
                 #
               </th>
               <th className='title' scope='col'>
-                Title
+                Car Name
               </th>
               <th className='desc' scope='col'>
-                Desc
+                Car Brand
               </th>
               <th className='date' scope='col'>
                 Date
               </th>
               <th className='cate' scope='col'>
-                Instructor Name
+                Car Model
               </th>
               <th className='edit' scope='col'>
                 View/Edit
@@ -38,23 +38,17 @@ const FreeCourseAdmin = ({ freeCourse }) => {
             </tr>
           </thead>
           <tbody>
-            {freeCourse &&
-              freeCourse.map((c) => (
+            {eCar &&
+              eCar.map((c) => (
                 <tr key={c._id}>
                   <th scope='row'>1</th>
-                  <td>{c.title}</td>
-                  <td
-                    dangerouslySetInnerHTML={{
-                      __html: `${c.desc.substring(0, 150)}...`,
-                    }}
-                  ></td>
+                  <td>{c.eCarName}</td>
+                  <td>{c.brand}</td>
                   <td>{new Date(c.createdAt).toDateString()}</td>
 
-                  <td>{c.insName}</td>
+                  <td>{c.model}</td>
                   <td>
-                    <Link to={`/free_course_admin_post/${c._id}`}>
-                      View/Edit
-                    </Link>
+                    <Link to={`/e_car_admin_post/${c._id}`}>View/Edit</Link>
                   </td>
                   <td>Delete</td>
                 </tr>
@@ -66,4 +60,4 @@ const FreeCourseAdmin = ({ freeCourse }) => {
   )
 }
 
-export default FreeCourseAdmin
+export default ECarAdmin

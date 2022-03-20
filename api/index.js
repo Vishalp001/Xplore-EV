@@ -41,6 +41,7 @@ const storage = multer.diskStorage({
 })
 
 const uploads = multer({ storage: storage })
+
 app.post('/api/upload', uploads.any(), (req, res) => {
   res.status(200).json('File has been uploaded')
 })

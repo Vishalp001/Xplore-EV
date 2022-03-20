@@ -4,8 +4,12 @@ const ElectricBikeSchema = new mongoose.Schema(
   {
     eBikeName: {
       type: String,
-      required: false,
+      required: true,
       unique: true,
+    },
+    eBikePrice: {
+      type: String,
+      required: true,
     },
     brand: {
       type: String,
@@ -49,6 +53,26 @@ const ElectricBikeSchema = new mongoose.Schema(
     },
 
     features: {
+      type: String,
+      required: false,
+    },
+    imgOne: {
+      type: String,
+      required: false,
+    },
+    imgTwo: {
+      type: String,
+      required: false,
+    },
+    imgThree: {
+      type: String,
+      required: false,
+    },
+    imgFour: {
+      type: String,
+      required: false,
+    },
+    imgFive: {
       type: String,
       required: false,
     },

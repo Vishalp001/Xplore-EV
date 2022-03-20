@@ -11,7 +11,7 @@ const VideoAdmin = ({ video }) => {
         </Link>
       </div>
       <div className='VideoAdmin'>
-        <table class='table'>
+        <table className='table'>
           <thead>
             <tr>
               <th className='srNo' scope='col'>
@@ -36,7 +36,7 @@ const VideoAdmin = ({ video }) => {
           <tbody>
             {video &&
               video.map((v) => (
-                <tr>
+                <tr key={v._id}>
                   <th scope='row'>1</th>
                   <td>{v.title}</td>
 

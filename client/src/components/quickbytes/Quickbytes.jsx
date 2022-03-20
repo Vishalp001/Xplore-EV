@@ -64,7 +64,7 @@ const Quickbytes = () => {
 
             <div className='details'>
               <div className='date'>Mar 04, 2022</div>
-              <h1 class='title'>
+              <h1 className='title'>
                 <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
               </h1>
               <div className='desc'>
@@ -98,7 +98,7 @@ const Quickbytes = () => {
 
             <div className='details'>
               <div className='date'>Mar 04, 2022</div>
-              <h1 class='title'>
+              <h1 className='title'>
                 <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
               </h1>
               <div className='desc'>
@@ -132,7 +132,7 @@ const Quickbytes = () => {
 
             <div className='details'>
               <div className='date'>Mar 04, 2022</div>
-              <h1 class='title'>
+              <h1 className='title'>
                 <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
               </h1>
               <div className='desc'>
@@ -166,7 +166,7 @@ const Quickbytes = () => {
 
             <div className='details'>
               <div className='date'>Mar 04, 2022</div>
-              <h1 class='title'>
+              <h1 className='title'>
                 <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
               </h1>
               <div className='desc'>
@@ -200,7 +200,7 @@ const Quickbytes = () => {
 
             <div className='details'>
               <div className='date'>Mar 04, 2022</div>
-              <h1 class='title'>
+              <h1 className='title'>
                 <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
               </h1>
               <div className='desc'>
