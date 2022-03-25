@@ -3,8 +3,10 @@ import './writeEBikePost.scss'
 import axios from 'axios'
 import { BiAddToQueue } from 'react-icons/bi'
 import { Context } from '../../../context/Context'
+import btnLoading from '../../../assets/images/btnLoading.svg'
 
 export default function WriteEBikePost() {
+  const [loader, setLoader] = useState(false)
   const [eBikeName, setEBikeName] = useState('')
   const [eBikePrice, setEBikePrice] = useState('')
   const [brand, setBrand] = useState('')
@@ -26,6 +28,7 @@ export default function WriteEBikePost() {
   const { user } = useContext(Context)
 
   const handleSubmit = async (e) => {
+    setLoader(true)
     e.preventDefault()
     const newTrendingPost = {
       username: user.username,
@@ -43,13 +46,15 @@ export default function WriteEBikePost() {
       batteryCapacity,
       features,
     }
+
     const dataOne = new FormData()
     const filename = Date.now() + imgOne.name
     dataOne.append('name', filename)
-    dataOne.append('fileOne', imgOne)
-    newTrendingPost.imgOne = filename
+    dataOne.append('file', imgOne)
+    console.log(dataOne)
     try {
-      await axios.post('/upload', dataOne)
+      const res = await axios.post('/upload', dataOne)
+      newTrendingPost.imgOne = res.data.url
     } catch (error) {
       console.log('Cant Upload the Photo')
     }
@@ -57,10 +62,11 @@ export default function WriteEBikePost() {
     const dataTwo = new FormData()
     const filenameTwo = Date.now() + imgTwo.name
     dataTwo.append('name', filenameTwo)
-    dataTwo.append('fileTwo', imgTwo)
-    newTrendingPost.imgTwo = filenameTwo
+    dataTwo.append('file', imgTwo)
+    console.log(dataTwo)
     try {
-      await axios.post('/upload', dataTwo)
+      const res = await axios.post('/upload', dataTwo)
+      newTrendingPost.imgTwo = res.data.url
     } catch (error) {
       console.log('Cant Upload the InsImage Photo')
     }
@@ -68,30 +74,35 @@ export default function WriteEBikePost() {
     const dataThree = new FormData()
     const filenameThree = Date.now() + imgThree.name
     dataThree.append('name', filenameThree)
-    dataThree.append('fileTwo', imgThree)
-    newTrendingPost.imgThree = filenameThree
+    dataThree.append('file', imgThree)
+    console.log(dataThree)
     try {
-      await axios.post('/upload', dataThree)
+      const res = await axios.post('/upload', dataThree)
+      newTrendingPost.imgThree = res.data.url
     } catch (error) {
       console.log('Cant Upload the imgThree Photo')
     }
+
     const dataFour = new FormData()
     const filenameFour = Date.now() + imgFour.name
     dataFour.append('name', filenameFour)
-    dataFour.append('fileFour', imgFour)
-    newTrendingPost.imgFour = filenameFour
+    dataFour.append('file', imgFour)
+    console.log(dataFour)
     try {
-      await axios.post('/upload', dataFour)
+      const res = await axios.post('/upload', dataFour)
+      newTrendingPost.imgFour = res.data.url
     } catch (error) {
       console.log('Cant Upload the imgFour Photo')
     }
+
     const dataFive = new FormData()
     const filenameFive = Date.now() + imgFive.name
     dataFive.append('name', filenameFive)
-    dataFive.append('fileFive', imgFive)
-    newTrendingPost.imgFive = filenameFive
+    dataFive.append('file', imgFive)
+    console.log(dataFive)
     try {
-      await axios.post('/upload', dataFive)
+      const res = await axios.post('/upload', dataFive)
+      newTrendingPost.imgFive = res.data.url
     } catch (error) {
       console.log('Cant Upload the imgFive Photo')
     }
@@ -99,6 +110,7 @@ export default function WriteEBikePost() {
     try {
       const res = await axios.post('/ebike', newTrendingPost)
       window.location.replace('/e_bike_admin_post/' + res.data._id)
+      setLoader(false)
     } catch (error) {
       console.log('Cant Upload the e-car Post')
     }
@@ -283,10 +295,15 @@ export default function WriteEBikePost() {
             autoFocus={true}
             onChange={(e) => setfeatures(e.target.value)}
           />
-
-          <button className='publishBtn' type='submit'>
-            Publish
-          </button>
+          {loader ? (
+            <button className='publishBtn'>
+              <img className='' src={btnLoading} alt='' />
+            </button>
+          ) : (
+            <button className='publishBtn' type='submit'>
+              Publish
+            </button>
+          )}
         </div>
       </form>
     </div>

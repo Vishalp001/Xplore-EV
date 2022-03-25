@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
         },
       })
     } else {
-      videos = await OurVideos.find()
+      videos = await OurVideos.find().sort({ _id: -1 })
     }
     res.status(200).json(videos)
   } catch (err) {

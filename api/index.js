@@ -14,12 +14,15 @@ const categoryRoute = require('./routes/categories')
 const freeCourseRoute = require('./routes/freeCourse')
 const electricCarRoute = require('./routes/electricCar')
 const electricBikeRoute = require('./routes/electricBike')
-const multer = require('multer')
-const path = require('path')
 
+const cloudinary = require('./Utils/cloudinary')
+const upload = require('./Utils/multer')
+// const multer = require('multer')
+const path = require('path')
 dotenv.config()
 app.use(express.json())
-app.use('/images', express.static(path.join(__dirname, '/images')))
+
+// app.use('/images', express.static(path.join(__dirname, '/images')))
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -31,19 +34,24 @@ mongoose
   .then(console.log('Connected to MongoDB'))
   .catch((err) => console.log(err))
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'images')
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name)
-  },
-})
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'images')
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, req.body.name)
+//   },
+// })
 
-const uploads = multer({ storage: storage })
+// const uploads = multer({ storage: storage })
 
-app.post('/api/upload', uploads.any(), (req, res) => {
-  res.status(200).json('File has been uploaded')
+app.post('/api/upload', upload.single('file'), async (req, res) => {
+  try {
+    const result = await cloudinary.uploader.upload(req.file.path)
+    res.status(200).json(result)
+  } catch (error) {
+    console.log('Cannot upload the Photo BAckend')
+  }
 })
 
 app.use('/api/auth', authRoute)

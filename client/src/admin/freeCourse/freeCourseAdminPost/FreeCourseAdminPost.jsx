@@ -65,8 +65,6 @@ const TrendingAdminPost = () => {
 
   const [updateMode, setUpdateMode] = useState(false)
 
-  const PF = 'http://localhost:5000/images/'
-
   useEffect(() => {
     const GetPost = async () => {
       const res = await axios.get(`/freecourse/${path}`)
@@ -144,7 +142,7 @@ const TrendingAdminPost = () => {
           <h4 className='inputHeading'>Course Image</h4>
           {post.coursePhoto && (
             <div className='adminCourseImgDiv'>
-              <img src={PF + post.coursePhoto} alt='' />
+              <img src={post.coursePhoto} alt='' />
             </div>
           )}
         </div>
@@ -207,7 +205,7 @@ const TrendingAdminPost = () => {
             <div className='offerBy'>
               <h1 className='instructor'>Course Instructor</h1>
               <div className='imgDiv'>
-                <img src={PF + post.insImage} alt='' />
+                <img src={post.insImage} alt='' />
               </div>
               <p className='insName'>
                 {updateMode ? (

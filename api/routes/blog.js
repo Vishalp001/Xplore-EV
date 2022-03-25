@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
         },
       })
     } else {
-      blogs = await Blog.find()
+      blogs = await Blog.find().sort({ _id: -1 })
     }
     res.status(200).json(blogs)
   } catch (err) {

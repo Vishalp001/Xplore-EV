@@ -9,7 +9,7 @@ import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
-const Quickbytes = () => {
+const Quickbytes = ({ quickBites }) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
@@ -53,177 +53,42 @@ const Quickbytes = () => {
         modules={[Keyboard, Navigation, Autoplay]}
         className='quickBytesSlider container'
       >
-        <SwiperSlide>
-          <div className='cardContainer'>
-            <div className='imgDiv'>
-              <img
-                src='https://cdn.finshots.app/images/2022/03/cov16.png'
-                alt=''
-              />
-            </div>
+        {quickBites &&
+          quickBites.slice(0, 4).map((q) => (
+            <SwiperSlide>
+              <div className='cardContainer'>
+                <div className='imgDiv'>
+                  <img src={q.photo} alt='' />
+                </div>
 
-            <div className='details'>
-              <div className='date'>Mar 04, 2022</div>
-              <h1 className='title'>
-                <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
-              </h1>
-              <div className='desc'>
-                Let’s be honest, very few people are going to read this report.
-                These things are usually drab, boring, littered with
-                incomprehensible words and will likely put you to sleep in 5
-                minutes. But that being said.
+                <div className='details'>
+                  <div className='date'>
+                    {new Date(q.createdAt).toDateString()}
+                  </div>
+                  <h1 className='title'>
+                    <a href=''>{q.title}</a>
+                  </h1>
+                  <div
+                    className='desc'
+                    dangerouslySetInnerHTML={{
+                      __html: `${q.desc.substring(0, 250)}`,
+                    }}
+                  ></div>
+                </div>
+                <div className='shareIcons'>
+                  <p>
+                    <GrTwitter />
+                  </p>
+                  <p>
+                    <FaLinkedin />
+                  </p>
+                  <p>
+                    <GrFacebook />
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className='shareIcons'>
-              <p>
-                <GrTwitter />
-              </p>
-              <p>
-                <FaLinkedin />
-              </p>
-              <p>
-                <GrFacebook />
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='cardContainer'>
-            <div className='imgDiv'>
-              <img
-                src='https://cdn.finshots.app/images/2022/03/cov16.png'
-                alt=''
-              />
-            </div>
-
-            <div className='details'>
-              <div className='date'>Mar 04, 2022</div>
-              <h1 className='title'>
-                <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
-              </h1>
-              <div className='desc'>
-                Let’s be honest, very few people are going to read this report.
-                These things are usually drab, boring, littered with
-                incomprehensible words and will likely put you to sleep in 5
-                minutes. But that being said.
-              </div>
-            </div>
-            <div className='shareIcons'>
-              <p>
-                <GrTwitter />
-              </p>
-              <p>
-                <FaLinkedin />
-              </p>
-              <p>
-                <GrFacebook />
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='cardContainer'>
-            <div className='imgDiv'>
-              <img
-                src='https://cdn.finshots.app/images/2022/03/cov16.png'
-                alt=''
-              />
-            </div>
-
-            <div className='details'>
-              <div className='date'>Mar 04, 2022</div>
-              <h1 className='title'>
-                <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
-              </h1>
-              <div className='desc'>
-                Let’s be honest, very few people are going to read this report.
-                These things are usually drab, boring, littered with
-                incomprehensible words and will likely put you to sleep in 5
-                minutes. But that being said.
-              </div>
-            </div>
-            <div className='shareIcons'>
-              <p>
-                <GrTwitter />
-              </p>
-              <p>
-                <FaLinkedin />
-              </p>
-              <p>
-                <GrFacebook />
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='cardContainer'>
-            <div className='imgDiv'>
-              <img
-                src='https://cdn.finshots.app/images/2022/03/cov16.png'
-                alt=''
-              />
-            </div>
-
-            <div className='details'>
-              <div className='date'>Mar 04, 2022</div>
-              <h1 className='title'>
-                <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
-              </h1>
-              <div className='desc'>
-                Let’s be honest, very few people are going to read this report.
-                These things are usually drab, boring, littered with
-                incomprehensible words and will likely put you to sleep in 5
-                minutes. But that being said.
-              </div>
-            </div>
-            <div className='shareIcons'>
-              <p>
-                <GrTwitter />
-              </p>
-              <p>
-                <FaLinkedin />
-              </p>
-              <p>
-                <GrFacebook />
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='cardContainer'>
-            <div className='imgDiv'>
-              <img
-                src='https://cdn.finshots.app/images/2022/03/cov16.png'
-                alt=''
-              />
-            </div>
-
-            <div className='details'>
-              <div className='date'>Mar 04, 2022</div>
-              <h1 className='title'>
-                <a href=''>War Bonds to the Rescue War Bonds to the Rescue </a>
-              </h1>
-              <div className='desc'>
-                Let’s be honest, very few people are going to read this report.
-                These things are usually drab, boring, littered with
-                incomprehensible words and will likely put you to sleep in 5
-                minutes. But that being said.
-              </div>
-            </div>
-            <div className='shareIcons'>
-              <p>
-                <GrTwitter />
-              </p>
-              <p>
-                <FaLinkedin />
-              </p>
-              <p>
-                <GrFacebook />
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-
+            </SwiperSlide>
+          ))}
         <div className='arrow'>
           <div className='' ref={prevRef}>
             <TiArrowSortedDown className='prev' /> <span>Prev</span>

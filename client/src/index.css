@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* background-color: dimgray; */
+}
+body {
+  background-color: #fcfcff;
 }
 a {
   text-decoration: none;
@@ -19,3 +21,12 @@ font-family: 'Quicksand', sans-serif; */
     height: auto !important;
   }
 }
+.loaderImg {
+  position: absolute;
+  top: 40%;
+  right: 45%;
+  width: 200px;
+  height: 150px;
+}
+
+/* <img className='loaderImg' src={carLoader} alt='' /> */

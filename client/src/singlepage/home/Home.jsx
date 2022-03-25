@@ -12,13 +12,13 @@ import Find from '../../components/find/Find'
 import OurVideos from '../../components/ourVideos/OurVideos'
 import { useLocation } from 'react-router-dom'
 
-const Home = () => {
+const Home = ({ trendings, quickBites }) => {
   return (
     <>
       <Topbar />
-      <Trending />
+      <Trending trendings={trendings} />
       <Find />
-      <Quickbytes />
+      <Quickbytes quickBites={quickBites} />
       <ElectricCar />
       <ElectricBikes />
       <OurVideos />

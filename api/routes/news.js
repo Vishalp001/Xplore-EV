@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
         },
       })
     } else {
-      newes = await News.find()
+      newes = await News.find().sort({ _id: -1 })
     }
     res.status(200).json(newes)
   } catch (err) {

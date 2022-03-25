@@ -103,8 +103,16 @@ function App() {
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/quickBites' element={<Quickbites />} />
+          <Route
+            exact
+            path='/'
+            element={<Home trendings={trendings} quickBites={quickBites} />}
+          />
+          <Route
+            exact
+            path='/quickBites'
+            element={<Quickbites quickBites={quickBites} />}
+          />
           <Route exact path='/latestnews' element={<Latestnews />} />
           <Route exact path='/trendingnews' element={<Trendingpage />} />
           <Route exact path='/videos' element={<Videos />} />

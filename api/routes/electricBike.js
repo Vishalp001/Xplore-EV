@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
         },
       })
     } else {
-      electricBike = await ElectricBike.find()
+      electricBike = await ElectricBike.find().sort({ _id: -1 })
     }
     res.status(200).json(electricBike)
   } catch (err) {

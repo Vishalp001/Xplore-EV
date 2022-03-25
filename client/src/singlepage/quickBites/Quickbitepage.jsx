@@ -3,7 +3,7 @@ import './quickbitepage.jsx.scss'
 import Topbarpage from '../topbarpage/Topbarpage'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
-const Quickbites = () => {
+const Quickbites = ({ quickBites }) => {
   return (
     <>
       <Topbarpage />
@@ -20,202 +20,34 @@ const Quickbites = () => {
 
           <div className='spQBCards'>
             <div className='gridContainer'>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
+              {quickBites &&
+                quickBites.map((q) => (
+                  <div className='gridItem'>
+                    <div className='imgDiv'>
+                      <img src={q.photo} alt='' />
+                    </div>
+                    <div className='cardContain'>
+                      <h1 className='title'>{q.title}</h1>
+                      <p
+                        className='desc'
+                        dangerouslySetInnerHTML={{
+                          __html: `${q.desc.substring(0, 250)}`,
+                        }}
+                      ></p>
+                      <div className='shareIcons'>
+                        <p>
+                          <GrTwitter />
+                        </p>
+                        <p>
+                          <FaLinkedin />
+                        </p>
+                        <p>
+                          <GrFacebook />
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                  <div className='shareIcons'>
-                    <p>
-                      <GrTwitter />
-                    </p>
-                    <p>
-                      <FaLinkedin />
-                    </p>
-                    <p>
-                      <GrFacebook />
-                    </p>
-                  </div>
-                </div>
-              </div>
+                ))}
             </div>
           </div>
         </div>

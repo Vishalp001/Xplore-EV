@@ -39,12 +39,6 @@ const formats = [
 ]
 
 export default function WriteTrendingPost() {
-  const [value, setValue] = React.useState('1')
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
-
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [enrollNo, setEnrollNo] = useState('')
@@ -77,27 +71,31 @@ export default function WriteTrendingPost() {
     const dataOne = new FormData()
     const filename = Date.now() + insImage.name
     dataOne.append('name', filename)
-    dataOne.append('fileOne', insImage)
-    newTrendingPost.insImage = filename
+    dataOne.append('file', insImage)
+    console.log(dataOne)
+
     try {
-      await axios.post('/upload', dataOne)
+      const res = await axios.post('/upload', dataOne)
+      newTrendingPost.insImage = res.data.url
     } catch (error) {
-      console.log('Cant Upload the Photo')
+      console.log(error, 'insImage')
     }
 
     const dataTwo = new FormData()
     const filenameTwo = Date.now() + coursePhoto.name
     dataTwo.append('name', filenameTwo)
-    dataTwo.append('fileTwo', coursePhoto)
-    newTrendingPost.coursePhoto = filenameTwo
+    dataTwo.append('file', coursePhoto)
+    console.log(dataTwo)
+
     try {
-      await axios.post('/upload', dataTwo)
+      const res = await axios.post('/upload', dataTwo)
+      newTrendingPost.coursePhoto = res.data.url
     } catch (error) {
-      console.log('Cant Upload the InsImage Photo')
+      console.log(error, 'coursePhoto')
     }
     try {
       const res = await axios.post('/freecourse', newTrendingPost)
-      window.location.replace('/free_course_admin_post/' + res.data._id)
+      // window.location.replace('/free_course_admin_post/' + res.data._id)
     } catch (error) {
       console.log('Cant Upload the Trending Post')
     }

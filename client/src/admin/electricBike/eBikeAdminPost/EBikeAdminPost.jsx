@@ -39,8 +39,6 @@ const CarSpecificationBlog = () => {
   // const [imgFour, setImgFour] = useState(null)
   // const [imgFive, setImgFive] = useState(null)
 
-  const PF = 'http://localhost:5000/images/'
-
   useEffect(() => {
     const GetPost = async () => {
       const res = await axios.get(`/ebike/${path}`)
@@ -129,19 +127,19 @@ const CarSpecificationBlog = () => {
         className='carspecificationSwiper container'
       >
         <SwiperSlide>
-          <img src={PF + post.imgOne} />
+          <img src={post.imgOne} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgTwo} />
+          <img src={post.imgTwo} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgThree} />
+          <img src={post.imgThree} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgFour} />
+          <img src={post.imgFour} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgFive} />
+          <img src={post.imgFive} />
         </SwiperSlide>
       </Swiper>
       <Swiper
@@ -155,19 +153,19 @@ const CarSpecificationBlog = () => {
         className='carspecificationThumb container'
       >
         <SwiperSlide>
-          <img src={PF + post.imgOne} />
+          <img src={post.imgOne} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgTwo} />
+          <img src={post.imgTwo} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgThree} />
+          <img src={post.imgThree} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgFour} />
+          <img src={post.imgFour} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={PF + post.imgFive} />
+          <img src={post.imgFive} />
         </SwiperSlide>
       </Swiper>
 

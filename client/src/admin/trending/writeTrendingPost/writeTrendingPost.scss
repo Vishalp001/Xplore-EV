@@ -54,10 +54,27 @@
   top: 20px;
   right: 50px;
   color: white;
-  background-color: teal;
-  padding: 10px;
+  background-color: #539f01;
+  padding: 10px 20px;
+  font-family: 'Nunito', sans-serif;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+}
+.btnLoading {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  border: 2px solid #539f01;
+  outline: none;
+  width: 100px;
+  border-radius: 10px;
+  height: 48px;
+  padding: 2px;
+  background-color: transparent;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }

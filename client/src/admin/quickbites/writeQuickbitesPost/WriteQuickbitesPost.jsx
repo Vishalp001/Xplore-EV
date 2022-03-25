@@ -52,9 +52,11 @@ export default function WriteQuickBitesPost() {
       const filename = Date.now() + file.name
       data.append('name', filename)
       data.append('file', file)
-      newPost.photo = filename
+      console.log(data)
+
       try {
-        await axios.post('/upload', data)
+        const res = await axios.post('/upload', data)
+        newPost.photo = res.data.url
       } catch (error) {
         console.log('Cant Upload the Photo')
       }

@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
         },
       })
     } else {
-      freeCourse = await FreeCourse.find()
+      freeCourse = await FreeCourse.find().sort({ _id: -1 })
     }
     res.status(200).json(freeCourse)
   } catch (err) {

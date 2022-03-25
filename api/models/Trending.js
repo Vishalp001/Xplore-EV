@@ -5,19 +5,19 @@ const TrendingSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      unique: true,
+      unique: false,
     },
     desc: {
       type: String,
-      required: true,
+      required: false,
     },
     photo: {
-      type: String,
+      type: Object,
       required: false,
     },
     categories: {
       type: String,
-      required: true,
+      required: false,
     },
     username: {
       type: String,

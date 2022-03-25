@@ -1,98 +1,87 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { FreeMode, Navigation, Thumbs } from 'swiper'
+import { Link } from 'react-router-dom'
+
 import 'swiper/css'
-import 'swiper/css/pagination'
+import 'swiper/css'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
 import './trending.scss'
 // import required modules
 import { Pagination } from 'swiper'
 
-const Trending = () => {
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index, className) {
-      return (
-        '<span class="' +
-        className +
-        '"><div><h6>We serve what you need</h6> <h1> Lets change to friendly energy</h1>  </div>  </span>'
-      )
-    },
-  }
-
+const Trending = ({ trendings }) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <>
-      <div></div>
-      <Swiper
-        pagination={pagination}
-        modules={[Pagination]}
-        className='trendingSwiper'
-      >
-        <SwiperSlide>
-          <div
-            className='sliderDiv'
-            style={{
-              backgroundImage:
-                'url("https://images.unsplash.com/photo-1560253787-9c3babc1fab2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")',
-              height: '90vh',
-            }}
-          >
-            <div className='blogContainer'>
-              <div className='blogDetails'>
-                <h6 className='cats'>We serve what you need</h6>
-                <h1 className='title'>Let's change to friendly energy</h1>
-                <p className='desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  elit tellus, luctus nec ullamcorper.
-                </p>
-                <button className='readMore'>Read More</button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className='sliderDiv'
-            style={{
-              backgroundImage:
-                'url("https://images.unsplash.com/photo-1546614042-7df3c24c9e5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")',
-              height: '90vh',
-            }}
-          >
-            <div className='blogContainer'>
-              <div className='blogDetails'>
-                <h6 className='cats'>We serve what you need</h6>
-                <h1 className='title'>Let's change to friendly energy</h1>
-                <p className='desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  elit tellus, luctus nec ullamcorper.
-                </p>
-                <button className='readMore'>Read More</button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className='sliderDiv'
-            style={{
-              backgroundImage:
-                'url("https://images.unsplash.com/photo-1555472492-816b516932ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")',
-              height: '90vh',
-            }}
-          >
-            <div className='blogContainer'>
-              <div className='blogDetails'>
-                <h6 className='cats'>We serve what you need</h6>
-                <h1 className='title'>Let's change to friendly energy</h1>
-                <p className='desc'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                  elit tellus, luctus nec ullamcorper.
-                </p>
-                <button className='readMore'>Read More</button>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      <div className='trendindContainer'>
+        <Swiper
+          style={{
+            '--swiper-navigation-color': '#fff',
+            '--swiper-pagination-color': '#fff',
+          }}
+          loop={false}
+          spaceBetween={0}
+          navigation={true}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className='trendingSwiper'
+        >
+          {trendings &&
+            trendings.slice(0, 3).map((t) => (
+              <SwiperSlide>
+                <div
+                  className='sliderDiv'
+                  style={{
+                    backgroundImage: `url(${t.photo})`,
+                    height: '90vh',
+                  }}
+                >
+                  <div className='blogContainer'>
+                    <div className='blogDetails'>
+                      <h6 className='cats'>{t.categories}</h6>
+                      <h1 className='title'>{t.title}</h1>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: `${t.desc.substring(0, 350)}...`,
+                        }}
+                        className='desc'
+                      ></p>
+                      <button className='readMore'>
+                        <Link to={`/trending_admin_post/${t._id}`}>
+                          Read More
+                        </Link>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          loop={false}
+          spaceBetween={0}
+          slidesPerView={3}
+          freeMode={false}
+          watchSlidesProgress={false}
+          modules={[Navigation, Thumbs]}
+          className='trendingThumb'
+        >
+          {trendings &&
+            trendings.slice(0, 3).map((p) => (
+              <SwiperSlide className='thumbCard'>
+                <div className='innerThumb'>
+                  <h6 className='cats'>{p.categories}</h6>
+                  <h1 className='title'>{p.title}</h1>
+                </div>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      </div>
     </>
   )
 }

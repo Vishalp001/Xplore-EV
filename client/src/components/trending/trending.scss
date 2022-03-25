@@ -1,98 +1,50 @@
 /* font-family: 'Nunito', sans-serif;
 font-family: 'Quicksand', sans-serif; */
-
-.trendingSwiper {
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  .swiper-slide {
-    height: 110vh;
-  }
-
-  .sliderDiv {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    position: relative;
-
-    .blogDetails {
-      position: absolute;
-      background-color: #ffffff;
-      box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 15%);
-      transition: background 0.3s, border 0.3s, border-radius 0.3s,
-        box-shadow 0.3s;
-      margin: 0% 60% 0% 0%;
-      --e-column-margin-right: 60%;
-      --e-column-margin-left: 0%;
-      padding: 4em 2em 4em 3em;
-      border-radius: 50px 0px 50px 0px;
-      margin-top: 10%;
-      margin-left: 10%;
-      .cats {
-        font-family: 'Nunito', sans-serif;
-        font-size: 1.25rem;
-        color: #66c600;
-        font-weight: 600;
-      }
-      .title {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 60px;
-      }
-      .desc {
-        font-family: 'Nunito', sans-serif;
-        color: #7a7a7a;
-      }
-    }
-  }
-
-  .swiper-pagination-bullet {
-    width: 311px;
-    height: 256px;
-    text-align: center;
-    line-height: 20px;
-    font-size: 12px;
-    color: #000;
-    opacity: 1;
-    background: #66c600;
-    border-radius: 0;
-    margin: 0 !important;
-    padding: 2em 2em 2em 2em;
-    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 15%);
-    div {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
+.trendindContainer {
+  position: relative;
+  .trendingSwiper {
+    .swiper {
+      width: 100%;
       height: 100%;
     }
-    h6 {
-      color: #ffffff;
-      font-size: 16px;
-      font-family: 'Quicksand', sans-serif;
+    .swiper-slide {
+      height: 110vh;
     }
-    h1 {
-      color: #ffffff;
-      font-size: 25px;
-      font-family: 'Quicksand', sans-serif;
+
+    .sliderDiv {
+      background-repeat: no-repeat;
+      background-size: 100%;
+      position: relative;
+
+      .blogDetails {
+        position: absolute;
+        background-color: #ffffff;
+        box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 15%);
+        transition: background 0.3s, border 0.3s, border-radius 0.3s,
+          box-shadow 0.3s;
+        margin: 0% 60% 0% 0%;
+        --e-column-margin-right: 60%;
+        --e-column-margin-left: 0%;
+        padding: 4em 2em 4em 3em;
+        border-radius: 50px 0px 50px 0px;
+        margin-top: 10%;
+        margin-left: 10%;
+        .cats {
+          font-family: 'Nunito', sans-serif;
+          font-size: 1.25rem;
+          color: #66c600;
+          font-weight: 600;
+        }
+        .title {
+          font-family: 'Quicksand', sans-serif;
+          font-size: 35px;
+        }
+        .desc {
+          font-family: 'Nunito', sans-serif;
+          color: #7a7a7a;
+        }
+      }
     }
-  }
-
-  .swiper-pagination-bullet-active {
-    background: #539f01;
-  }
-
-  .swiper-pagination-bullet:first-child {
-    border-radius: 50px 0px 0px 0px;
-  }
-  .swiper-pagination-bullet:last-child {
-    border-radius: 0px 0px 50px 0px !important;
-  }
-  .swiper-pagination {
-    text-align: right;
-    padding-right: 16px !important;
-  }
-  .swiper-pagination-horizontal {
-    bottom: 10px !important;
   }
 }
 
@@ -177,5 +129,45 @@ font-family: 'Quicksand', sans-serif; */
         font-size: 22px;
       }
     }
+  }
+}
+
+.trendingThumb {
+  position: absolute;
+  right: 0 !important;
+  bottom: 0;
+
+  .thumbCard {
+    width: 311px;
+    height: 256px;
+    background: #66c600;
+    cursor: pointer;
+    margin: 0 !important;
+    padding: 2em 2em 2em 2em;
+    box-shadow: 0px 10px 10px 0px rgb(0 0 0 / 15%);
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    &:first-child {
+      border-radius: 50px 0px 0px 0px;
+    }
+    &:last-child {
+      border-radius: 0px 0px 50px 0px !important;
+    }
+    .innerThumb {
+      .cats {
+        font-family: 'Nunito', sans-serif;
+        color: #000;
+        font-size: 22px;
+      }
+      .title {
+        font-family: 'Quicksand', sans-serif;
+        color: #ffffff;
+        font-size: 28px;
+      }
+    }
+  }
+  .swiper-slide-thumb-active {
+    background: #539f01;
   }
 }

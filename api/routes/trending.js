@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const Trending = require('../models/Trending')
+const cloudinary = require('../utils/cloudinary')
+const upload = require('../utils/multer')
 
 //CREATE Trending
 router.post('/', async (req, res) => {
@@ -73,15 +75,15 @@ router.get('/', async (req, res) => {
   try {
     let trendings
     if (username) {
-      trendings = await Trending.find({ username })
+      trendings = await Trending.find({ username }).sort({ _id: -1 })
     } else if (catName) {
       trendings = await Trending.find({
         categories: {
           $in: [catName],
         },
-      })
+      }).sort({ _id: -1 })
     } else {
-      trendings = await Trending.find()
+      trendings = await Trending.find().sort({ _id: -1 })
     }
     res.status(200).json(trendings)
   } catch (err) {

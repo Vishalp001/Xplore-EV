@@ -81,7 +81,7 @@ router.get('/', async (req, res) => {
         },
       })
     } else {
-      quickbytes = await QuickByte.find()
+      quickbytes = await QuickByte.find().sort({ _id: -1 })
     }
     res.status(200).json(quickbytes)
   } catch (err) {
