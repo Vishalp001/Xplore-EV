@@ -1,9 +1,10 @@
 const cloudinary = require('cloudinary').v2
-
+const dotenv = require('dotenv')
+dotenv.config()
 cloudinary.config({
-  cloud_name: 'vishalp001',
-  api_key: '673756243698718',
-  api_secret: 'iv6un3AJ4PHRRiLkkqA6UBcbmt0',
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
 module.exports = cloudinary

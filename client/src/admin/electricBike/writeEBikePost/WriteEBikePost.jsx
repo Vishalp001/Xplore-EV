@@ -3,7 +3,7 @@ import './writeEBikePost.scss'
 import axios from 'axios'
 import { BiAddToQueue } from 'react-icons/bi'
 import { Context } from '../../../context/Context'
-import btnLoading from '../../../assets/images/btnLoading.svg'
+import btnLoading from '../../../assets/images/dotLoader.svg'
 
 export default function WriteEBikePost() {
   const [loader, setLoader] = useState(false)
@@ -47,64 +47,74 @@ export default function WriteEBikePost() {
       features,
     }
 
-    const dataOne = new FormData()
-    const filename = Date.now() + imgOne.name
-    dataOne.append('name', filename)
-    dataOne.append('file', imgOne)
-    console.log(dataOne)
-    try {
-      const res = await axios.post('/upload', dataOne)
-      newTrendingPost.imgOne = res.data.url
-    } catch (error) {
-      console.log('Cant Upload the Photo')
+    if (imgOne) {
+      const dataOne = new FormData()
+      const filename = Date.now() + imgOne.name
+      dataOne.append('name', filename)
+      dataOne.append('file', imgOne)
+      console.log(dataOne)
+      try {
+        const res = await axios.post('/upload', dataOne)
+        newTrendingPost.imgOne = res.data.url
+      } catch (error) {
+        console.log('Cant Upload the Photo')
+      }
     }
 
-    const dataTwo = new FormData()
-    const filenameTwo = Date.now() + imgTwo.name
-    dataTwo.append('name', filenameTwo)
-    dataTwo.append('file', imgTwo)
-    console.log(dataTwo)
-    try {
-      const res = await axios.post('/upload', dataTwo)
-      newTrendingPost.imgTwo = res.data.url
-    } catch (error) {
-      console.log('Cant Upload the InsImage Photo')
+    if (imgTwo) {
+      const dataTwo = new FormData()
+      const filenameTwo = Date.now() + imgTwo.name
+      dataTwo.append('name', filenameTwo)
+      dataTwo.append('file', imgTwo)
+      console.log(dataTwo)
+      try {
+        const res = await axios.post('/upload', dataTwo)
+        newTrendingPost.imgTwo = res.data.url
+      } catch (error) {
+        console.log('Cant Upload the InsImage Photo')
+      }
     }
 
-    const dataThree = new FormData()
-    const filenameThree = Date.now() + imgThree.name
-    dataThree.append('name', filenameThree)
-    dataThree.append('file', imgThree)
-    console.log(dataThree)
-    try {
-      const res = await axios.post('/upload', dataThree)
-      newTrendingPost.imgThree = res.data.url
-    } catch (error) {
-      console.log('Cant Upload the imgThree Photo')
+    if (imgThree) {
+      const dataThree = new FormData()
+      const filenameThree = Date.now() + imgThree.name
+      dataThree.append('name', filenameThree)
+      dataThree.append('file', imgThree)
+      console.log(dataThree)
+      try {
+        const res = await axios.post('/upload', dataThree)
+        newTrendingPost.imgThree = res.data.url
+      } catch (error) {
+        console.log('Cant Upload the imgThree Photo')
+      }
     }
 
-    const dataFour = new FormData()
-    const filenameFour = Date.now() + imgFour.name
-    dataFour.append('name', filenameFour)
-    dataFour.append('file', imgFour)
-    console.log(dataFour)
-    try {
-      const res = await axios.post('/upload', dataFour)
-      newTrendingPost.imgFour = res.data.url
-    } catch (error) {
-      console.log('Cant Upload the imgFour Photo')
+    if (imgFour) {
+      const dataFour = new FormData()
+      const filenameFour = Date.now() + imgFour.name
+      dataFour.append('name', filenameFour)
+      dataFour.append('file', imgFour)
+      console.log(dataFour)
+      try {
+        const res = await axios.post('/upload', dataFour)
+        newTrendingPost.imgFour = res.data.url
+      } catch (error) {
+        console.log('Cant Upload the imgFour Photo')
+      }
     }
 
-    const dataFive = new FormData()
-    const filenameFive = Date.now() + imgFive.name
-    dataFive.append('name', filenameFive)
-    dataFive.append('file', imgFive)
-    console.log(dataFive)
-    try {
-      const res = await axios.post('/upload', dataFive)
-      newTrendingPost.imgFive = res.data.url
-    } catch (error) {
-      console.log('Cant Upload the imgFive Photo')
+    if (imgFive) {
+      const dataFive = new FormData()
+      const filenameFive = Date.now() + imgFive.name
+      dataFive.append('name', filenameFive)
+      dataFive.append('file', imgFive)
+      console.log(dataFive)
+      try {
+        const res = await axios.post('/upload', dataFive)
+        newTrendingPost.imgFive = res.data.url
+      } catch (error) {
+        console.log('Cant Upload the imgFive Photo')
+      }
     }
 
     try {
@@ -125,7 +135,7 @@ export default function WriteEBikePost() {
               <img
                 className='eCarWImage'
                 src={URL.createObjectURL(imgOne)}
-                alt=''
+                alt='imgOne'
               />
             )}
             <label htmlFor='imgOne'>
@@ -142,7 +152,7 @@ export default function WriteEBikePost() {
               <img
                 className='eCarWImage'
                 src={URL.createObjectURL(imgTwo)}
-                alt=''
+                alt='imgOne'
               />
             )}
             <label htmlFor='imgTwo'>
@@ -159,7 +169,7 @@ export default function WriteEBikePost() {
               <img
                 className='eCarWImage'
                 src={URL.createObjectURL(imgThree)}
-                alt=''
+                alt='imgOne'
               />
             )}
             <label htmlFor='imgThree'>
@@ -177,7 +187,7 @@ export default function WriteEBikePost() {
               <img
                 className='eCarWImage'
                 src={URL.createObjectURL(imgFour)}
-                alt=''
+                alt='imgOne'
               />
             )}
             <label htmlFor='imgFour'>
@@ -194,7 +204,7 @@ export default function WriteEBikePost() {
               <img
                 className='eCarWImage'
                 src={URL.createObjectURL(imgFive)}
-                alt=''
+                alt='imgOne'
               />
             )}
             <label htmlFor='imgFive'>
@@ -296,8 +306,8 @@ export default function WriteEBikePost() {
             onChange={(e) => setfeatures(e.target.value)}
           />
           {loader ? (
-            <button className='publishBtn'>
-              <img className='' src={btnLoading} alt='' />
+            <button className='wecPostLoader'>
+              <img className='' src={btnLoading} alt='btnLoading' />
             </button>
           ) : (
             <button className='publishBtn' type='submit'>

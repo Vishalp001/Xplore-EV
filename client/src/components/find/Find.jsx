@@ -13,7 +13,7 @@ const Find = () => {
         <div className='inputs'>
           <button className='inpBtns'>
             <div>
-              <span>Technology (0)</span>
+              <span>Select EV (0)</span>
               <span className='inputlogo'>
                 <FiChevronDown className='inputArrow' />
               </span>
@@ -21,7 +21,7 @@ const Find = () => {
           </button>
           <button className='inpBtns'>
             <div>
-              <span>Body Type (0)</span>
+              <span>Select Brand (0)</span>
               <span className='inputlogo'>
                 <FiChevronDown className='inputArrow' />
               </span>
@@ -29,7 +29,7 @@ const Find = () => {
           </button>
           <button className='inpBtns'>
             <div>
-              <span>Manufacture (0)</span>
+              <span>Price Range .(0)</span>
               <span className='inputlogo'>
                 <FiChevronDown className='inputArrow' />
               </span>

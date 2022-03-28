@@ -8,7 +8,7 @@ import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { IoLogoYoutube } from 'react-icons/io'
 
-const OurVideos = () => {
+const OurVideos = (props) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
@@ -55,104 +55,23 @@ const OurVideos = () => {
         modules={[Keyboard, Navigation, Autoplay]}
         className='ourVideosSlider container'
       >
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <div className='ytThumble'>
-              <IoLogoYoutube className='ytIocn' />
-            </div>
+        {props.video &&
+          props.video.map((v) => (
+            <SwiperSlide>
+              <a target='_blank' key={v._id} href={v.url}>
+                <div className='imgDiv'>
+                  <div className='ytThumble'>
+                    <IoLogoYoutube className='ytIocn' />
+                  </div>
 
-            <img
-              src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='videoName'>
-              What are the different types of Electric Vehicles? 🤔🤯
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <div className='ytThumble'>
-              <IoLogoYoutube className='ytIocn' />
-            </div>
-            <img
-              src='https://images.unsplash.com/photo-1610024062303-e355e94c7a8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHN0b3J5JTIwY2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='videoName'>
-              What are the different types of Electric Vehicles? 🤔🤯
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <div className='ytThumble'>
-              <IoLogoYoutube className='ytIocn' />
-            </div>
-            <img
-              src='https://images.unsplash.com/photo-1626847152272-c64724db41c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0b3J5JTIwY2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='videoName'>
-              What are the different types of Electric Vehicles? 🤔🤯
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <div className='ytThumble'>
-              <IoLogoYoutube className='ytIocn' />
-            </div>
-            <img
-              src='https://images.unsplash.com/photo-1610024062303-e355e94c7a8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHN0b3J5JTIwY2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='videoName'>
-              What are the different types of Electric Vehicles? 🤔🤯
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <div className='ytThumble'>
-              <IoLogoYoutube className='ytIocn' />
-            </div>
-            <img
-              src='https://images.unsplash.com/photo-1610024062303-e355e94c7a8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHN0b3J5JTIwY2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='videoName'>
-              What are the different types of Electric Vehicles? 🤔🤯
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <div className='ytThumble'>
-              <IoLogoYoutube className='ytIocn' />
-            </div>
-            <img
-              src='https://images.unsplash.com/photo-1610024062303-e355e94c7a8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHN0b3J5JTIwY2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='videoName'>
-              What are the different types of Electric Vehicles? 🤔🤯
-            </h1>
-          </div>
-        </SwiperSlide>
-
+                  <img src={v.photo} alt={v.title} />
+                </div>
+                <div className='detailsSection'>
+                  <h1 className='videoName'>{v.title}</h1>
+                </div>
+              </a>
+            </SwiperSlide>
+          ))}
         <div className='arrow'>
           <div className='' ref={prevRef}>
             <TiArrowSortedDown className='prev' /> <span>Prev</span>

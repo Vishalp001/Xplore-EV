@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import './carSpecificationAll.scss'
+import './BikeSpecificationAll.scss'
 import TopBarPage from '../../topbarpage/Topbarpage'
 import { Link } from 'react-router-dom'
-const CarSpecificationAll = (props) => {
+const BikeSpecificationAll = (props) => {
   return (
     <>
       <TopBarPage />
       <div className='container'>
         <div className='spHeader'>
-          <h1>Electric Cars</h1>
+          <h1>Electric Bikes</h1>
           <p>
             3 Min reads that are fun, insightful and easy to understand.
             <br />
@@ -18,17 +18,17 @@ const CarSpecificationAll = (props) => {
 
         {/* ------------ */}
         <div className='allCarCards'>
-          {props.eCar.map((eC) => (
+          {props.eBike.map((eC) => (
             <div className='allCarItems'>
               <div className='imgDiv'>
-                <img src={eC.imgOne} alt={eC.eCarName} />
+                <img src={eC.imgOne} alt={eC.eBikeName} />
               </div>
               <div className='carInfo'>
-                <div className='carName'>{eC.eCarName}</div>
-                <div className='carPrice'>Rs {eC.eCarPrice}*</div>
+                <div className='carName'>{eC.eBikeName}</div>
+                <div className='carPrice'>Rs {eC.eBikePrice}*</div>
                 <div className='carBtns'>
                   <button className='specificationBtn'>
-                    <Link to={`/e_car/${eC._id}`}>Specification</Link>
+                    <Link to={`/e_bike/${eC._id}`}>Specification</Link>
                   </button>
                 </div>
               </div>
@@ -40,4 +40,4 @@ const CarSpecificationAll = (props) => {
   )
 }
 
-export default CarSpecificationAll
+export default BikeSpecificationAll

@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import axios from 'axios'
 import { Context } from '../../../context/Context'
+import dotLoader from '../../../assets/images/dotLoader.svg'
 
 const modules = {
   toolbar: [
@@ -33,6 +34,8 @@ const formats = [
 ]
 
 export default function WriteNewsPost() {
+  const [loader, setLoader] = useState(false)
+
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [categories, setCategories] = useState('')
@@ -40,6 +43,7 @@ export default function WriteNewsPost() {
   const { user } = useContext(Context)
 
   const handleSubmit = async (e) => {
+    setLoader(true)
     e.preventDefault()
     const newTrendingPost = {
       username: user.username,
@@ -52,9 +56,10 @@ export default function WriteNewsPost() {
       const filename = Date.now() + file.name
       data.append('name', filename)
       data.append('file', file)
-      newTrendingPost.photo = filename
+      console.log(data)
       try {
-        await axios.post('/upload', data)
+        const res = await axios.post('/upload', data)
+        newTrendingPost.photo = res.data.url
       } catch (error) {
         console.log('Cant Upload the Photo')
       }
@@ -62,6 +67,7 @@ export default function WriteNewsPost() {
     try {
       const res = await axios.post('/news', newTrendingPost)
       window.location.replace('/news_admin_post/' + res.data._id)
+      setLoader(false)
     } catch (error) {
       console.log('Cant Upload the News Post')
     }
@@ -69,7 +75,11 @@ export default function WriteNewsPost() {
   return (
     <div className='write'>
       {file && (
-        <img className='writeImg' src={URL.createObjectURL(file)} alt='' />
+        <img
+          className='writeImg'
+          src={URL.createObjectURL(file)}
+          alt='writeImg'
+        />
       )}
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className='writeFormGroup'>
@@ -107,9 +117,15 @@ export default function WriteNewsPost() {
             onChange={(e) => setDesc(e)}
           ></ReactQuill>
         </div>
-        <button className='writeSubmit' type='submit'>
-          Publish
-        </button>
+        {loader ? (
+          <button className='btnLoading'>
+            <img className='' src={dotLoader} alt='dotLoader' />
+          </button>
+        ) : (
+          <button className='writeSubmit' type='submit'>
+            Publish
+          </button>
+        )}
       </form>
     </div>
   )

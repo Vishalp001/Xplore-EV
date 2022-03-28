@@ -9,7 +9,7 @@ const Subscribe = () => {
         <div className='subContainer'>
           <div className='svgDiv'>
             <div className='child'>
-              <img src={subs} alt='' />
+              <img src={subs} alt='subs' />
             </div>
             <div className='wave'>
               <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'>

@@ -14,15 +14,15 @@ const VideoAdminPost = () => {
 
   // ----FOR Update
   const [title, setTitle] = useState('')
+  const [url, setUrl] = useState('')
   const [updateMode, setUpdateMode] = useState(false)
-
-  const PF = 'http://localhost:5000/images/'
 
   useEffect(() => {
     const GetPost = async () => {
       const res = await axios.get(`/video/${path}`)
       setPost(res.data)
       setTitle(res.data.title)
+      setUrl(res.data.url)
     }
     GetPost()
   }, [path])
@@ -47,6 +47,7 @@ const VideoAdminPost = () => {
       await axios.put(`/video/${path}`, {
         username: user.username,
         title,
+        url,
       })
       // window.location.reload()
       setUpdateMode(false)
@@ -57,7 +58,7 @@ const VideoAdminPost = () => {
 
   return (
     <>
-      <div className='lnBlog'>
+      <div className='lnBlog videoAdminPost'>
         <div className='deleteEdit'>
           {updateMode ? (
             <div>
@@ -73,22 +74,36 @@ const VideoAdminPost = () => {
         </div>
         <div className='lnHead'>
           {updateMode ? (
-            <input
-              className='title'
-              type='text'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
+            <>
+              <input
+                className='title'
+                type='text'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </>
           ) : (
-            <h1 className='title'>{title}</h1>
+            <>
+              <h1 className='title'>{title}</h1>
+            </>
           )}
           <div className='lncatAndDate'>
             <p className='lndate'>{new Date(post.createdAt).toDateString()}</p>
+            {updateMode ? (
+              <input
+                className='lncat'
+                type='text'
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+              />
+            ) : (
+              <p className='lncat'>{url}</p>
+            )}
           </div>
         </div>
         {post.photo && (
           <div className='lnImgDiv'>
-            <img src={PF + post.photo} alt='' />
+            <img src={post.photo} alt={title} />
           </div>
         )}
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './latestnewsblog.scss'
 import Topbarpage from '../../topbarpage/Topbarpage'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
@@ -6,8 +6,21 @@ import { FaLinkedinIn, FaFacebookF } from 'react-icons/fa'
 import { IoLogoWhatsapp } from 'react-icons/io'
 import { HiMail } from 'react-icons/hi'
 import ReadingBar from '../../../components/readingbar/ReadingBar'
+import axios from 'axios'
 
 const Latestnewsblog = () => {
+  // const location = useLocation()
+  // const path = location.pathname.split('/')[2]
+  // const [post, setPost] = useState({})
+
+  // useEffect(() => {
+  //   const GetPost = async () => {
+  //     const res = await axios.get(`/ecar/${path}`)
+  //     setPost(res.data)
+  //   }
+  //   GetPost()
+  // }, [path])
+
   return (
     <>
       <Topbarpage />
@@ -25,7 +38,7 @@ const Latestnewsblog = () => {
         <div className='lnImgDiv'>
           <img
             src='https://d3jlwjv6gmyigl.cloudfront.net/images/2021/11/Thumbnail-2.O-sigachi-1.png'
-            alt=''
+            alt='lnImgDiv'
           />
         </div>
 

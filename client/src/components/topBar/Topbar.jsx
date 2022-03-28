@@ -31,17 +31,15 @@ const Topbar = () => {
             <Navbar.Brand className='firstDiv'>
               <Link className='link' to='/'>
                 <div className='logo'>
-                  <img src={newLogo} alt='' />
+                  <img src={newLogo} alt='XplorEV' />
                 </div>
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse className='midDiv' id='responsive-navbar-nav'>
               <Nav>
-                <Nav.Link>
-                  <Link className='link' to='/'>
-                    Home
-                  </Link>
+                <Nav.Link className='link' to='/'>
+                  Home
                 </Nav.Link>
                 <Nav.Link href='#quickBites'>Quick Bites</Nav.Link>
                 <NavDropdown title='Electric Vehicles' id='basic-nav-dropdown'>

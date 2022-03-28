@@ -1,8 +1,9 @@
 import React from 'react'
+import './freecoursePage.scss'
 import { Link } from 'react-router-dom'
 import Topbarpage from '../topbarpage/Topbarpage'
 
-const FreecoursePage = () => {
+const FreecoursePage = (props) => {
   return (
     <>
       <Topbarpage />
@@ -19,132 +20,26 @@ const FreecoursePage = () => {
 
           <div className='spQBCards'>
             <div className='gridContainer'>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
+              {props.freeCourse &&
+                props.freeCourse.map((c) => (
+                  <div key={c._id} className='gridItem'>
+                    <div className='imgDiv'>
+                      <img src={c.coursePhoto} alt={c.title} />
+                    </div>
+                    <div className='cardContain'>
+                      <h1 className='title'>{c.title}</h1>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: `${c.desc.substring(0, 350)}...`,
+                        }}
+                        className='desc'
+                      ></p>
+                    </div>
+                    <Link to={`/freecoursesblog/${c._id}`}>
+                      <button className='enrollBtnBlogs'>Enroll</button>
+                    </Link>
                   </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
-                  </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
-                  </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
-                  </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
-                  </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
-                  </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-              <Link to='/freecoursesblog'>
-                <div className='gridItem'>
-                  <div className='imgDiv'>
-                    <img
-                      src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                      alt=''
-                    />
-                  </div>
-                  <div className='cardContain'>
-                    <h1 className='title'>
-                      How big is YouTube’s impact on India’s GDP?
-                    </h1>
-                    <p className='desc'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    </p>
-                  </div>
-                </div>
-              </Link>
+                ))}
             </div>
           </div>
         </div>

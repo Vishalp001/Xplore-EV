@@ -131,7 +131,7 @@ const QuickbitesAdminPost = () => {
         </div>
         {post.photo && (
           <div className='lnImgDiv'>
-            <img src={post.photo} alt='' />
+            <img src={post.photo} alt={title} />
           </div>
         )}
 

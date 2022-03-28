@@ -10,7 +10,7 @@ const Footer = () => {
         <div className='container footerContainer'>
           <div className='info'>
             <div className='imgDiv'>
-              <img src={newLogo} alt='' />
+              <img src={newLogo} alt='newLogo' />
             </div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit

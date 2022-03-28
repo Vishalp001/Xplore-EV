@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Trending = require('../models/Trending')
-const cloudinary = require('../utils/cloudinary')
-const upload = require('../utils/multer')
+const News = require('../models/News')
+const Blog = require('../models/Blog')
 
 //CREATE Trending
 router.post('/', async (req, res) => {
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-//UPDATE QuickByte
+//UPDATE Trending
 router.put('/:id', async (req, res) => {
   try {
     const trending = await Trending.findById(req.params.id)
@@ -58,7 +58,7 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
-//GET QuickByte
+//GET Trending
 router.get('/:id', async (req, res) => {
   try {
     const trending = await Trending.findById(req.params.id)
@@ -68,7 +68,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-//GET ALL QuickBytes
+//GET ALL Trendings
 router.get('/', async (req, res) => {
   const username = req.query.user
   const catName = req.query.cat
@@ -86,6 +86,27 @@ router.get('/', async (req, res) => {
       trendings = await Trending.find().sort({ _id: -1 })
     }
     res.status(200).json(trendings)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
+
+//GET All Post From All data
+router.get('/blogs/:id', async (req, res) => {
+  try {
+    const type = req.query[0]
+    let blog
+    if (type === '?trending') {
+      blog = await Trending.findById(req.params.id)
+    }
+    if (type === '?news') {
+      blog = await News.findById(req.params.id)
+    }
+    if (type === '?blog') {
+      blog = await Blog.findById(req.params.id)
+    }
+
+    res.status(200).json(blog)
   } catch (err) {
     res.status(500).json(err)
   }

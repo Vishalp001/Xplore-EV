@@ -55,10 +55,10 @@ const Quickbytes = ({ quickBites }) => {
       >
         {quickBites &&
           quickBites.slice(0, 4).map((q) => (
-            <SwiperSlide>
+            <SwiperSlide key={q._id}>
               <div className='cardContainer'>
                 <div className='imgDiv'>
-                  <img src={q.photo} alt='' />
+                  <img src={q.photo} alt={q.title} />
                 </div>
 
                 <div className='details'>
@@ -75,16 +75,19 @@ const Quickbytes = ({ quickBites }) => {
                     }}
                   ></div>
                 </div>
-                <div className='shareIcons'>
-                  <p>
-                    <GrTwitter />
-                  </p>
-                  <p>
-                    <FaLinkedin />
-                  </p>
-                  <p>
-                    <GrFacebook />
-                  </p>
+                <div className='iconAndCat'>
+                  <div className='cat'>{q.categories}</div>
+                  <div className='shareIcons'>
+                    <p>
+                      <GrTwitter />
+                    </p>
+                    <p>
+                      <FaLinkedin />
+                    </p>
+                    <p>
+                      <GrFacebook />
+                    </p>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>

@@ -24,7 +24,7 @@ const Quickbites = ({ quickBites }) => {
                 quickBites.map((q) => (
                   <div className='gridItem'>
                     <div className='imgDiv'>
-                      <img src={q.photo} alt='' />
+                      <img src={q.photo} alt={q.title} />
                     </div>
                     <div className='cardContain'>
                       <h1 className='title'>{q.title}</h1>
@@ -34,6 +34,9 @@ const Quickbites = ({ quickBites }) => {
                           __html: `${q.desc.substring(0, 250)}`,
                         }}
                       ></p>
+                    </div>
+                    <div className='iconAndCats'>
+                      <div className='cat'> {q.categories}</div>
                       <div className='shareIcons'>
                         <p>
                           <GrTwitter />

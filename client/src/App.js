@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom'
 import Quickbites from './singlepage/quickBites/Quickbitepage'
 import Latestnews from './singlepage/latestnewspage/Latestnewspage'
-import Trendingpage from './singlepage/trandingpage/Trendingpage.jsx'
+import Knowevpage from './singlepage/knowEv/Knowevpage'
+import Trendingpage from './singlepage/trandingpage/Trendingpage'
 import Videos from './singlepage/videos/Videos'
 import Latestnewsblog from './singlepage/latestnewspage/latestnewsblog/Latestnewsblog'
 import Footer from './components/footer/Footer.jsx'
@@ -17,9 +18,7 @@ import Subscribe from './components/subscribe/Subscribe'
 import ScrollToTop from './components/ScrollToTop'
 import FreecoursePage from './singlepage/freecourses/FreecoursePage'
 import Freecourseblog from './singlepage/freecourses/freecourse blog/Freecoureblog.jsx'
-import CarSpecificationBlog from './singlepage/carSpecification/CarSpecificationblog.jsx'
 import GovEvPolicies from './singlepage/govEVpolicies/GovEvPolicies'
-import CarSpecificationAll from './singlepage/carSpecification/carSpecificationAll/CarSpecificationAll.jsx'
 import Dashboard from './admin/dashboard/Dashboard.jsx'
 import axios from 'axios'
 import TrendingAdminPost from './admin/trending/trendingAdminPost/TrendingAdminPost'
@@ -37,12 +36,15 @@ import WriteBlogPost from './admin/blog/WriteBlogPost/WriteBlogPost'
 import BlogAdminPost from './admin/blog/blogAdminPost/BlogAdminPost'
 import WriteFreeCoursePost from './admin/freeCourse/writefreeCoursePost/WriteFreeCoursePost'
 import FreeCourseAdminPost from './admin/freeCourse/freeCourseAdminPost/FreeCourseAdminPost'
-
 import WriteECarPost from './admin/electricCar/writeECarPost/WriteECarPost'
 import ECarAdminPost from './admin/electricCar/eCarAdminPost/ECarAdminPost'
-
 import WriteEBikePost from './admin/electricBike/writeEBikePost/WriteEBikePost'
 import EBikeAdminPost from './admin/electricBike/eBikeAdminPost/EBikeAdminPost'
+import CarSpecificationBlog from './singlepage/carSpecification/CarSpecificationblog.jsx'
+import CarSpecificationAll from './singlepage/carSpecification/carSpecificationAll/CarSpecificationAll.jsx'
+import BikeSpecificationBlog from './singlepage/bikeSpecification/BikeSpecificationblog'
+import BikeSpecificationAll from './singlepage/bikeSpecification/bikeSpecificationAll/BikeSpecificationAll.jsx'
+import Blog from './singlepage/blogs/blog/Blog'
 
 function App() {
   const { user } = useContext(Context)
@@ -106,25 +108,73 @@ function App() {
           <Route
             exact
             path='/'
-            element={<Home trendings={trendings} quickBites={quickBites} />}
+            element={
+              <Home
+                trendings={trendings}
+                quickBites={quickBites}
+                eCar={eCar}
+                eBike={eBike}
+                video={video}
+                news={news}
+                blog={blog}
+                freeCourse={freeCourse}
+              />
+            }
           />
           <Route
             exact
             path='/quickBites'
             element={<Quickbites quickBites={quickBites} />}
           />
-          <Route exact path='/latestnews' element={<Latestnews />} />
-          <Route exact path='/trendingnews' element={<Trendingpage />} />
-          <Route exact path='/videos' element={<Videos />} />
-          <Route exact path='/freecourses' element={<FreecoursePage />} />
-          <Route exact path='/latestnewsblog' element={<Latestnewsblog />} />
-          <Route exact path='/freecoursesblog' element={<Freecourseblog />} />
-          <Route exact path='/gov_ev_policies' element={<GovEvPolicies />} />
-          <Route exact path='/all_cars' element={<CarSpecificationAll />} />
           <Route
             exact
-            path='/carspecification'
-            element={<CarSpecificationBlog />}
+            path='/knowevpage'
+            element={<Knowevpage blog={blog} />}
+          />
+          <Route
+            exact
+            path='/latestnews'
+            element={<Latestnews news={news} />}
+          />
+          <Route
+            exact
+            path='/trendingnews'
+            element={<Trendingpage trendings={trendings} />}
+          />
+          <Route exact path='/videos' element={<Videos video={video} />} />
+          <Route
+            exact
+            path='/freecourses'
+            element={<FreecoursePage freeCourse={freeCourse} />}
+          />
+          <Route exact path='/latestnewsblog' element={<Latestnewsblog />} />
+          <Route
+            exact
+            path='/freecoursesblog/:id'
+            element={<Freecourseblog freeCourse={freeCourse} />}
+          />
+          <Route exact path='/gov_ev_policies' element={<GovEvPolicies />} />
+          <Route exact path='/blog/:id' element={<Blog />} />
+          <Route
+            exact
+            path='/all_cars'
+            element={<CarSpecificationAll eCar={eCar} />}
+          />
+          <Route
+            exact
+            path='/e_car/:id'
+            element={<CarSpecificationBlog eCar={eCar} />}
+          />
+          {/* --------------BIKES-------------- */}
+          <Route
+            exact
+            path='/all_bikes'
+            element={<BikeSpecificationAll eBike={eBike} />}
+          />
+          <Route
+            exact
+            path='/e_bike/:id'
+            element={<BikeSpecificationBlog eBike={eBike} />}
           />
           {/* --------------SINGLE PAGES-------- */}
           <Route exact path='/register' element={<Register />} />

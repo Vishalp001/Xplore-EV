@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import axios from 'axios'
 import { Context } from '../../../context/Context'
-import btnLoading from '../../../assets/images/btnLoading.svg'
+import dotLoader from '../../../assets/images/dotLoader.svg'
 
 const modules = {
   toolbar: [
@@ -58,9 +58,7 @@ export default function WriteTrendingPost() {
       console.log(data)
       try {
         const res = await axios.post('/upload', data)
-
         newTrendingPost.photo = res.data.url
-        console.log(res, 'Photo')
       } catch (error) {
         console.log('Cant Upload the Photo')
       }
@@ -77,7 +75,11 @@ export default function WriteTrendingPost() {
     <>
       <div className='write'>
         {file && (
-          <img className='writeImg' src={URL.createObjectURL(file)} alt='' />
+          <img
+            className='writeImg'
+            src={URL.createObjectURL(file)}
+            alt='writeImg'
+          />
         )}
         <form className='writeForm' onSubmit={handleSubmit}>
           <div className='writeFormGroup'>
@@ -117,7 +119,7 @@ export default function WriteTrendingPost() {
           </div>
           {loader ? (
             <button className='btnLoading'>
-              <img className='' src={btnLoading} alt='' />
+              <img className='' src={dotLoader} alt='dotLoader' />
             </button>
           ) : (
             <button className='writeSubmit' type='submit'>

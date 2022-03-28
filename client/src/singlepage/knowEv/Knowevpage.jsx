@@ -1,17 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Topbar from '../topbarpage/Topbarpage'
-import './latestnewspage.scss'
+import './knowevpage.scss'
+import Topbarpage from '../topbarpage/Topbarpage'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
-const Latestnews = (props) => {
+import { Link } from 'react-router-dom'
+const Knowevpage = ({ blog }) => {
   return (
     <>
-      <Topbar />
+      <Topbarpage />
       <div className='spQuickbitesWrapper'>
         <div className='container spQuickbites'>
           <div className='spHeader'>
-            <h1>Latest News</h1>
+            <h1>Read our latest article</h1>
             <p>
               3 Min reads that are fun, insightful and easy to understand.
               <br />
@@ -21,24 +21,24 @@ const Latestnews = (props) => {
 
           <div className='spQBCards'>
             <div className='gridContainer'>
-              {props.news &&
-                props.news.map((n) => (
+              {blog &&
+                blog.map((q) => (
                   <div className='gridItem'>
-                    <Link to={`/latestnewsblog/${n._id}`}>
+                    <Link to={`/blog/${q._id}?blog`}>
                       <div className='imgDiv'>
-                        <img src={n.photo} alt={n.title} />
+                        <img src={q.photo} alt={q.title} />
                       </div>
                       <div className='cardContain'>
-                        <h1 className='title'>{n.title}</h1>
+                        <h1 className='title'>{q.title}</h1>
                         <p
-                          dangerouslySetInnerHTML={{
-                            __html: `${n.desc.substring(0, 300)}...`,
-                          }}
                           className='desc'
+                          dangerouslySetInnerHTML={{
+                            __html: `${q.desc.substring(0, 300)}`,
+                          }}
                         ></p>
                       </div>
                       <div className='iconAndCats'>
-                        <div className='cat'> {n.categories}</div>
+                        <div className='cat'> {q.categories}</div>
                         <div className='shareIcons'>
                           <p>
                             <GrTwitter />
@@ -62,4 +62,4 @@ const Latestnews = (props) => {
   )
 }
 
-export default Latestnews
+export default Knowevpage

@@ -18,7 +18,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -37,7 +37,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -56,7 +56,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -75,7 +75,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -94,7 +94,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -113,7 +113,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -132,7 +132,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -151,7 +151,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>
@@ -170,7 +170,7 @@ const GovEvPolicies = () => {
                 <div className='imgDiv'>
                   <img
                     src='https://image.shutterstock.com/image-vector/world-map-vector-flat-green-260nw-425132143.jpg'
-                    alt=''
+                    alt='photoEv'
                   />
                 </div>
                 <div className='gEvPInnerContent'>

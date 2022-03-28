@@ -27,20 +27,18 @@ const Topbarpage = () => {
         </div>
         <Navbar collapseOnSelect expand='lg' className='navBar'>
           <Container className='navBarContainer'>
-            <Navbar.Brand className='firstDiv' href='#home'>
+            <Navbar.Brand className='firstDiv'>
               <Link className='link' to='/'>
                 <div className='logo'>
-                  <img src={newLogo} alt='' />
+                  <img src={newLogo} alt='XplorEV' />
                 </div>
               </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse className='midDiv' id='responsive-navbar-nav'>
               <Nav>
-                <Nav.Link href='#features'>
-                  <Link className='link' to='/'>
-                    Home
-                  </Link>
+                <Nav.Link as={Link} href='#features' to='/'>
+                  Home
                 </Nav.Link>
                 <Nav.Link as={Link} to='/quickBites'>
                   Quick Bites

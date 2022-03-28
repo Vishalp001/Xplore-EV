@@ -47,8 +47,6 @@ const BlogAdminPost = () => {
   const [cat, setCat] = useState('')
   const [updateMode, setUpdateMode] = useState(false)
 
-  const PF = 'http://localhost:5000/images/'
-
   useEffect(() => {
     const GetPost = async () => {
       const res = await axios.get(`/blog/${path}`)
@@ -133,7 +131,7 @@ const BlogAdminPost = () => {
         </div>
         {post.photo && (
           <div className='lnImgDiv'>
-            <img src={PF + post.photo} alt='' />
+            <img src={post.photo} alt={title} />
           </div>
         )}
 

@@ -7,7 +7,7 @@ import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { Link } from 'react-router-dom'
 
-const ElectricBikes = () => {
+const ElectricBikes = (props) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
@@ -55,103 +55,25 @@ const ElectricBikes = () => {
         modules={[Keyboard, Navigation, Autoplay]}
         className='electricCarSlider container'
       >
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <img
-              src='https://bd.gaadicdn.com/processedimages/honda/activa-6g/494X300/activa-6g5e53815437235.jpg?imwidth=400&impolicy=resize'
-              alt=''
-            />
-            <div className='imgDivGradient'></div>
-          </div>
-          <div className='detailsSection'>
-            <h1 className='carName'>Honda Activa 6G</h1>
-            <p className='carPrice'>Rs70,599 - 72,345*</p>
-            <div className='carsBtn'>
-              <button className='compair'>Specification</button>
-              {/* <button className='specification'>Specification</button> */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <img
-              src='https://bd.gaadicdn.com/processedimages/honda/activa-6g/494X300/activa-6g5e53815437235.jpg?imwidth=400&impolicy=resize'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='carName'>Honda Activa 6G</h1>
-            <p className='carPrice'>Rs70,599 - 72,345*</p>
-            <div className='carsBtn'>
-              <button className='compair'>Specification</button>
-              {/* <button className='specification'>Specification</button> */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <img
-              src='https://bd.gaadicdn.com/processedimages/honda/activa-6g/494X300/activa-6g5e53815437235.jpg?imwidth=400&impolicy=resize'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='carName'>Honda Activa 6G</h1>
-            <p className='carPrice'>Rs70,599 - 72,345*</p>
-            <div className='carsBtn'>
-              <button className='compair'>Specification</button>
-              {/* <button className='specification'>Specification</button> */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <img
-              src='https://bd.gaadicdn.com/processedimages/honda/activa-6g/494X300/activa-6g5e53815437235.jpg?imwidth=400&impolicy=resize'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='carName'>Honda Activa 6G</h1>
-            <p className='carPrice'>Rs70,599 - 72,345*</p>
-            <div className='carsBtn'>
-              <button className='compair'>Specification</button>
-              {/* <button className='specification'>Specification</button> */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <img
-              src='https://bd.gaadicdn.com/processedimages/honda/activa-6g/494X300/activa-6g5e53815437235.jpg?imwidth=400&impolicy=resize'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='carName'>Honda Activa 6G</h1>
-            <p className='carPrice'>Rs70,599 - 72,345*</p>
-            <div className='carsBtn'>
-              <button className='compair'>Specification</button>
-              {/* <button className='specification'>Specification</button> */}
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='imgDiv'>
-            <img
-              src='https://bd.gaadicdn.com/processedimages/honda/activa-6g/494X300/activa-6g5e53815437235.jpg?imwidth=400&impolicy=resize'
-              alt=''
-            />
-          </div>
-          <div className='detailsSection'>
-            <h1 className='carName'>Honda Activa 6G</h1>
-            <p className='carPrice'>Rs70,599 - 72,345*</p>
-            <div className='carsBtn'>
-              <button className='compair'>Specification</button>
-              {/* <button className='specification'>Specification</button> */}
-            </div>
-          </div>
-        </SwiperSlide>
+        {props.eBike &&
+          props.eBike.map((eB) => (
+            <SwiperSlide>
+              <div className='imgDiv'>
+                <img src={eB.imgOne} alt='imgOne' />
+                <div className='imgDivGradient'></div>
+              </div>
+              <div className='detailsSection'>
+                <h1 className='carName'>{eB.eBikeName}</h1>
+                <p className='carPrice'>Rs{eB.price}*</p>
+                <div className='carsBtn'>
+                  <button className='compair'>
+                    <Link to={`/e_bike/${eB._id}`}>Specification</Link>
+                  </button>
+                  {/* <button className='specification'>Specification</button> */}
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
 
         <div className='arrow'>
           <div className='' ref={prevRef}>

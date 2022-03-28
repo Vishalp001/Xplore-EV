@@ -10,6 +10,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import axios from 'axios'
 import { Context } from '../../../context/Context'
+import dotLoader from '../../../assets/images/dotLoader.svg'
 
 const modules = {
   toolbar: [
@@ -39,6 +40,7 @@ const formats = [
 ]
 
 export default function WriteTrendingPost() {
+  const [loader, setLoader] = useState(false)
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [enrollNo, setEnrollNo] = useState('')
@@ -54,6 +56,7 @@ export default function WriteTrendingPost() {
   const { user } = useContext(Context)
 
   const handleSubmit = async (e) => {
+    setLoader(true)
     e.preventDefault()
     const newTrendingPost = {
       username: user.username,
@@ -68,34 +71,40 @@ export default function WriteTrendingPost() {
       courseLayout,
       instructions,
     }
-    const dataOne = new FormData()
-    const filename = Date.now() + insImage.name
-    dataOne.append('name', filename)
-    dataOne.append('file', insImage)
-    console.log(dataOne)
+    if (insImage) {
+      const dataOne = new FormData()
+      const filename = Date.now() + insImage.name
+      dataOne.append('name', filename)
+      dataOne.append('file', insImage)
+      console.log(dataOne)
 
-    try {
-      const res = await axios.post('/upload', dataOne)
-      newTrendingPost.insImage = res.data.url
-    } catch (error) {
-      console.log(error, 'insImage')
+      try {
+        const res = await axios.post('/upload', dataOne)
+        newTrendingPost.insImage = res.data.url
+      } catch (error) {
+        console.log(error, 'insImage')
+      }
     }
 
-    const dataTwo = new FormData()
-    const filenameTwo = Date.now() + coursePhoto.name
-    dataTwo.append('name', filenameTwo)
-    dataTwo.append('file', coursePhoto)
-    console.log(dataTwo)
+    if (coursePhoto) {
+      const dataTwo = new FormData()
+      const filenameTwo = Date.now() + coursePhoto.name
+      dataTwo.append('name', filenameTwo)
+      dataTwo.append('file', coursePhoto)
+      console.log(dataTwo)
 
-    try {
-      const res = await axios.post('/upload', dataTwo)
-      newTrendingPost.coursePhoto = res.data.url
-    } catch (error) {
-      console.log(error, 'coursePhoto')
+      try {
+        const res = await axios.post('/upload', dataTwo)
+        newTrendingPost.coursePhoto = res.data.url
+      } catch (error) {
+        console.log(error, 'coursePhoto')
+      }
     }
+
     try {
       const res = await axios.post('/freecourse', newTrendingPost)
-      // window.location.replace('/free_course_admin_post/' + res.data._id)
+      window.location.replace('/free_course_admin_post/' + res.data._id)
+      setLoader(false)
     } catch (error) {
       console.log('Cant Upload the Trending Post')
     }
@@ -147,7 +156,7 @@ export default function WriteTrendingPost() {
                   <img
                     className=''
                     src={URL.createObjectURL(insImage)}
-                    alt=''
+                    alt='insImage'
                   />
                 )}
               </div>
@@ -174,7 +183,11 @@ export default function WriteTrendingPost() {
               onChange={(e) => setCoursePhoto(e.target.files[0])}
             />
             {coursePhoto && (
-              <img className='' src={URL.createObjectURL(coursePhoto)} alt='' />
+              <img
+                className=''
+                src={URL.createObjectURL(coursePhoto)}
+                alt='coursePhoto'
+              />
             )}
           </div>
           <div className='container courseBio'>
@@ -231,9 +244,15 @@ export default function WriteTrendingPost() {
           </div>
         </div>
         <div className='publishBtnDiv'>
-          <button className='publishBtn' type='submit'>
-            Publish
-          </button>
+          {loader ? (
+            <button className='fcLoader'>
+              <img className='' src={dotLoader} alt='dotLoader' />
+            </button>
+          ) : (
+            <button className='publishBtn' type='submit'>
+              Publish
+            </button>
+          )}
         </div>
       </form>
     </div>

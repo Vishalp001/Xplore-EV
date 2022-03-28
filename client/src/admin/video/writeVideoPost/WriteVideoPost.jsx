@@ -1,27 +1,34 @@
 import { useContext, useState } from 'react'
 import './writeVideoPost.scss'
 import axios from 'axios'
+import dotLoader from '../../../assets/images/dotLoader.svg'
 import { Context } from '../../../context/Context'
 
 export default function WriteVideoPost() {
+  const [loader, setLoader] = useState(false)
   const [title, setTitle] = useState('')
+  const [url, setUrl] = useState('')
   const [file, setFile] = useState(null)
   const { user } = useContext(Context)
 
   const handleSubmit = async (e) => {
+    setLoader(true)
     e.preventDefault()
     const newVideoPost = {
       username: user.username,
       title,
+      url,
     }
     if (file) {
       const data = new FormData()
       const filename = Date.now() + file.name
       data.append('name', filename)
       data.append('file', file)
-      newVideoPost.photo = filename
+      console.log(data)
+
       try {
-        await axios.post('/upload', data)
+        const res = await axios.post('/upload', data)
+        newVideoPost.photo = res.data.url
       } catch (error) {
         console.log('Cant Upload the Photo')
       }
@@ -29,6 +36,7 @@ export default function WriteVideoPost() {
     try {
       const res = await axios.post('/video', newVideoPost)
       window.location.replace('/video_admin_post/' + res.data._id)
+      setLoader(false)
     } catch (error) {
       console.log('Cant Upload the Video Post')
     }
@@ -36,7 +44,11 @@ export default function WriteVideoPost() {
   return (
     <div className='write'>
       {file && (
-        <img className='writeImg' src={URL.createObjectURL(file)} alt='' />
+        <img
+          className='writeImg'
+          src={URL.createObjectURL(file)}
+          alt='writeImg'
+        />
       )}
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className='writeFormGroup'>
@@ -56,11 +68,22 @@ export default function WriteVideoPost() {
             autoFocus={true}
             onChange={(e) => setTitle(e.target.value)}
           />
+          <input
+            type='text'
+            placeholder='Video Link'
+            className='writeInput'
+            onChange={(e) => setUrl(e.target.value)}
+          />
         </div>
-
-        <button className='writeSubmit' type='submit'>
-          Publish
-        </button>
+        {loader ? (
+          <button className='btnLoading'>
+            <img className='' src={dotLoader} alt='dotLoader' />
+          </button>
+        ) : (
+          <button className='writeSubmit' type='submit'>
+            Publish
+          </button>
+        )}
       </form>
     </div>
   )

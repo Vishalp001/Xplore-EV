@@ -7,7 +7,7 @@ import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { Link } from 'react-router-dom'
 
-const Evknowledge = () => {
+const Evknowledge = (props) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
@@ -56,26 +56,25 @@ const Evknowledge = () => {
         modules={[Keyboard, Navigation, Autoplay]}
         className='evKnowledgeSlider container'
       >
-        <SwiperSlide>
-          <Link to='/freecoursesblog'>
-            <div className='cardConatiner'>
-              <div className='imgDiv'>
-                <img
-                  src='https://img-b.udemycdn.com/course/240x135/1565838_e54e_15.jpg?secure=QG6a2xqszwqw6fqwSfY57g%3D%3D%2C1647224635'
-                  alt=''
-                />
-              </div>
-              <h1 className='title'>
-                Post Graduate Program in STAAD.Pro for RCC, Industrial
-              </h1>
-              <p className='desc'>
-                People of ancient civilizations used architecture for creating
-                habitats whereas buildings and constructions of present day are
-                more concerned about fulfilling all the possible needs of people
-              </p>
-            </div>
-          </Link>
-        </SwiperSlide>
+        {props.freeCourse &&
+          props.freeCourse.map((fC) => (
+            <SwiperSlide>
+              <Link to={`/freecoursesblog/${fC._id}`}>
+                <div className='cardConatiner'>
+                  <div className='imgDiv'>
+                    <img src={fC.coursePhoto} alt='coursePhoto' />
+                  </div>
+                  <h1 className='title'>{fC.title}</h1>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: `${fC.desc.substring(0, 200)}...`,
+                    }}
+                    className='desc'
+                  ></p>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
 
         <div className='arrow'>
           <div className='' ref={prevRef}>

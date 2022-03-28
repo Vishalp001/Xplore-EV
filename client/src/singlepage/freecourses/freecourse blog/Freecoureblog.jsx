@@ -33,7 +33,7 @@ const Freecoureblog = () => {
             <div className='imgDiv'>
               <img
                 src='https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/01/khan-sir-gs-1643358982.jpg'
-                alt=''
+                alt='imgDiv'
               />
             </div>
             <p className='insName'>Dr. Mangala Prasad Mishra</p>

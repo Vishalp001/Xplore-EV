@@ -5,11 +5,6 @@ import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import './freeCourseAdminPost.scss'
 import { Context } from '../../../context/Context'
-import Box from '@mui/material/Box'
-import Tab from '@mui/material/Tab'
-import TabContext from '@mui/lab/TabContext'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
 
 const modules = {
   toolbar: [
@@ -142,7 +137,7 @@ const TrendingAdminPost = () => {
           <h4 className='inputHeading'>Course Image</h4>
           {post.coursePhoto && (
             <div className='adminCourseImgDiv'>
-              <img src={post.coursePhoto} alt='' />
+              <img src={post.coursePhoto} alt='coursePhoto' />
             </div>
           )}
         </div>
@@ -205,7 +200,7 @@ const TrendingAdminPost = () => {
             <div className='offerBy'>
               <h1 className='instructor'>Course Instructor</h1>
               <div className='imgDiv'>
-                <img src={post.insImage} alt='' />
+                <img src={post.insImage} alt='insImage' />
               </div>
               <p className='insName'>
                 {updateMode ? (

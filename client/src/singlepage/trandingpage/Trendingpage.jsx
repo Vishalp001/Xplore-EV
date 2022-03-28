@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Topbarpage from '../topbarpage/Topbarpage'
 
-const Trendingpage = () => {
+const Trendingpage = (props) => {
   return (
     <>
       <Topbarpage />
@@ -18,125 +19,25 @@ const Trendingpage = () => {
 
           <div className='spQBCards'>
             <div className='gridContainer'>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
-              <div className='gridItem'>
-                <div className='imgDiv'>
-                  <img
-                    src='https://cdn.finshots.app/images/2022/03/cov19-2.png'
-                    alt=''
-                  />
-                </div>
-                <div className='cardContain'>
-                  <h1 className='title'>
-                    How big is YouTube’s impact on India’s GDP?
-                  </h1>
-                  <p className='desc'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Laborum recusandae eligendi nemo iure accusamus iste.
-                  </p>
-                </div>
-              </div>
+              {props.trendings &&
+                props.trendings.map((t) => (
+                  <div className='gridItem'>
+                    <Link to={`/blog/${t._id}?trending`}>
+                      <div className='imgDiv'>
+                        <img src={t.photo} alt={t.title} />
+                      </div>
+                      <div className='cardContain'>
+                        <h1 className='title'>{t.title}</h1>
+                        <p
+                          className='desc'
+                          dangerouslySetInnerHTML={{
+                            __html: `${t.desc.substring(0, 350)}...`,
+                          }}
+                        ></p>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

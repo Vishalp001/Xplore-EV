@@ -4,6 +4,8 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import axios from 'axios'
 import { Context } from '../../../context/Context'
+import dotLoader from '../../../assets/images/dotLoader.svg'
+import btnLoading from '../../../assets/images/btnLoading.svg'
 
 const modules = {
   toolbar: [
@@ -37,9 +39,11 @@ export default function WriteQuickBitesPost() {
   const [desc, setDesc] = useState('')
   const [categories, setCategories] = useState('')
   const [file, setFile] = useState(null)
+  const [loader, setLoader] = useState(false)
   const { user } = useContext(Context)
 
   const handleSubmit = async (e) => {
+    setLoader(true)
     e.preventDefault()
     const newPost = {
       username: user.username,
@@ -64,6 +68,7 @@ export default function WriteQuickBitesPost() {
     try {
       const res = await axios.post('/quickbyte', newPost)
       window.location.replace('/quick_bites_admin_post/' + res.data._id)
+      setLoader(false)
     } catch (error) {
       console.log('Cant Upload the quickbyte Post')
     }
@@ -71,7 +76,11 @@ export default function WriteQuickBitesPost() {
   return (
     <div className='write'>
       {file && (
-        <img className='writeImg' src={URL.createObjectURL(file)} alt='' />
+        <img
+          className='writeImg'
+          src={URL.createObjectURL(file)}
+          alt='writeImg'
+        />
       )}
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className='writeFormGroup'>
@@ -109,9 +118,16 @@ export default function WriteQuickBitesPost() {
             onChange={(e) => setDesc(e)}
           ></ReactQuill>
         </div>
-        <button className='writeSubmit' type='submit'>
-          Publish
-        </button>
+
+        {loader ? (
+          <button className='btnLoading'>
+            <img className='' src={dotLoader} alt='dotLoader' />
+          </button>
+        ) : (
+          <button className='writeSubmit' type='submit'>
+            Publish
+          </button>
+        )}
       </form>
     </div>
   )

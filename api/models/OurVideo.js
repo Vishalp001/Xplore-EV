@@ -11,6 +11,10 @@ const OurVideoSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    url: {
+      type: String,
+      required: false,
+    },
     username: {
       type: String,
       required: false,

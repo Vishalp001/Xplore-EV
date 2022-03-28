@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import axios from 'axios'
 import { Context } from '../../../context/Context'
+import dotLoader from '../../../assets/images/dotLoader.svg'
 
 const modules = {
   toolbar: [
@@ -33,6 +34,7 @@ const formats = [
 ]
 
 export default function WriteBlogPost() {
+  const [loader, setLoader] = useState(false)
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [categories, setCategories] = useState('')
@@ -40,6 +42,7 @@ export default function WriteBlogPost() {
   const { user } = useContext(Context)
 
   const handleSubmit = async (e) => {
+    setLoader(true)
     e.preventDefault()
     const nowBlogPost = {
       username: user.username,
@@ -52,15 +55,18 @@ export default function WriteBlogPost() {
       const filename = Date.now() + file.name
       data.append('name', filename)
       data.append('file', file)
-      nowBlogPost.photo = filename
+      console.log(data)
       try {
-        await axios.post('/upload', data)
+        const res = await axios.post('/upload', data)
+        nowBlogPost.photo = res.data.url
       } catch (error) {
         console.log('Cant Upload the Photo')
       }
     }
     try {
       const res = await axios.post('/blog', nowBlogPost)
+      window.location.replace('/blog_admin_post/' + res.data._id)
+      setLoader(false)
     } catch (error) {
       console.log('Cant Upload the Blog Post')
     }
@@ -68,7 +74,11 @@ export default function WriteBlogPost() {
   return (
     <div className='write'>
       {file && (
-        <img className='writeImg' src={URL.createObjectURL(file)} alt='' />
+        <img
+          className='writeImg'
+          src={URL.createObjectURL(file)}
+          alt='writeImg'
+        />
       )}
       <form className='writeForm' onSubmit={handleSubmit}>
         <div className='writeFormGroup'>
@@ -106,9 +116,15 @@ export default function WriteBlogPost() {
             onChange={(e) => setDesc(e)}
           ></ReactQuill>
         </div>
-        <button className='writeSubmit' type='submit'>
-          Publish
-        </button>
+        {loader ? (
+          <button className='btnLoading'>
+            <img className='' src={dotLoader} alt='Loader' />
+          </button>
+        ) : (
+          <button className='writeSubmit' type='submit'>
+            Publish
+          </button>
+        )}
       </form>
     </div>
   )

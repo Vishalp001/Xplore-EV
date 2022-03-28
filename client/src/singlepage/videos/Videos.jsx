@@ -3,7 +3,7 @@ import Topbarpage from '../topbarpage/Topbarpage'
 import './videos.scss'
 import { IoLogoYoutube } from 'react-icons/io'
 
-const Videos = () => {
+const Videos = (props) => {
   return (
     <>
       <Topbarpage />
@@ -19,118 +19,20 @@ const Videos = () => {
           </div>
 
           <div className='videoPageCards'>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
+            {props.video &&
+              props.video.map((v) => (
+                <div className='vpcItem'>
+                  <a href={v.url} target='_blank'>
+                    <div className='imgDiv'>
+                      <div className='ytThumble'>
+                        <IoLogoYoutube className='ytIocn' />
+                      </div>
+                      <img src={v.photo} alt={v.title} />
+                    </div>
+                    <h1 className='videoTitle'>{v.title}</h1>
+                  </a>
                 </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
-            <div className='vpcItem'>
-              <div className='imgDiv'>
-                <div className='ytThumble'>
-                  <IoLogoYoutube className='ytIocn' />
-                </div>
-                <img
-                  src='https://images.unsplash.com/photo-1629820684221-d36e61748dc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
-                  alt=''
-                />
-              </div>
-              <h1 className='videoTitle'>
-                How big is YouTube’s impact on India’s GDP?
-              </h1>
-            </div>
+              ))}
           </div>
         </div>
       </div>

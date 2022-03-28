@@ -31,7 +31,7 @@ const Trending = ({ trendings }) => {
         >
           {trendings &&
             trendings.slice(0, 3).map((t) => (
-              <SwiperSlide>
+              <SwiperSlide key={t._id}>
                 <div
                   className='sliderDiv'
                   style={{
@@ -41,7 +41,11 @@ const Trending = ({ trendings }) => {
                 >
                   <div className='blogContainer'>
                     <div className='blogDetails'>
-                      <h6 className='cats'>{t.categories}</h6>
+                      <h6 className='cats'>
+                        <Link to={`/trending?cat=${t.categories}`}>
+                          {t.categories}
+                        </Link>
+                      </h6>
                       <h1 className='title'>{t.title}</h1>
                       <p
                         dangerouslySetInnerHTML={{
@@ -50,9 +54,7 @@ const Trending = ({ trendings }) => {
                         className='desc'
                       ></p>
                       <button className='readMore'>
-                        <Link to={`/trending_admin_post/${t._id}`}>
-                          Read More
-                        </Link>
+                        <Link to={`/blog/${t._id}?trending`}>Read More</Link>
                       </button>
                     </div>
                   </div>
@@ -73,7 +75,7 @@ const Trending = ({ trendings }) => {
         >
           {trendings &&
             trendings.slice(0, 3).map((p) => (
-              <SwiperSlide className='thumbCard'>
+              <SwiperSlide key={p._id} className='thumbCard'>
                 <div className='innerThumb'>
                   <h6 className='cats'>{p.categories}</h6>
                   <h1 className='title'>{p.title}</h1>

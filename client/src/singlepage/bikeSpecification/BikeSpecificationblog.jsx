@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './carSpecificationblog.scss'
+import './BikeSpecificationblog.scss'
 import TopbarPage from '../topbarpage/Topbarpage'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -10,7 +10,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
-const CarSpecificationBlog = () => {
+const BikeSpecificationBlog = () => {
   const location = useLocation()
   const path = location.pathname.split('/')[2]
   const [post, setPost] = useState({})
@@ -18,7 +18,7 @@ const CarSpecificationBlog = () => {
 
   useEffect(() => {
     const GetPost = async () => {
-      const res = await axios.get(`/ecar/${path}`)
+      const res = await axios.get(`/ebike/${path}`)
       setPost(res.data)
     }
     GetPost()
@@ -88,7 +88,9 @@ const CarSpecificationBlog = () => {
 
       <div className='specAndFeat container'>
         <div className='spec'>
-          <h1 className='vehiclename'>Key Specifications of {post.eCarName}</h1>
+          <h1 className='vehiclename'>
+            Key Specifications of {post.eBikeName}
+          </h1>
 
           <div className='specAndFeatTable'>
             {/* COL ONE */}
@@ -206,4 +208,4 @@ const CarSpecificationBlog = () => {
   )
 }
 
-export default CarSpecificationBlog
+export default BikeSpecificationBlog

@@ -60,7 +60,7 @@ export default function VerticalTabs({
   eBike,
 }) {
   const { user, dispatch } = useContext(Context)
-  const [value, setValue] = React.useState(3)
+  const [value, setValue] = React.useState(2)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
