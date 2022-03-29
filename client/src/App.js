@@ -7,6 +7,7 @@ import {
   Route,
   useLocation,
 } from 'react-router-dom'
+import Loader from './components/loader/Loader'
 import Quickbites from './singlepage/quickBites/Quickbitepage'
 import Latestnews from './singlepage/latestnewspage/Latestnewspage'
 import Knowevpage from './singlepage/knowEv/Knowevpage'
@@ -38,6 +39,10 @@ import WriteFreeCoursePost from './admin/freeCourse/writefreeCoursePost/WriteFre
 import FreeCourseAdminPost from './admin/freeCourse/freeCourseAdminPost/FreeCourseAdminPost'
 import WriteECarPost from './admin/electricCar/writeECarPost/WriteECarPost'
 import ECarAdminPost from './admin/electricCar/eCarAdminPost/ECarAdminPost'
+
+import WriteEvPolicies from './admin/evpolicies/writeEvPolicies/WriteEvPolicies'
+import EvPoliciesAdminPost from './admin/evpolicies/EvPoliciesAdminPost/EvPoliciesAdminPost'
+
 import WriteEBikePost from './admin/electricBike/writeEBikePost/WriteEBikePost'
 import EBikeAdminPost from './admin/electricBike/eBikeAdminPost/EBikeAdminPost'
 import CarSpecificationBlog from './singlepage/carSpecification/CarSpecificationblog.jsx'
@@ -56,29 +61,42 @@ function App() {
   const [freeCourse, setFreeCourse] = useState([])
   const [eCar, setECar] = useState([])
   const [eBike, setEBike] = useState([])
+  const [policies, setPolicies] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchTrendingPost = async () => {
+      setLoading(true)
       const res = await axios.get('/trending')
       setTrengings(res.data)
     }
     const fetchQuickBitesPost = async () => {
+      setLoading(true)
+
       const res = await axios.get('/quickbyte')
       setQuickBites(res.data)
     }
     const fetchVideoPost = async () => {
+      setLoading(true)
+
       const res = await axios.get('/video')
       setVideo(res.data)
     }
     const fetchNewsPost = async () => {
+      setLoading(true)
+
       const res = await axios.get('/news')
       setNews(res.data)
     }
     const fetchBlogPost = async () => {
+      setLoading(true)
+
       const res = await axios.get('/blog')
       setBlog(res.data)
     }
     const fetchFreeCourse = async () => {
+      setLoading(true)
+
       const res = await axios.get('/freecourse')
       setFreeCourse(res.data)
     }
@@ -90,6 +108,11 @@ function App() {
       const res = await axios.get('/ebike')
       setEBike(res.data)
     }
+    const fetchPolicies = async () => {
+      const res = await axios.get('/evpolicies')
+      setPolicies(res.data)
+    }
+
     fetchTrendingPost()
     fetchQuickBitesPost()
     fetchVideoPost()
@@ -98,6 +121,8 @@ function App() {
     fetchFreeCourse()
     fetchECar()
     fetchEBike()
+    fetchPolicies()
+    setLoading(false)
   }, [])
 
   return (
@@ -109,22 +134,28 @@ function App() {
             exact
             path='/'
             element={
-              <Home
-                trendings={trendings}
-                quickBites={quickBites}
-                eCar={eCar}
-                eBike={eBike}
-                video={video}
-                news={news}
-                blog={blog}
-                freeCourse={freeCourse}
-              />
+              loading ? (
+                <Loader />
+              ) : (
+                <Home
+                  trendings={trendings}
+                  quickBites={quickBites}
+                  eCar={eCar}
+                  eBike={eBike}
+                  video={video}
+                  news={news}
+                  blog={blog}
+                  freeCourse={freeCourse}
+                />
+              )
             }
           />
           <Route
             exact
             path='/quickBites'
-            element={<Quickbites quickBites={quickBites} />}
+            element={
+              loading ? <Loader /> : <Quickbites quickBites={quickBites} />
+            }
           />
           <Route
             exact
@@ -153,7 +184,11 @@ function App() {
             path='/freecoursesblog/:id'
             element={<Freecourseblog freeCourse={freeCourse} />}
           />
-          <Route exact path='/gov_ev_policies' element={<GovEvPolicies />} />
+          <Route
+            exact
+            path='/gov_ev_policies'
+            element={<GovEvPolicies policies={policies} />}
+          />
           <Route exact path='/blog/:id' element={<Blog />} />
           <Route
             exact
@@ -195,6 +230,7 @@ function App() {
                   freeCourse={freeCourse}
                   eCar={eCar}
                   eBike={eBike}
+                  policies={policies}
                 />
               ) : (
                 <Login />
@@ -290,6 +326,18 @@ function App() {
             exact
             path='/create_e_bike_post'
             element={<WriteEBikePost />}
+          />
+
+          {/* --------Admin evpolicies Route------ */}
+          <Route
+            exact
+            path='/evpolicies_admin_post/:id'
+            element={<EvPoliciesAdminPost />}
+          />
+          <Route
+            exact
+            path='/create_evpolicies_post'
+            element={<WriteEvPolicies />}
           />
         </Routes>
       </Router>

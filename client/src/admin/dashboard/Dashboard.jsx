@@ -15,6 +15,7 @@ import BlogAdmin from '../blog/BlogAdmin'
 import FreeCourseAdmin from '../freeCourse/FreeCourseAdmin'
 import ECarAdmin from '../electricCar/ECarAdmin'
 import EBikeAdmin from '../electricBike/EBikeAdmin'
+import EvPoliciesAdmin from '../evpolicies/EvPoliciesAdmin'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -58,6 +59,7 @@ export default function VerticalTabs({
   freeCourse,
   eCar,
   eBike,
+  policies,
 }) {
   const { user, dispatch } = useContext(Context)
   const [value, setValue] = React.useState(2)
@@ -96,6 +98,7 @@ export default function VerticalTabs({
             <Tab label='Latest News' {...a11yProps(5)} />
             <Tab label='Free Courses' {...a11yProps(6)} />
             <Tab label='Blog' {...a11yProps(7)} />
+            <Tab label='Ev Policies' {...a11yProps(7)} />
           </Tabs>
           <TabPanel value={value} index={0}>
             <TrendingAdmin trendings={trendings} />
@@ -120,6 +123,9 @@ export default function VerticalTabs({
           </TabPanel>
           <TabPanel value={value} index={7}>
             <BlogAdmin blog={blog} />
+          </TabPanel>
+          <TabPanel value={value} index={8}>
+            <EvPoliciesAdmin policies={policies} />
           </TabPanel>
         </Box>
 

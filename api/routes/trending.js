@@ -2,6 +2,7 @@ const router = require('express').Router()
 const Trending = require('../models/Trending')
 const News = require('../models/News')
 const Blog = require('../models/Blog')
+const Policies = require('../models/EvPolicies')
 
 //CREATE Trending
 router.post('/', async (req, res) => {
@@ -104,6 +105,9 @@ router.get('/blogs/:id', async (req, res) => {
     }
     if (type === '?blog') {
       blog = await Blog.findById(req.params.id)
+    }
+    if (type === '?policies') {
+      blog = await Policies.findById(req.params.id)
     }
 
     res.status(200).json(blog)

@@ -14,11 +14,12 @@ const categoryRoute = require('./routes/categories')
 const freeCourseRoute = require('./routes/freeCourse')
 const electricCarRoute = require('./routes/electricCar')
 const electricBikeRoute = require('./routes/electricBike')
-const PORT = process.env.PORT || 5000
+const EvPoliciesRoute = require('./routes/evPolicies')
+// const PORT = process.env.PORT || 5000
+const PORT = 5000
 
 const cloudinary = require('./Utils/cloudinary')
 const upload = require('./Utils/multer')
-const path = require('path')
 dotenv.config()
 app.use(express.json())
 
@@ -53,6 +54,7 @@ app.use('/api/categorie', categoryRoute)
 app.use('/api/freecourse', freeCourseRoute)
 app.use('/api/ecar', electricCarRoute)
 app.use('/api/ebike', electricBikeRoute)
+app.use('/api/evpolicies', EvPoliciesRoute)
 
 app.get('/', (req, res) => {
   res.send('Hello to Blog API')

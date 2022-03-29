@@ -11,6 +11,7 @@ import Trending from '../../components/trending/Trending'
 import Find from '../../components/find/Find'
 import OurVideos from '../../components/ourVideos/OurVideos'
 import { useLocation } from 'react-router-dom'
+import Footer from '../../components/footer/Footer'
 
 const Home = ({
   trendings,
@@ -34,8 +35,8 @@ const Home = ({
       <LetestNews news={news} />
       <Evknowledge freeCourse={freeCourse} />
       <KnowEv blog={blog} />
-      {/* <Subscribe /> */}
-      {/* <Footer /> */}
+      <Subscribe />
+      <Footer />
     </>
   )
 }
