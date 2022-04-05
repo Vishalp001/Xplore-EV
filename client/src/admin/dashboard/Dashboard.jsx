@@ -13,9 +13,11 @@ import VideoAdmin from '../video/VideoAdmin'
 import NewsAdmin from '../news/NewsAdmin'
 import BlogAdmin from '../blog/BlogAdmin'
 import FreeCourseAdmin from '../freeCourse/FreeCourseAdmin'
-import ECarAdmin from '../electricCar/ECarAdmin'
+import EvAdmin from '../ev/EvAdmin'
 import EBikeAdmin from '../electricBike/EBikeAdmin'
 import EvPoliciesAdmin from '../evpolicies/EvPoliciesAdmin'
+import EvUpcomingcar from '../evUpcomingcar/EvUpcomingCar'
+import EvUpcomingBike from '../evUpcomingBike/EvUpcomingBike'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props
@@ -59,6 +61,8 @@ export default function VerticalTabs({
   freeCourse,
   eCar,
   eBike,
+  upcomingCar,
+  upcomingBike,
   policies,
 }) {
   const { user, dispatch } = useContext(Context)
@@ -94,11 +98,13 @@ export default function VerticalTabs({
             <Tab label='Quick Bites' {...a11yProps(1)} />
             <Tab label='Electric Car' {...a11yProps(2)} />
             <Tab label='Electric Bike' {...a11yProps(3)} />
-            <Tab label='Our Videos' {...a11yProps(4)} />
-            <Tab label='Latest News' {...a11yProps(5)} />
-            <Tab label='Free Courses' {...a11yProps(6)} />
-            <Tab label='Blog' {...a11yProps(7)} />
-            <Tab label='Ev Policies' {...a11yProps(7)} />
+            <Tab label='Upcoming Car' {...a11yProps(4)} />
+            <Tab label='Upcoming Bike' {...a11yProps(5)} />
+            <Tab label='Our Videos' {...a11yProps(6)} />
+            <Tab label='Latest News' {...a11yProps(7)} />
+            <Tab label='Free Courses' {...a11yProps(8)} />
+            <Tab label='Blog' {...a11yProps(9)} />
+            <Tab label='Ev Policies' {...a11yProps(10)} />
           </Tabs>
           <TabPanel value={value} index={0}>
             <TrendingAdmin trendings={trendings} />
@@ -107,24 +113,30 @@ export default function VerticalTabs({
             <QuickBitesAdmin quickBites={quickBites} />
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <ECarAdmin eCar={eCar} />
+            <EvAdmin eCar={eCar} />
           </TabPanel>
           <TabPanel value={value} index={3}>
             <EBikeAdmin eBike={eBike} />
           </TabPanel>
           <TabPanel value={value} index={4}>
-            <VideoAdmin video={video} />
+            <EvUpcomingcar upcomingCar={upcomingCar} />
           </TabPanel>
           <TabPanel value={value} index={5}>
-            <NewsAdmin news={news} />
+            <EvUpcomingBike upcomingBike={upcomingBike} />
           </TabPanel>
           <TabPanel value={value} index={6}>
-            <FreeCourseAdmin freeCourse={freeCourse} />
+            <VideoAdmin video={video} />
           </TabPanel>
           <TabPanel value={value} index={7}>
-            <BlogAdmin blog={blog} />
+            <NewsAdmin news={news} />
           </TabPanel>
           <TabPanel value={value} index={8}>
+            <FreeCourseAdmin freeCourse={freeCourse} />
+          </TabPanel>
+          <TabPanel value={value} index={9}>
+            <BlogAdmin blog={blog} />
+          </TabPanel>
+          <TabPanel value={value} index={10}>
             <EvPoliciesAdmin policies={policies} />
           </TabPanel>
         </Box>

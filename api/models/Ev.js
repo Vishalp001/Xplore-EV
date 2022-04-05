@@ -1,13 +1,21 @@
 const mongoose = require('mongoose')
 
-const ElectricCarSchema = new mongoose.Schema(
+const EvSchema = new mongoose.Schema(
   {
-    eCarName: {
+    evName: {
       type: String,
       required: true,
       unique: true,
     },
-    eCarPrice: {
+    evtype: {
+      type: String,
+      required: true,
+    },
+    upcoming: {
+      type: String,
+      required: true,
+    },
+    evPrice: {
       type: String,
       required: true,
     },
@@ -100,6 +108,14 @@ const ElectricCarSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    batteryCapacity: {
+      type: String,
+      required: false,
+    },
+    batteryType: {
+      type: String,
+      required: false,
+    },
     username: {
       type: String,
       required: false,
@@ -108,4 +124,4 @@ const ElectricCarSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-module.exports = mongoose.model('ElectricCar', ElectricCarSchema)
+module.exports = mongoose.model('ElectricVehicle', EvSchema)

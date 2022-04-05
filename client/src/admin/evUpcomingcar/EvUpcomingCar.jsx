@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './eCarAdmin.scss'
-const ECarAdmin = ({ eCar }) => {
+// import './evAdmin.scss'
+const EvUpcomingcar = ({ upcomingCar }) => {
   return (
     <>
       <div className='CreatePost'>
-        <h1>Create Electric Car Post</h1>
-        <Link to='/create_e_car_post'>
+        <h1>Create Electric Vehicle Post</h1>
+        <Link to='/create_ev_post'>
           <button className='readMore'>Create Post</button>
         </Link>
       </div>
@@ -38,17 +38,17 @@ const ECarAdmin = ({ eCar }) => {
             </tr>
           </thead>
           <tbody>
-            {eCar &&
-              eCar.map((c) => (
+            {upcomingCar &&
+              upcomingCar.map((c) => (
                 <tr key={c._id}>
                   <th scope='row'>1</th>
-                  <td>{c.eCarName}</td>
+                  <td>{c.evName}</td>
                   <td>{c.brand}</td>
                   <td>{new Date(c.createdAt).toDateString()}</td>
 
                   <td>{c.model}</td>
                   <td>
-                    <Link to={`/e_car_admin_post/${c._id}`}>View/Edit</Link>
+                    <Link to={`/ev_admin_post/${c._id}`}>View/Edit</Link>
                   </td>
                   <td>Delete</td>
                 </tr>
@@ -60,4 +60,4 @@ const ECarAdmin = ({ eCar }) => {
   )
 }
 
-export default ECarAdmin
+export default EvUpcomingcar

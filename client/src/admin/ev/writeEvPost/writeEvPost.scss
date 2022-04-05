@@ -1,3 +1,14 @@
+.evSelectContainer {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  select {
+    width: 45%;
+    border: 1px solid #58ab00;
+    margin-bottom: 25px;
+    color: #58ab00;
+  }
+}
 .evImageContainer {
   display: flex;
   flex-wrap: wrap;

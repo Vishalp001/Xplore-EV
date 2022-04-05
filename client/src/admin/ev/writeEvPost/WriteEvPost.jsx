@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import './writeECarPost.scss'
+import './writeEvPost.scss'
 import axios from 'axios'
 import { BiAddToQueue } from 'react-icons/bi'
 import { Context } from '../../../context/Context'
@@ -8,8 +8,10 @@ import dotLoader from '../../../assets/images/dotLoader.svg'
 
 export default function WriteECarPost() {
   const [loader, setLoader] = useState(false)
-  const [eCarName, setECarName] = useState('')
-  const [eCarPrice, setECarPrice] = useState('')
+  const [evName, setEvName] = useState('')
+  const [evtype, setEvtype] = useState('')
+  const [upcoming, setUpcoming] = useState('')
+  const [evPrice, setEvPrice] = useState('')
   const [brand, setBrand] = useState('')
   const [type, settype] = useState('')
   const [model, setmodel] = useState('')
@@ -27,6 +29,8 @@ export default function WriteECarPost() {
   const [alloyWheelSize, setalloyWheelSize] = useState('')
   const [kerbWeight, setkerbWeight] = useState('')
   const [groundClearance, setgroundClearance] = useState('')
+  const [batteryType, setBatteryType] = useState('')
+  const [batteryCapacity, setBatteryCapacity] = useState('')
   const [imgOne, setImgOne] = useState(null)
   const [imgTwo, setImgTwo] = useState(null)
   const [imgThree, setImgThree] = useState(null)
@@ -39,8 +43,10 @@ export default function WriteECarPost() {
     e.preventDefault()
     const newTrendingPost = {
       username: user.username,
-      eCarName,
-      eCarPrice,
+      evName,
+      evtype,
+      upcoming,
+      evPrice,
       brand,
       type,
       model,
@@ -58,6 +64,8 @@ export default function WriteECarPost() {
       alloyWheelSize,
       kerbWeight,
       groundClearance,
+      batteryCapacity,
+      batteryType,
     }
     if (imgOne) {
       const dataOne = new FormData()
@@ -132,17 +140,18 @@ export default function WriteECarPost() {
     }
 
     try {
-      const res = await axios.post('/ecar', newTrendingPost)
-      window.location.replace('/e_car_admin_post/' + res.data._id)
+      const res = await axios.post('/ev', newTrendingPost)
+      window.location.replace('/ev_admin_post/' + res.data._id)
       setLoader(false)
     } catch (error) {
       console.log('Cant Upload the e-car Post')
     }
   }
+
   return (
     <div className='write container'>
       <form className='writeForm' onSubmit={handleSubmit}>
-        <h2>Upload E Car Images</h2>
+        <h2>Upload E Vehicle Images</h2>
         <div className='evImageContainer '>
           <div className='EVimgDiv'>
             {imgOne && (
@@ -231,24 +240,42 @@ export default function WriteECarPost() {
             />
           </div>
         </div>
+        <div className='evSelectContainer'>
+          <select
+            onChange={(e) => setEvtype(e.target.value)}
+            className='form-select'
+          >
+            <option value=''>Select Ev Type</option>
+            <option value='car'>Car</option>
+            <option value='bike'>Bike</option>
+          </select>
+          <select
+            onChange={(e) => setUpcoming(e.target.value)}
+            className='form-select'
+          >
+            <option value=''>Is it Upcoming</option>
+            <option value='yes'>Yes</option>
+            <option value='no'>No</option>
+          </select>
+        </div>
 
-        <h2>Add E Car Name</h2>
+        <h2>Add E Vehicle Name</h2>
         <input
           className='title'
           type='text'
-          placeholder='E Car Name'
+          placeholder='E Car Vehicle'
           autoFocus={true}
-          onChange={(e) => setECarName(e.target.value)}
+          onChange={(e) => setEvName(e.target.value)}
         />
         <input
           className='title'
           type='text'
           placeholder='E Car Price'
           autoFocus={true}
-          onChange={(e) => setECarPrice(e.target.value)}
+          onChange={(e) => setEvPrice(e.target.value)}
         />
 
-        <h2>Upload E Car Specification</h2>
+        <h2>Upload E Vehicle Specification</h2>
 
         <div className='wECSpec'>
           <input
@@ -353,6 +380,18 @@ export default function WriteECarPost() {
             placeholder='ground Clearance'
             autoFocus={true}
             onChange={(e) => setgroundClearance(e.target.value)}
+          />
+          <input
+            type='text'
+            placeholder='Battery Type'
+            autoFocus={true}
+            onChange={(e) => setBatteryType(e.target.value)}
+          />
+          <input
+            type='text'
+            placeholder='Battery Capacity'
+            autoFocus={true}
+            onChange={(e) => setBatteryCapacity(e.target.value)}
           />
           {loader ? (
             <button className='wecPostLoader'>

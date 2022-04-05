@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import './eCarAdminPost.scss'
+import './evAdminPost.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { useLocation } from 'react-router-dom'
@@ -18,8 +18,9 @@ const CarSpecificationBlog = () => {
   const [post, setPost] = useState('')
   const { user } = useContext(Context)
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
-
-  const [eCarName, setECarName] = useState('')
+  const [evtype, setevType] = useState('')
+  const [upcoming, setUpcoming] = useState('')
+  const [evName, setevName] = useState('')
   const [eCarPrice, setECarPrice] = useState('')
   const [brand, setBrand] = useState('')
   const [type, setType] = useState('')
@@ -38,13 +39,18 @@ const CarSpecificationBlog = () => {
   const [alloyWheelSize, setalloyWheelSize] = useState('')
   const [kerbWeight, setkerbWeight] = useState('')
   const [groundClearance, setgroundClearance] = useState('')
+  const [batteryType, setBatteryType] = useState('')
+  const [batteryCapacity, setBatteryCapacity] = useState('')
+
   const [updateMode, setUpdateMode] = useState(false)
 
   useEffect(() => {
     const GetPost = async () => {
-      const res = await axios.get(`/ecar/${path}`)
+      const res = await axios.get(`/ev/${path}`)
       setPost(res.data)
-      setECarName(res.data.eCarName)
+      setevName(res.data.evName)
+      setevType(res.data.evtype)
+      setUpcoming(res.data.upcoming)
       setECarPrice(res.data.eCarPrice)
       setBrand(res.data.brand)
       setType(res.data.type)
@@ -63,13 +69,15 @@ const CarSpecificationBlog = () => {
       setalloyWheelSize(res.data.alloyWheelSize)
       setkerbWeight(res.data.kerbWeight)
       setgroundClearance(res.data.groundClearance)
+      setBatteryCapacity(res.data.batteryCapacity)
+      setBatteryType(res.data.batteryType)
     }
     GetPost()
   }, [path])
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/ecar/${path}`, {
+      await axios.delete(`/ev/${path}`, {
         data: { username: user.username },
       })
       window.location.replace('/admin')
@@ -82,9 +90,11 @@ const CarSpecificationBlog = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/ecar/${path}`, {
+      await axios.put(`/ev/${path}`, {
         username: user.username,
-        eCarName,
+        evName,
+        evtype,
+        upcoming,
         eCarPrice,
         brand,
         type,
@@ -103,6 +113,8 @@ const CarSpecificationBlog = () => {
         alloyWheelSize,
         kerbWeight,
         groundClearance,
+        batteryType,
+        batteryCapacity,
       })
       // window.location.reload()
       setUpdateMode(false)
@@ -127,6 +139,42 @@ const CarSpecificationBlog = () => {
           </div>
         )}
       </div>
+
+      <div className='container'>
+        {updateMode ? (
+          <div className='evSelectContainer'>
+            <select
+              value={evtype}
+              onChange={(e) => setevType(e.target.value)}
+              className='form-select'
+              aria-label='Default select example'
+            >
+              <option selected>Select Ev Type</option>
+              <option value='car'>Car</option>
+              <option value='bike'>Bike</option>
+            </select>
+            <select
+              value={upcoming}
+              onChange={(e) => setUpcoming(e.target.value)}
+              className='form-select'
+            >
+              <option selected>Is it Upcoming</option>
+              <option value='yes'>Yes</option>
+              <option value='no'>No</option>
+            </select>
+          </div>
+        ) : (
+          <div className='evType'>
+            <p>
+              EV Type: <span> {evtype}</span>
+            </p>
+            <p>
+              Upcoming or not:<span> {upcoming}</span>
+            </p>
+          </div>
+        )}
+      </div>
+
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -222,11 +270,11 @@ const CarSpecificationBlog = () => {
               <input
                 className='ACarNameInput'
                 type='text'
-                value={eCarName}
-                onChange={(e) => setECarName(e.target.value)}
+                value={evName}
+                onChange={(e) => setevName(e.target.value)}
               />
             ) : (
-              <span> {eCarName}</span>
+              <span> {evName}</span>
             )}
           </h1>
 
@@ -455,6 +503,33 @@ const CarSpecificationBlog = () => {
                   />
                 ) : (
                   <p className='data'>{groundClearance}</p>
+                )}
+              </div>
+
+              <div className='keySpec'>
+                <p className='name'>Battery Type</p>
+                {updateMode ? (
+                  <input
+                    className='lncat'
+                    type='text'
+                    value={batteryType}
+                    onChange={(e) => setBatteryType(e.target.value)}
+                  />
+                ) : (
+                  <p className='data'>{batteryType}</p>
+                )}
+              </div>
+              <div className='keySpec'>
+                <p className='name'>Battery Capacity</p>
+                {updateMode ? (
+                  <input
+                    className='lncat'
+                    type='text'
+                    value={batteryCapacity}
+                    onChange={(e) => setBatteryCapacity(e.target.value)}
+                  />
+                ) : (
+                  <p className='data'>{batteryCapacity}</p>
                 )}
               </div>
             </div>

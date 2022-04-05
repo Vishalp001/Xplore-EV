@@ -37,8 +37,8 @@ import WriteBlogPost from './admin/blog/WriteBlogPost/WriteBlogPost'
 import BlogAdminPost from './admin/blog/blogAdminPost/BlogAdminPost'
 import WriteFreeCoursePost from './admin/freeCourse/writefreeCoursePost/WriteFreeCoursePost'
 import FreeCourseAdminPost from './admin/freeCourse/freeCourseAdminPost/FreeCourseAdminPost'
-import WriteECarPost from './admin/electricCar/writeECarPost/WriteECarPost'
-import ECarAdminPost from './admin/electricCar/eCarAdminPost/ECarAdminPost'
+import WriteEvPost from './admin/ev/writeEvPost/WriteEvPost'
+import EvPost from './admin/ev/evAdminPost/EvAdminPost'
 
 import WriteEvPolicies from './admin/evpolicies/writeEvPolicies/WriteEvPolicies'
 import EvPoliciesAdminPost from './admin/evpolicies/EvPoliciesAdminPost/EvPoliciesAdminPost'
@@ -50,6 +50,10 @@ import CarSpecificationAll from './singlepage/carSpecification/carSpecificationA
 import BikeSpecificationBlog from './singlepage/bikeSpecification/BikeSpecificationblog'
 import BikeSpecificationAll from './singlepage/bikeSpecification/bikeSpecificationAll/BikeSpecificationAll.jsx'
 import Blog from './singlepage/blogs/blog/Blog'
+import CompairCars from './singlepage/compair/CompairCars'
+import CompairBikes from './singlepage/compair/CompairBikes'
+import CompairUpcomingCars from './singlepage/compair/CompairUpcomingCars'
+import CompairUpcomingBikes from './singlepage/compair/CompairUpcomingBikes'
 
 function App() {
   const { user } = useContext(Context)
@@ -61,6 +65,9 @@ function App() {
   const [freeCourse, setFreeCourse] = useState([])
   const [eCar, setECar] = useState([])
   const [eBike, setEBike] = useState([])
+  const [upcoming, setupcoming] = useState([])
+  const [upcomingBike, setupcomingBike] = useState([])
+  const [upcomingCar, setupcomingCar] = useState([])
   const [policies, setPolicies] = useState([])
   const [loading, setLoading] = useState(true)
 
@@ -101,13 +108,14 @@ function App() {
       setFreeCourse(res.data)
     }
     const fetchECar = async () => {
-      const res = await axios.get('/ecar')
-      setECar(res.data)
+      const res = await axios.get('/ev')
+      setECar(res.data[0].car)
+      setEBike(res.data[0].bike)
+      setupcoming(res.data[0].upcoming)
+      setupcomingBike(res.data[0].upcomingBike)
+      setupcomingCar(res.data[0].upcomingCar)
     }
-    const fetchEBike = async () => {
-      const res = await axios.get('/ebike')
-      setEBike(res.data)
-    }
+
     const fetchPolicies = async () => {
       const res = await axios.get('/evpolicies')
       setPolicies(res.data)
@@ -120,7 +128,6 @@ function App() {
     fetchBlogPost()
     fetchFreeCourse()
     fetchECar()
-    fetchEBike()
     fetchPolicies()
     setLoading(false)
   }, [])
@@ -200,6 +207,26 @@ function App() {
             path='/e_car/:id'
             element={<CarSpecificationBlog eCar={eCar} />}
           />
+          <Route
+            exact
+            path='/compair_cars/:id'
+            element={<CompairCars eCar={eCar} />}
+          />
+          <Route
+            exact
+            path='/compair_bikes/:id'
+            element={<CompairBikes eBike={eBike} />}
+          />
+          <Route
+            exact
+            path='/compair_upcoming_cars/:id'
+            element={<CompairUpcomingCars upcomingCar={upcomingCar} />}
+          />
+          <Route
+            exact
+            path='/compair_upcoming_bikes/:id'
+            element={<CompairUpcomingBikes upcomingBike={upcomingBike} />}
+          />
           {/* --------------BIKES-------------- */}
           <Route
             exact
@@ -230,6 +257,9 @@ function App() {
                   freeCourse={freeCourse}
                   eCar={eCar}
                   eBike={eBike}
+                  upcoming={upcoming}
+                  upcomingCar={upcomingCar}
+                  upcomingBike={upcomingBike}
                   policies={policies}
                 />
               ) : (
@@ -307,13 +337,9 @@ function App() {
           />
 
           {/* --------Admin E Car Route------ */}
-          <Route
-            exact
-            path='/e_car_admin_post/:id'
-            element={<ECarAdminPost />}
-          />
+          <Route exact path='/ev_admin_post/:id' element={<EvPost />} />
 
-          <Route exact path='/create_e_car_post' element={<WriteECarPost />} />
+          <Route exact path='/create_ev_post' element={<WriteEvPost />} />
 
           {/* --------Admin E Bike Route------ */}
           <Route

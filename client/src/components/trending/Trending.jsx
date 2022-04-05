@@ -18,6 +18,7 @@ const Trending = ({ trendings }) => {
     <>
       <div className='trendindContainer'>
         <Swiper
+          grabCursor={true}
           style={{
             '--swiper-navigation-color': '#fff',
             '--swiper-pagination-color': '#fff',

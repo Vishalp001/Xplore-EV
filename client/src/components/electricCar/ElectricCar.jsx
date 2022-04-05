@@ -63,11 +63,14 @@ const ElectricCar = (props) => {
                 <div className='imgDivGradient'></div>
               </div>
               <div className='detailsSection'>
-                <h1 className='carName'>{eC.eCarName}</h1>
-                <p className='carPrice'>{eC.eCarPrice}</p>
+                <h1 className='carName'>{eC.evName}</h1>
+                <p className='carPrice'>{eC.evPrice}</p>
                 <div className='carsBtn'>
                   <button className='compair'>
                     <Link to={`/e_car/${eC._id}`}>Specification</Link>
+                  </button>
+                  <button className='compair'>
+                    <Link to={`/compair_cars/${eC._id}`}>Compair</Link>
                   </button>
                 </div>
               </div>

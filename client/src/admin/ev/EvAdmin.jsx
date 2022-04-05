@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './eBikeAdmin.scss'
-const ECarAdmin = ({ eBike }) => {
-  console.log(eBike)
+// import './evAdmin.scss'
+const ECarAdmin = ({ eCar }) => {
+  console.log(eCar, 'E Car')
   return (
     <>
       <div className='CreatePost'>
-        <h1>Create Electric Bike Post</h1>
+        <h1>Create Electric Vehicle Post</h1>
         <Link to='/create_ev_post'>
           <button className='readMore'>Create Post</button>
         </Link>
@@ -19,16 +19,16 @@ const ECarAdmin = ({ eBike }) => {
                 #
               </th>
               <th className='title' scope='col'>
-                Bike Name
+                Car Name
               </th>
               <th className='desc' scope='col'>
-                Bike Brand
+                Car Brand
               </th>
               <th className='date' scope='col'>
                 Date
               </th>
               <th className='cate' scope='col'>
-                Bike Model
+                Car Model
               </th>
               <th className='edit' scope='col'>
                 View/Edit
@@ -39,17 +39,17 @@ const ECarAdmin = ({ eBike }) => {
             </tr>
           </thead>
           <tbody>
-            {eBike &&
-              eBike.map((b) => (
-                <tr key={b._id}>
+            {eCar &&
+              eCar.map((c) => (
+                <tr key={c._id}>
                   <th scope='row'>1</th>
-                  <td>{b.evName}</td>
-                  <td>{b.brand}</td>
-                  <td>{new Date(b.createdAt).toDateString()}</td>
+                  <td>{c.evName}</td>
+                  <td>{c.brand}</td>
+                  <td>{new Date(c.createdAt).toDateString()}</td>
 
-                  <td>{b.model}</td>
+                  <td>{c.model}</td>
                   <td>
-                    <Link to={`/ev_admin_post/${b._id}`}>View/Edit</Link>
+                    <Link to={`/ev_admin_post/${c._id}`}>View/Edit</Link>
                   </td>
                   <td>Delete</td>
                 </tr>

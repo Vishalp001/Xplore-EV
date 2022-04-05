@@ -66,10 +66,12 @@ const ElectricBikes = (props) => {
                 <h1 className='carName'>{eB.eBikeName}</h1>
                 <p className='carPrice'>Rs{eB.price}*</p>
                 <div className='carsBtn'>
-                  <button className='compair'>
+                  <button className='specification'>
                     <Link to={`/e_bike/${eB._id}`}>Specification</Link>
                   </button>
-                  {/* <button className='specification'>Specification</button> */}
+                  <button className='compair'>
+                    <Link to={`/compair_bikes/${eB._id}`}> Compair</Link>
+                  </button>
                 </div>
               </div>
             </SwiperSlide>

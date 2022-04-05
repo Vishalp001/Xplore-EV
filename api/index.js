@@ -12,8 +12,7 @@ const trendingRoute = require('./routes/trending')
 const videosRoute = require('./routes/ourVideos')
 const categoryRoute = require('./routes/categories')
 const freeCourseRoute = require('./routes/freeCourse')
-const electricCarRoute = require('./routes/electricCar')
-const electricBikeRoute = require('./routes/electricBike')
+const electricVehicleRoute = require('./routes/ev')
 const EvPoliciesRoute = require('./routes/evPolicies')
 // const PORT = process.env.PORT || 5000
 const PORT = 5000
@@ -52,8 +51,7 @@ app.use('/api/trending', trendingRoute)
 app.use('/api/quickbyte', quickByteRoute)
 app.use('/api/categorie', categoryRoute)
 app.use('/api/freecourse', freeCourseRoute)
-app.use('/api/ecar', electricCarRoute)
-app.use('/api/ebike', electricBikeRoute)
+app.use('/api/ev', electricVehicleRoute)
 app.use('/api/evpolicies', EvPoliciesRoute)
 
 app.get('/', (req, res) => {

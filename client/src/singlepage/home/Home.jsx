@@ -10,6 +10,7 @@ import Topbar from '../../components/topBar/Topbar'
 import Trending from '../../components/trending/Trending'
 import Find from '../../components/find/Find'
 import OurVideos from '../../components/ourVideos/OurVideos'
+import UpcomingEv from '../../components/upcomingEv/UpcomingEv'
 import { useLocation } from 'react-router-dom'
 import Footer from '../../components/footer/Footer'
 
@@ -27,7 +28,8 @@ const Home = ({
     <>
       <Topbar />
       <Trending trendings={trendings} />
-      <Find />
+      <UpcomingEv />
+      {/* <Find /> */}
       <Quickbytes quickBites={quickBites} />
       <ElectricCar eCar={eCar} />
       <ElectricBikes eBike={eBike} />
