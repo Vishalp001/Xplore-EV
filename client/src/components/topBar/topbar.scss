@@ -72,8 +72,15 @@
   // border: 1px solid black;
 }
 .searchBar {
-  width: 20%;
   justify-content: flex-end;
+  cursor: pointer;
+  .searchDiv {
+    display: flex;
+    span {
+      white-space: nowrap;
+      margin-right: 15px;
+    }
+  }
 }
 @media only screen and (min-width: 992px) {
   .navBar {
@@ -83,7 +90,6 @@
 
 .searchIcon {
   font-family: 'Quicksand', sans-serif;
-  color: #ffffff !important;
   font-weight: 800;
   font-weight: bold;
   font-size: 1.5rem;

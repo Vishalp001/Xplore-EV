@@ -58,7 +58,7 @@ const KnowEv = (props) => {
         >
           {props.blog &&
             props.blog.map((b) => (
-              <SwiperSlide>
+              <SwiperSlide key={b._id}>
                 <div className='knowEvCardContainer'>
                   <Link to={`/blog/${b._id}?blog`}>
                     <div className='imgDiv'>

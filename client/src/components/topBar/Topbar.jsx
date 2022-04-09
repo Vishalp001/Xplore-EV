@@ -75,8 +75,11 @@ const Topbar = () => {
             </Navbar.Collapse>
             <NavbarCollapse className='searchBar lastDiv'>
               <Nav>
-                <Nav.Link href='#deets'>
-                  <FaSearch className='searchIcon' />
+                <Nav.Link as={Link} to='/charging_stations'>
+                  <div className='searchDiv'>
+                    <span> Find Charging Stations</span>
+                    <FaSearch className='searchIcon' />
+                  </div>
                 </Nav.Link>
               </Nav>
             </NavbarCollapse>

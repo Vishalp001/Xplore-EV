@@ -44,6 +44,9 @@
         color: #ffffff;
       }
       .carBtns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         button {
           outline: none;
           background: #2eb40f;

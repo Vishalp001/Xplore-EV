@@ -36,7 +36,7 @@ const LetestNews = (props) => {
       >
         {props.news &&
           props.news.map((n) => (
-            <SwiperSlide>
+            <SwiperSlide key={n._id}>
               <div className='newsCardWrapper'>
                 <div className='colOne'>
                   <div className='imgDiv'>

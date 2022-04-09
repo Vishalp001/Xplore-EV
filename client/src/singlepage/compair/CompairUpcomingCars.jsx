@@ -56,8 +56,8 @@ const CompairUpcomingCars = (props) => {
                   label='Car One'
                   onChange={(e) => setCarNameOne(e.target.value)}
                 >
-                  {props.eCar &&
-                    props.eCar.map((c) => (
+                  {props.upcomingCar &&
+                    props.upcomingCar.map((c) => (
                       <MenuItem key={c._id} value={c._id}>
                         {c.evName}
                       </MenuItem>
@@ -75,8 +75,8 @@ const CompairUpcomingCars = (props) => {
                   label='Car Two'
                   onChange={(e) => setCarNameTwo(e.target.value)}
                 >
-                  {props.eCar &&
-                    props.eCar.map((c) => (
+                  {props.upcomingCar &&
+                    props.upcomingCar.map((c) => (
                       <MenuItem key={c._id} value={c._id}>
                         {c.evName}
                       </MenuItem>
@@ -95,9 +95,9 @@ const CompairUpcomingCars = (props) => {
             <img src={carOneData.imgOne} alt='' />
           </div>
           <div className='carName'>
-            <span className='nameOne'>{carOneData.eCarName}</span>
+            <span className='nameOne'>{carOneData.evName}</span>
             <span className='vs'>VS</span>
-            <span className='nameTwo'>{carTwoData.eCarName}</span>
+            <span className='nameTwo'>{carTwoData.evName}</span>
           </div>
 
           <div className='imgDiv'>
@@ -108,14 +108,14 @@ const CompairUpcomingCars = (props) => {
         <div className='tableDiv'>
           <div className='tableHead'>
             <div className='spec'>Specification</div>
-            <div className='name'>{carOneData.eCarName}</div>
-            <div className='name'>{carTwoData.eCarName}</div>
+            <div className='name'>{carOneData.evName}</div>
+            <div className='name'>{carTwoData.evName}</div>
           </div>
           <table>
             <tr>
               <td>Car Price</td>
-              <td>{carOneData.eCarPrice}</td>
-              <td>{carTwoData.eCarPrice}</td>
+              <td>{carOneData.evPrice}</td>
+              <td>{carTwoData.evPrice}</td>
             </tr>
             <tr>
               <td>Type</td>

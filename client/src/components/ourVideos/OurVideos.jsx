@@ -57,8 +57,8 @@ const OurVideos = (props) => {
       >
         {props.video &&
           props.video.map((v) => (
-            <SwiperSlide>
-              <a target='_blank' key={v._id} href={v.url}>
+            <SwiperSlide key={v._id}>
+              <a target='_blank' href={v.url}>
                 <div className='imgDiv'>
                   <div className='ytThumble'>
                     <IoLogoYoutube className='ytIocn' />

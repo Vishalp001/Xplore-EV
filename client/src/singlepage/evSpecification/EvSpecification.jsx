@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import './carSpecificationblog.scss'
+import './EvSpecificationblog.scss'
 import TopbarPage from '../topbarpage/Topbarpage'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
@@ -18,7 +18,7 @@ const CarSpecificationBlog = () => {
 
   useEffect(() => {
     const GetPost = async () => {
-      const res = await axios.get(`/ecar/${path}`)
+      const res = await axios.get(`/ev/${path}`)
       setPost(res.data)
     }
     GetPost()
@@ -88,7 +88,7 @@ const CarSpecificationBlog = () => {
 
       <div className='specAndFeat container'>
         <div className='spec'>
-          <h1 className='vehiclename'>Key Specifications of {post.eCarName}</h1>
+          <h1 className='vehiclename'>Key Specifications of {post.evName}</h1>
 
           <div className='specAndFeatTable'>
             {/* COL ONE */}

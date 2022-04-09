@@ -3,6 +3,7 @@ import './carSpecificationAll.scss'
 import TopBarPage from '../../topbarpage/Topbarpage'
 import { Link } from 'react-router-dom'
 const CarSpecificationAll = (props) => {
+  console.log(props.eCar)
   return (
     <>
       <TopBarPage />
@@ -19,16 +20,19 @@ const CarSpecificationAll = (props) => {
         {/* ------------ */}
         <div className='allCarCards'>
           {props.eCar.map((eC) => (
-            <div className='allCarItems'>
+            <div key={eC._id} className='allCarItems'>
               <div className='imgDiv'>
                 <img src={eC.imgOne} alt={eC.eCarName} />
               </div>
               <div className='carInfo'>
-                <div className='carName'>{eC.eCarName}</div>
-                <div className='carPrice'>Rs {eC.eCarPrice}*</div>
+                <div className='carName'>{eC.evName}</div>
+                <div className='carPrice'>Rs {eC.evPrice}*</div>
                 <div className='carBtns'>
                   <button className='specificationBtn'>
-                    <Link to={`/e_car/${eC._id}`}>Specification</Link>
+                    <Link to={`/ev_spec/${eC._id}`}>Specification</Link>
+                  </button>
+                  <button className='compair'>
+                    <Link to={`/compair_cars/${eC._id}`}>Compair</Link>
                   </button>
                 </div>
               </div>

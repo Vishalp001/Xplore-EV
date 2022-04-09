@@ -11,7 +11,6 @@ import Trending from '../../components/trending/Trending'
 import Find from '../../components/find/Find'
 import OurVideos from '../../components/ourVideos/OurVideos'
 import UpcomingEv from '../../components/upcomingEv/UpcomingEv'
-import { useLocation } from 'react-router-dom'
 import Footer from '../../components/footer/Footer'
 
 const Home = ({
@@ -23,12 +22,19 @@ const Home = ({
   news,
   blog,
   freeCourse,
+  upcoming,
+  upcomingBike,
+  upcomingCar,
 }) => {
   return (
     <>
       <Topbar />
       <Trending trendings={trendings} />
-      <UpcomingEv />
+      <UpcomingEv
+        upcoming={upcoming}
+        upcomingBike={upcomingBike}
+        upcomingCar={upcomingCar}
+      />
       {/* <Find /> */}
       <Quickbytes quickBites={quickBites} />
       <ElectricCar eCar={eCar} />

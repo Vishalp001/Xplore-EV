@@ -1,62 +1,88 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
+
 // Import Swiper styles
-import 'swiper/css'
-import './upcomingEv.scss'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
-import { EffectCoverflow, Pagination } from 'swiper'
-const UpcomingEv = () => {
+import { Link } from 'react-router-dom'
+
+import './upcomingEv.scss'
+
+// import required modules
+import { EffectCoverflow } from 'swiper'
+
+export default function App(props) {
+  const [getProps, setGetProps] = useState()
+
+  useEffect(() => {
+    setGetProps(props.upcoming)
+  }, [props.upcoming])
+
   return (
     <>
-      <div className='container upcoming'>
-        <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={false}
-          slidesPerView={'auto'}
-          coverflowEffect={{
-            rotate: 100,
-            stretch: 0,
-            depth: 50,
-            modifier: 0,
-            slideShadows: true,
-          }}
-          pagination={false}
-          modules={[EffectCoverflow, Pagination]}
-          className='mySwiper'
-        >
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-1.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-2.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-3.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-4.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-5.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-6.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-7.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-8.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='https://swiperjs.com/demos/images/nature-9.jpg' />
-          </SwiperSlide>
-        </Swiper>
+      <div className='upcomingHeader container'>
+        <h2>We have a list of all the upcoming Ev's.</h2>
+        <div>
+          <button
+            className='active'
+            onClick={(e) => setGetProps(props.upcoming)}
+          >
+            Upcoming Evs
+          </button>
+          <button onClick={(e) => setGetProps(props.upcomingBike)}>
+            Upcoming Bikes
+          </button>
+          <button onClick={(e) => setGetProps(props.upcomingCar)}>
+            Upcoming Cars
+          </button>
+        </div>
       </div>
+      <Swiper
+        loop={true}
+        slidesPerView={3}
+        spaceBetween={30}
+        keyboard={{
+          enabled: true,
+        }}
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={false}
+        coverflowEffect={{
+          rotate: 20,
+          stretch: 0,
+          depth: 50,
+          modifier: 10,
+          slideShadows: true,
+        }}
+        pagination={false}
+        modules={[EffectCoverflow]}
+        className='mySwiper upcoming container'
+      >
+        {getProps &&
+          getProps.map((eC) => (
+            <SwiperSlide key={eC._id}>
+              <div className='imgDiv'>
+                <img src={eC.imgOne} alt='imgOne' />
+                <div className='imgDivGradient'></div>
+              </div>
+              <div className='detailsSection'>
+                <h1 className='carName'>{eC.evName}</h1>
+                <p className='carPrice'>Rs {eC.evPrice}*</p>
+                <div className='carsBtn'>
+                  <button className='compair'>
+                    <Link to={`/ev_spec/${eC._id}`}>Specification</Link>
+                  </button>
+                  <button className='compair'>
+                    <Link to={`/compair_upcoming_${eC.evtype}/${eC._id}`}>
+                      Compair
+                    </Link>
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </>
   )
 }
-
-export default UpcomingEv

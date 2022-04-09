@@ -58,7 +58,7 @@ const Evknowledge = (props) => {
       >
         {props.freeCourse &&
           props.freeCourse.map((fC) => (
-            <SwiperSlide>
+            <SwiperSlide key={fC._id}>
               <Link to={`/freecoursesblog/${fC._id}`}>
                 <div className='cardConatiner'>
                   <div className='imgDiv'>

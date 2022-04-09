@@ -48,7 +48,7 @@ const CompairUpcomingBikes = (props) => {
           <form className='selectCar' onSubmit={handleSubmit}>
             <div className='inputOne'>
               <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-label'>Car One</InputLabel>
+                <InputLabel id='demo-simple-select-label'>Bike One</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -56,8 +56,8 @@ const CompairUpcomingBikes = (props) => {
                   label='Car One'
                   onChange={(e) => setCarNameOne(e.target.value)}
                 >
-                  {props.eCar &&
-                    props.eCar.map((c) => (
+                  {props.upcomingBike &&
+                    props.upcomingBike.map((c) => (
                       <MenuItem key={c._id} value={c._id}>
                         {c.evName}
                       </MenuItem>
@@ -67,7 +67,7 @@ const CompairUpcomingBikes = (props) => {
             </div>
             <div className='inputTwo'>
               <FormControl fullWidth>
-                <InputLabel id='demo-simple-select-label'>Car Two</InputLabel>
+                <InputLabel id='demo-simple-select-label'>Bike Two</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -75,8 +75,8 @@ const CompairUpcomingBikes = (props) => {
                   label='Car Two'
                   onChange={(e) => setCarNameTwo(e.target.value)}
                 >
-                  {props.eCar &&
-                    props.eCar.map((c) => (
+                  {props.upcomingBike &&
+                    props.upcomingBike.map((c) => (
                       <MenuItem key={c._id} value={c._id}>
                         {c.evName}
                       </MenuItem>
@@ -95,9 +95,9 @@ const CompairUpcomingBikes = (props) => {
             <img src={carOneData.imgOne} alt='' />
           </div>
           <div className='carName'>
-            <span className='nameOne'>{carOneData.eCarName}</span>
+            <span className='nameOne'>{carOneData.evName}</span>
             <span className='vs'>VS</span>
-            <span className='nameTwo'>{carTwoData.eCarName}</span>
+            <span className='nameTwo'>{carTwoData.evName}</span>
           </div>
 
           <div className='imgDiv'>
@@ -108,14 +108,14 @@ const CompairUpcomingBikes = (props) => {
         <div className='tableDiv'>
           <div className='tableHead'>
             <div className='spec'>Specification</div>
-            <div className='name'>{carOneData.eCarName}</div>
-            <div className='name'>{carTwoData.eCarName}</div>
+            <div className='name'>{carOneData.evName}</div>
+            <div className='name'>{carTwoData.evName}</div>
           </div>
           <table>
             <tr>
               <td>Car Price</td>
-              <td>{carOneData.eCarPrice}</td>
-              <td>{carTwoData.eCarPrice}</td>
+              <td>{carOneData.evPrice}</td>
+              <td>{carTwoData.evPrice}</td>
             </tr>
             <tr>
               <td>Type</td>

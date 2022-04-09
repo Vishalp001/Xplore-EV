@@ -45,15 +45,17 @@ import EvPoliciesAdminPost from './admin/evpolicies/EvPoliciesAdminPost/EvPolici
 
 import WriteEBikePost from './admin/electricBike/writeEBikePost/WriteEBikePost'
 import EBikeAdminPost from './admin/electricBike/eBikeAdminPost/EBikeAdminPost'
-import CarSpecificationBlog from './singlepage/carSpecification/CarSpecificationblog.jsx'
 import CarSpecificationAll from './singlepage/carSpecification/carSpecificationAll/CarSpecificationAll.jsx'
-import BikeSpecificationBlog from './singlepage/bikeSpecification/BikeSpecificationblog'
+// import CarSpecificationBlog from './singlepage/carSpecification/CarSpecificationblog.jsx'
+// import BikeSpecificationBlog from './singlepage/bikeSpecification/BikeSpecificationblog'
+import EvSpecification from './singlepage/evSpecification/EvSpecification'
 import BikeSpecificationAll from './singlepage/bikeSpecification/bikeSpecificationAll/BikeSpecificationAll.jsx'
 import Blog from './singlepage/blogs/blog/Blog'
 import CompairCars from './singlepage/compair/CompairCars'
 import CompairBikes from './singlepage/compair/CompairBikes'
 import CompairUpcomingCars from './singlepage/compair/CompairUpcomingCars'
 import CompairUpcomingBikes from './singlepage/compair/CompairUpcomingBikes'
+import ChargingStations from './singlepage/chargingStations/ChargingStations'
 
 function App() {
   const { user } = useContext(Context)
@@ -69,6 +71,7 @@ function App() {
   const [upcomingBike, setupcomingBike] = useState([])
   const [upcomingCar, setupcomingCar] = useState([])
   const [policies, setPolicies] = useState([])
+  const [station, setStation] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -85,7 +88,6 @@ function App() {
     }
     const fetchVideoPost = async () => {
       setLoading(true)
-
       const res = await axios.get('/video')
       setVideo(res.data)
     }
@@ -120,6 +122,10 @@ function App() {
       const res = await axios.get('/evpolicies')
       setPolicies(res.data)
     }
+    // const fetchStations = async () => {
+    //   const res = await axios.get('/charging')
+    //   setStation(res.data)
+    // }
 
     fetchTrendingPost()
     fetchQuickBitesPost()
@@ -129,6 +135,7 @@ function App() {
     fetchFreeCourse()
     fetchECar()
     fetchPolicies()
+    // fetchStations()
     setLoading(false)
   }, [])
 
@@ -153,6 +160,9 @@ function App() {
                   news={news}
                   blog={blog}
                   freeCourse={freeCourse}
+                  upcoming={upcoming}
+                  upcomingBike={upcomingBike}
+                  upcomingCar={upcomingCar}
                 />
               )
             }
@@ -202,11 +212,12 @@ function App() {
             path='/all_cars'
             element={<CarSpecificationAll eCar={eCar} />}
           />
-          <Route
+          {/* <Route
             exact
             path='/e_car/:id'
             element={<CarSpecificationBlog eCar={eCar} />}
-          />
+          /> */}
+          <Route exact path='/ev_spec/:id' element={<EvSpecification />} />
           <Route
             exact
             path='/compair_cars/:id'
@@ -219,12 +230,12 @@ function App() {
           />
           <Route
             exact
-            path='/compair_upcoming_cars/:id'
+            path='/compair_upcoming_car/:id'
             element={<CompairUpcomingCars upcomingCar={upcomingCar} />}
           />
           <Route
             exact
-            path='/compair_upcoming_bikes/:id'
+            path='/compair_upcoming_bike/:id'
             element={<CompairUpcomingBikes upcomingBike={upcomingBike} />}
           />
           {/* --------------BIKES-------------- */}
@@ -233,14 +244,20 @@ function App() {
             path='/all_bikes'
             element={<BikeSpecificationAll eBike={eBike} />}
           />
-          <Route
+          {/* <Route
             exact
             path='/e_bike/:id'
             element={<BikeSpecificationBlog eBike={eBike} />}
-          />
+          /> */}
           {/* --------------SINGLE PAGES-------- */}
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/login' element={<Login />} />
+          <Route
+            exact
+            path='/charging_stations'
+            element={<ChargingStations station={station} />}
+          />
+
           {/* -----------------------------ADMIN ROUTES------------- */}
 
           <Route
