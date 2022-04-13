@@ -39,9 +39,9 @@ const TrendingAdmin = ({ trendings }) => {
           </thead>
           <tbody>
             {trendings &&
-              trendings.map((t) => (
+              trendings.map((t, index) => (
                 <tr key={t._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{index + 1}</th>
                   <td>{t.title}</td>
                   <td
                     dangerouslySetInnerHTML={{

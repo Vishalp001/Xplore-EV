@@ -7,11 +7,12 @@ import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Quickbytes = ({ quickBites }) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
+
   return (
     <>
       <div id='quickBites' className='container'>
@@ -76,7 +77,11 @@ const Quickbytes = ({ quickBites }) => {
                   ></div>
                 </div>
                 <div className='iconAndCat'>
-                  <div className='cat'>{q.categories}</div>
+                  <div className='cat'>
+                    <Link to={`/quickBites/?cat=${q.categories}`}>
+                      {q.categories}
+                    </Link>
+                  </div>
                   <div className='shareIcons'>
                     <p>
                       <GrTwitter />

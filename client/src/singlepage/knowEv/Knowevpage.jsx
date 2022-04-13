@@ -24,11 +24,11 @@ const Knowevpage = ({ blog }) => {
               {blog &&
                 blog.map((q) => (
                   <div className='gridItem'>
-                    <Link to={`/blog/${q._id}?blog`}>
-                      <div className='imgDiv'>
-                        <img src={q.photo} alt={q.title} />
-                      </div>
-                      <div className='cardContain'>
+                    <div className='imgDiv'>
+                      <img src={q.photo} alt={q.title} />
+                    </div>
+                    <div className='cardContain'>
+                      <Link to={`/blog/${q._id}?blog`}>
                         <h1 className='title'>{q.title}</h1>
                         <p
                           className='desc'
@@ -36,22 +36,24 @@ const Knowevpage = ({ blog }) => {
                             __html: `${q.desc.substring(0, 300)}`,
                           }}
                         ></p>
+                      </Link>
+                    </div>
+                    <div className='iconAndCats'>
+                      <div className='cat'>
+                        <Link to={`?cat=${q.categories}`}>{q.categories}</Link>
                       </div>
-                      <div className='iconAndCats'>
-                        <div className='cat'> {q.categories}</div>
-                        <div className='shareIcons'>
-                          <p>
-                            <GrTwitter />
-                          </p>
-                          <p>
-                            <FaLinkedin />
-                          </p>
-                          <p>
-                            <GrFacebook />
-                          </p>
-                        </div>
+                      <div className='shareIcons'>
+                        <p>
+                          <GrTwitter />
+                        </p>
+                        <p>
+                          <FaLinkedin />
+                        </p>
+                        <p>
+                          <GrFacebook />
+                        </p>
                       </div>
-                    </Link>
+                    </div>
                   </div>
                 ))}
             </div>

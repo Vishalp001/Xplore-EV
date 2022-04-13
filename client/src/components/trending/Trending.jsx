@@ -43,7 +43,7 @@ const Trending = ({ trendings }) => {
                   <div className='blogContainer'>
                     <div className='blogDetails'>
                       <h6 className='cats'>
-                        <Link to={`/trending?cat=${t.categories}`}>
+                        <Link to={`/trendingnews/?cat=${t.categories}`}>
                           {t.categories}
                         </Link>
                       </h6>

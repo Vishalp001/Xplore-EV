@@ -11,15 +11,19 @@ const ChargingStations = () => {
   const [station, setStation] = useState([])
   const [citys, setCitys] = useState([])
   const [location, setLocation] = useState([])
-  const [color, setColor] = useState([
-    'radial-gradient(#60efbc, #58d5c9)',
-    'radial-gradient(#f588d8, #c0a3e5)',
-    'radial-gradient(#76b2fe, #b69efe)',
-    'radial-gradient(#fbc1cc, #fa99b2)',
-    'radial-gradient(#1fe4f5, #3fbafe)',
-  ])
 
-  console.log(color)
+  // const color = [
+  //   'radial-gradient(#60efbc, #58d5c9)',
+  //   'radial-gradient(#f588d8, #c0a3e5)',
+  //   'radial-gradient(#76b2fe, #b69efe)',
+  //   'radial-gradient(#fbc1cc, #fa99b2)',
+  //   'radial-gradient(#1fe4f5, #3fbafe)',
+  // ]
+  // var colorLength = color.length
+  // for (var i = 0; i < colorLength; i++) {
+  //   console.log(color[i])
+  //   //Do something
+  // }
 
   useEffect(() => {
     const fetchStations = async () => {
@@ -73,11 +77,13 @@ const ChargingStations = () => {
           <div className=' cSCards'>
             {location.map((s) => (
               <div className='cSCard'>
-                <div className='name'>
-                  <MdOutlineBolt className='boltIcon' />
-                  <p>{s.name}</p>
+                <div style={{ padding: '12px' }}>
+                  <div className='name'>
+                    <MdOutlineBolt className='boltIcon' />
+                    <p>{s.name}</p>
+                  </div>
+                  <p className='adderss'>{s.adderss}</p>
                 </div>
-                <p className='adderss'>{s.adderss}</p>
                 <div className='rAndD'>
                   <Rating
                     className='ratings'

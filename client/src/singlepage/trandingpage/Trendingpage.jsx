@@ -22,11 +22,11 @@ const Trendingpage = (props) => {
               {props.trendings &&
                 props.trendings.map((t) => (
                   <div className='gridItem'>
-                    <Link to={`/blog/${t._id}?trending`}>
-                      <div className='imgDiv'>
-                        <img src={t.photo} alt={t.title} />
-                      </div>
-                      <div className='cardContain'>
+                    <div className='imgDiv'>
+                      <img src={t.photo} alt={t.title} />
+                    </div>
+                    <div className='cardContain'>
+                      <Link to={`/blog/${t._id}?trending`}>
                         <h1 className='title'>{t.title}</h1>
                         <p
                           className='desc'
@@ -34,8 +34,11 @@ const Trendingpage = (props) => {
                             __html: `${t.desc.substring(0, 350)}...`,
                           }}
                         ></p>
-                      </div>
-                    </Link>
+                      </Link>
+                      <p className='cat'>
+                        <Link to={`?cat=${t.categories}`}>{t.categories}</Link>
+                      </p>
+                    </div>
                   </div>
                 ))}
             </div>

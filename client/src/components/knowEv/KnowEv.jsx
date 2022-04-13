@@ -78,9 +78,11 @@ const KnowEv = (props) => {
                         {new Date(b.createdAt).toDateString()}
                       </div>
                       <div className='cats'>
-                        <p>
-                          <span></span> {b.categories}
-                        </p>
+                        <Link to={`/knowevpage/?cat=${b.categories}`}>
+                          <p>
+                            <span></span> {b.categories}
+                          </p>
+                        </Link>
                       </div>
                     </div>
                   </Link>

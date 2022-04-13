@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './quickbitepage.jsx.scss'
 import Topbarpage from '../topbarpage/Topbarpage'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
+import { Link, useLocation } from 'react-router-dom'
+import axios from 'axios'
 const Quickbites = ({ quickBites }) => {
+  const { search } = useLocation()
+  const [cat, setCat] = useState([])
+
+  // useEffect(() => {
+  //   const fetchQuickBitesPost = async () => {
+  //     const res = await axios.get('/quickbyte' + search)
+  //     setCat(res.data)
+  //     console.log(res.data)
+  //   }
+  //   fetchQuickBitesPost()
+  // }, [search])
+
   return (
     <>
       <Topbarpage />
@@ -36,7 +50,9 @@ const Quickbites = ({ quickBites }) => {
                       ></p>
                     </div>
                     <div className='iconAndCats'>
-                      <div className='cat'> {q.categories}</div>
+                      <div className='cat'>
+                        <Link to={`/?cat=${q.categories}`}>{q.categories}</Link>
+                      </div>
                       <div className='shareIcons'>
                         <p>
                           <GrTwitter />

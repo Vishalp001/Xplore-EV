@@ -15,6 +15,16 @@ import { EffectCoverflow } from 'swiper'
 export default function App(props) {
   const [getProps, setGetProps] = useState()
 
+  // let header = document.getElementById('myDIV')
+  // let btns = header.getElementsByClassName('btn')
+  // for (let i = 0; i < btns.length; i++) {
+  //   btns[i].addEventListener('onClick', function () {
+  //     let current = document.getElementsByClassName('active')
+  //     current[0].className = current[0].className.replace(' active', '')
+  //     this.className += ' active'
+  //   })
+  // }
+
   useEffect(() => {
     setGetProps(props.upcoming)
   }, [props.upcoming])
@@ -23,17 +33,20 @@ export default function App(props) {
     <>
       <div className='upcomingHeader container'>
         <h2>We have a list of all the upcoming Ev's.</h2>
-        <div>
-          <button
-            className='active'
-            onClick={(e) => setGetProps(props.upcoming)}
-          >
+        <div id='myDIV'>
+          <button className='btn' onClick={(e) => setGetProps(props.upcoming)}>
             Upcoming Evs
           </button>
-          <button onClick={(e) => setGetProps(props.upcomingBike)}>
+          <button
+            className='btn'
+            onClick={(e) => setGetProps(props.upcomingBike)}
+          >
             Upcoming Bikes
           </button>
-          <button onClick={(e) => setGetProps(props.upcomingCar)}>
+          <button
+            className='btn active'
+            onClick={(e) => setGetProps(props.upcomingCar)}
+          >
             Upcoming Cars
           </button>
         </div>

@@ -38,7 +38,11 @@ const Latestnews = (props) => {
                         ></p>
                       </div>
                       <div className='iconAndCats'>
-                        <div className='cat'> {n.categories}</div>
+                        <div className='cat'>
+                          <Link to={`?cat=${n.categories}`}>
+                            {n.categories}
+                          </Link>
+                        </div>
                         <div className='shareIcons'>
                           <p>
                             <GrTwitter />

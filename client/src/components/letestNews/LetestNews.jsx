@@ -60,7 +60,11 @@ const LetestNews = (props) => {
                   </div>
                 </div>
                 <div className='colTwo'>
-                  <p className='cats'>{n.categories}</p>
+                  <p className='cats'>
+                    <Link to={`/latestnews/?cat=${n.categories}`}>
+                      {n.categories}
+                    </Link>
+                  </p>
                   <h1 className='title'>{n.title}</h1>
                   <p
                     className='desc'
