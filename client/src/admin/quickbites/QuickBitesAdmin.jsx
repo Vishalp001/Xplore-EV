@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './quickBitesAdmin.scss'
+import axios from 'axios'
+import { Context } from '../../context/Context'
+
 const QuickBitesAdmin = ({ quickBites }) => {
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/quickbyte/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The quickbyte Post')
+    }
+  }
+
   return (
     <>
       <div className='CreatePost'>
@@ -39,9 +54,9 @@ const QuickBitesAdmin = ({ quickBites }) => {
           </thead>
           <tbody>
             {quickBites &&
-              quickBites.map((p) => (
+              quickBites.map((p, index) => (
                 <tr key={p._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{index + 1}</th>
                   <td>{p.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
@@ -53,12 +68,17 @@ const QuickBitesAdmin = ({ quickBites }) => {
                   <td>
                     <Link to={`/?cat=${p.categories}`}>{p.categories}</Link>
                   </td>
-                  <td>
+                  <td className='viewEdit'>
                     <Link to={`/quick_bites_admin_post/${p._id}`}>
                       View/Edit
                     </Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(p._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

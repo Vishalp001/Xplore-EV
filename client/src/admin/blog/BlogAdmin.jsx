@@ -1,7 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 import './blogAdmin.scss'
 const BlogAdmin = ({ blog }) => {
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/blog/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The freecourse Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -39,9 +52,9 @@ const BlogAdmin = ({ blog }) => {
           </thead>
           <tbody>
             {blog &&
-              blog.map((b) => (
+              blog.map((b, i) => (
                 <tr key={b._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{i + 1}</th>
                   <td>{b.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
@@ -53,10 +66,15 @@ const BlogAdmin = ({ blog }) => {
                   <td>
                     <Link to={`/?cat=${b.categories}`}>{b.categories}</Link>
                   </td>
-                  <td>
+                  <td className='viewEdit'>
                     <Link to={`/blog_admin_post/${b._id}`}>View/Edit</Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(b._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

@@ -93,11 +93,13 @@ const Blog = (props) => {
               </div>
             </div>
           </div>
+          <hr />
 
           {/* --------Related Articles------ */}
 
           {search === '?trending' && (
             <div className='container'>
+              <h1>Related Trending Articles</h1>
               <Swiper
                 loop={true}
                 slidesPerView={3}
@@ -136,7 +138,7 @@ const Blog = (props) => {
                   props.trendings.map((b) => (
                     <SwiperSlide key={b._id}>
                       <div className='knowEvCardContainer'>
-                        <Link to={`/blog/${b._id}?blog`}>
+                        <Link to={`/blog/${b._id}?trending`}>
                           <div className='imgDiv'>
                             <img src={b.photo} alt={b.title} />
                           </div>
@@ -179,6 +181,8 @@ const Blog = (props) => {
           )}
           {search === '?news' && (
             <div className='container'>
+              <h1>Related News Articles</h1>
+
               <Swiper
                 loop={true}
                 slidesPerView={3}
@@ -217,7 +221,7 @@ const Blog = (props) => {
                   props.news.map((b) => (
                     <SwiperSlide key={b._id}>
                       <div className='knowEvCardContainer'>
-                        <Link to={`/blog/${b._id}?blog`}>
+                        <Link to={`/blog/${b._id}?news`}>
                           <div className='imgDiv'>
                             <img src={b.photo} alt={b.title} />
                           </div>
@@ -260,6 +264,8 @@ const Blog = (props) => {
           )}
           {search === '?blog' && (
             <div className='container'>
+              <h1>Related Blogs Articles</h1>
+
               <Swiper
                 loop={true}
                 slidesPerView={3}

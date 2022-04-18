@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './trendingAdmin.scss'
+import axios from 'axios'
+import { Context } from '../../context/Context'
+
 const TrendingAdmin = ({ trendings }) => {
+  const { user } = useContext(Context)
+
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/trending/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The Trending Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -45,7 +60,7 @@ const TrendingAdmin = ({ trendings }) => {
                   <td>{t.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
-                      __html: `${t.desc.substring(0, 150)}...`,
+                      __html: `${t.desc.substring(0, 100)}...`,
                     }}
                   ></td>
                   <td>{new Date(t.createdAt).toDateString()}</td>
@@ -53,10 +68,15 @@ const TrendingAdmin = ({ trendings }) => {
                   <td>
                     <Link to={`/?cat=${t.categories}`}>{t.categories}</Link>
                   </td>
-                  <td>
-                    <Link to={`/trending_admin_post/${t._id}`}>View/Edit</Link>
+                  <td className='viewEdit'>
+                    <Link to={`/trending_admin_post/${t._id}`}>View / Edit</Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(t._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

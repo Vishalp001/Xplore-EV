@@ -1,7 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 import './newsAdmin.scss'
 const NewsAdmin = ({ news }) => {
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/news/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The News Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -39,9 +52,9 @@ const NewsAdmin = ({ news }) => {
           </thead>
           <tbody>
             {news &&
-              news.map((n) => (
+              news.map((n, i) => (
                 <tr key={n._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{i + 1}</th>
                   <td>{n.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
@@ -53,10 +66,15 @@ const NewsAdmin = ({ news }) => {
                   <td>
                     <Link to={`/?cat=${n.categories}`}>{n.categories}</Link>
                   </td>
-                  <td>
+                  <td className='viewEdit'>
                     <Link to={`/news_admin_post/${n._id}`}>View/Edit</Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(n._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

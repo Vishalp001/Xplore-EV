@@ -1,7 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 import './freeCourseAdmin.scss'
 const FreeCourseAdmin = ({ freeCourse }) => {
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/freecourse/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The freecourse Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -39,9 +52,9 @@ const FreeCourseAdmin = ({ freeCourse }) => {
           </thead>
           <tbody>
             {freeCourse &&
-              freeCourse.map((c) => (
+              freeCourse.map((c, i) => (
                 <tr key={c._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{i + 1}</th>
                   <td>{c.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
@@ -51,12 +64,17 @@ const FreeCourseAdmin = ({ freeCourse }) => {
                   <td>{new Date(c.createdAt).toDateString()}</td>
 
                   <td>{c.insName}</td>
-                  <td>
+                  <td className='viewEdit'>
                     <Link to={`/free_course_admin_post/${c._id}`}>
                       View/Edit
                     </Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(c._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

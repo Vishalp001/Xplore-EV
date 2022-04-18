@@ -1,7 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 import './evpoliciesAdmin.scss'
 const Evpolicies = ({ policies }) => {
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/evpolicies/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The freecourse Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -39,9 +52,9 @@ const Evpolicies = ({ policies }) => {
           </thead>
           <tbody>
             {policies &&
-              policies.map((t) => (
+              policies.map((t, i) => (
                 <tr key={t._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{i + 1}</th>
                   <td>{t.title}</td>
                   <td
                     dangerouslySetInnerHTML={{
@@ -53,12 +66,17 @@ const Evpolicies = ({ policies }) => {
                   <td>
                     <Link to={`/?cat=${t.categories}`}>{t.categories}</Link>
                   </td>
-                  <td>
+                  <td className='viewEdit'>
                     <Link to={`/evpolicies_admin_post/${t._id}`}>
                       View/Edit
                     </Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(t._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

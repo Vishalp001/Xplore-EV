@@ -1,7 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 import './videoAdmin.scss'
 const VideoAdmin = ({ video }) => {
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/video/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -35,19 +48,24 @@ const VideoAdmin = ({ video }) => {
           </thead>
           <tbody>
             {video &&
-              video.map((v) => (
+              video.map((v, i) => (
                 <tr key={v._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{i + 1}</th>
                   <td>{v.title}</td>
 
                   <td className='date'>
                     {new Date(v.createdAt).toDateString()}
                   </td>
 
-                  <td className='edit'>
+                  <td className='viewEdit'>
                     <Link to={`/video_admin_post/${v._id}`}>View/Edit</Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(v._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

@@ -32,4 +32,16 @@ font-family: 'Quicksand', sans-serif; */
     //   width: 2%;
     // }
   }
+  .viewEdit {
+    cursor: pointer;
+    color: #58ab00;
+    font-weight: bold;
+    font-size: 17px;
+  }
+  .deleteBtn {
+    font-size: 17px;
+    cursor: pointer;
+    color: rgb(233, 39, 39);
+    font-weight: bold;
+  }
 }

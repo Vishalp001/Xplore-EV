@@ -1,8 +1,20 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context'
 import './eBikeAdmin.scss'
 const ECarAdmin = ({ eBike }) => {
-  console.log(eBike)
+  const { user } = useContext(Context)
+  const handleDelete = async (e) => {
+    try {
+      await axios.delete(`/ev/${e}`, {
+        data: { username: user.username },
+      })
+      window.location.reload()
+    } catch (error) {
+      console.log('Cant Delete The Post')
+    }
+  }
   return (
     <>
       <div className='CreatePost'>
@@ -40,18 +52,23 @@ const ECarAdmin = ({ eBike }) => {
           </thead>
           <tbody>
             {eBike &&
-              eBike.map((b) => (
+              eBike.map((b, i) => (
                 <tr key={b._id}>
-                  <th scope='row'>1</th>
+                  <th scope='row'>{i + 1}</th>
                   <td>{b.evName}</td>
                   <td>{b.brand}</td>
                   <td>{new Date(b.createdAt).toDateString()}</td>
 
                   <td>{b.model}</td>
-                  <td>
+                  <td className='viewEdit'>
                     <Link to={`/ev_admin_post/${b._id}`}>View/Edit</Link>
                   </td>
-                  <td>Delete</td>
+                  <td
+                    className='deleteBtn'
+                    onClick={(e) => handleDelete(b._id)}
+                  >
+                    Delete
+                  </td>
                 </tr>
               ))}
           </tbody>

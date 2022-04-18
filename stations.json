@@ -1,0 +1,354 @@
+[
+  {
+    "id": 1,
+    "state": "Maharashtra",
+    "citys": [
+      {
+        "cityName": "Ahmednagar",
+        "location": [
+          {
+            "name": "Lilium Park Ahmednagar Charging station",
+            "adderss": "State Highway 44, Opp. Lemon Tree Hotel, Ahmednagar, Maharashtra",
+            "direction": "https://www.google.com/maps?q=19.2644019,74.8279426",
+            "ratings": "3.5"
+          },
+          {
+            "name": "TML Max Motors Ahmednagar Charging station",
+            "adderss": "No E2/2 Nagar, Manmad Rd, Gajanan Colony, MIDC, Ahmednagar, Maharashtra",
+            "direction": "https://www.google.com/maps?q=19.157288,74.7037569",
+            "ratings": "3"
+          },
+          {
+            "name": "Lilium Park, SH 44",
+            "adderss": "Hotel Lilium Park State Highway 44, Opp. Lemon Tree Hotel, Ahmednagar, Maharashtra 414106",
+            "direction": "https://www.google.com/maps?q=19.2644019,74.8279426",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Smile Stone Motels, Kamargaon",
+            "adderss": "76/B, Nagar-Pune Road, Kamargaon, Ahmednagar,Maharashtra-411 005",
+            "direction": "https://www.google.com/maps?q=18.9852363,74.5760075",
+            "ratings": "3"
+          }
+        ]
+      },
+      {
+        "cityName": "Amravati, MH",
+        "location": [
+          {
+            "name": "Jadhav Solar & Automotives, Badnera",
+            "adderss": "Jadhav Solar & Automotives Pvt. Ltd., Jadhav E-Vehicles, Ground floor, Rangoli Pearl Hotel, Nawathe Square, Badnera Road, Amravati, MH- 444607",
+            "direction": "https://maps.google.com/?q=20.909443,77.7522447",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Aurangabad",
+        "location": [
+          {
+            "name": "Satish Motors",
+            "adderss": "Show-Room No. 1 & 2, SMS Arcade, Seven Hills, Gajanan Maharaj Mandir Road, AURANGABAD, Maharashtra - 431005",
+            "direction": "",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Dhoot Motors, Adalat Road",
+            "adderss": "ABC Complex, Adalat Road, Aurangabad, Maharashtra 431005Second location for survey : Adalat Road, Next to High Court, Aurangabad, Maharashtra 431005",
+            "direction": "https://maps.google.com/?q=19.872922,75.318613",
+            "ratings": "3"
+          },
+          {
+            "name": "Satish Motors, Wanjarwadi",
+            "adderss": "Plot No72/1 Saharanpur, Wanjarwadi Aurangabad 431002",
+            "direction": "https://www.google.com/maps?q=19.911983,75.232932",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Click Hotel, Cidco",
+            "adderss": "Phulambri - Sillod Rd, Hudco, Yadav Nagar, N 11, Cidco, Aurangabad, Maharashtra 431003",
+            "direction": "google.com/maps?q=19.9116134,75.348291",
+            "ratings": "3"
+          }
+        ]
+      },
+      {
+        "cityName": "Buldhana",
+        "location": [
+          {
+            "name": "Hotel Parivar, Mehkar Buldhana",
+            "adderss": "SH-207, Mehkar Malegaon Karanja Road, Mehkar, Buldhana Maharashtra - 443301",
+            "direction": "",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Butibori",
+        "location": [
+          {
+            "name": "IOCL - SUJIT AUTOMOBILES, Bangalore-Kanyakumari Road",
+            "adderss": "Bangalore - Salem - Madurai - Kanyakumari Road, Butibori, Maharashtra 441108",
+            "direction": "https://maps.google.com/?q=20.92258656,78.99986387",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Chakan",
+        "location": [
+          {
+            "name": "Sridha Motors, Chakan",
+            "adderss": "GAT NO. 143/3, PUNE-NASHIK HIGHWAY WAKI (KH), Maharashtra 410501",
+            "direction": "https://maps.google.com/?q=18.77893,73.87099",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Chowk",
+        "location": [
+          {
+            "name": "Chowk Highway Service Centre, Old Mum-Pune highway",
+            "adderss": "Nadhal, NH 48, Chouk,, Old Mumbai - Pune Hwy, Maharashtra 410206",
+            "direction": "https://maps.google.com/?q=18.90173,73.23436",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Karad",
+        "location": [
+          {
+            "name": "NH 4, Pune-Bangalore Road, Near Kolhapur Naka, Shaniwar Peth, Karad, Maharashtra",
+            "adderss": "Nadhal, NH 48, Chouk,, Old Mumbai - Pune Hwy, Maharashtra 410206",
+            "direction": "https://maps.google.com/?q=17.2737005,74.1804228",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Sangam Hotel, Pune- Bangalore Road",
+            "adderss": "NH 4, Pune-Bangalore Road, Near Kolhapur Naka, Karad, Maharashtra 415110",
+            "direction": "https://maps.google.com/?q=17.2737243,74.1802756",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Khalumbre",
+        "location": [
+          {
+            "name": "IOCL - Jopadevi Petroleum, Talegaon-Chakan Rd",
+            "adderss": "Talegaon-Chakan Rd, Khalumbre, Maharashtra 410501",
+            "direction": "",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Khed",
+        "location": [
+          {
+            "name": "Hotel Shivaray shivpur Baug shri Ramnagar Charging Station",
+            "adderss": "Pune - Satara Rd, Highway, Pune, Maharashtra",
+            "direction": "https://maps.google.com/?q=18.3557229,73.8525776",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Kolhapur",
+        "location": [
+          {
+            "name": "Unique Automobiles, MIDC Shiroli",
+            "adderss": "S.No 592,H.No 4481 1st Stop MIDC Shiroli(P) Tal-Hatkanangale, Dist-Kolhapur-416122",
+            "direction": "https://maps.google.com/?q=16.753021,74.279095",
+            "ratings": "3.5"
+          },
+          {
+            "name": "McDonalds",
+            "adderss": "Shop No 1C, Hissa No 1, Plot No 1/K1, next to Klin Fuel Technology, Sarnobatwadi Kolhapur Maharashtra 416004",
+            "direction": "https://www.google.com/maps?q=16.6869187,74.2703805",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Latur",
+        "location": [
+          {
+            "name": "AB Infra Limited, old MIDC",
+            "adderss": "Plot No- F-54, old MIDC, Latur- 413531",
+            "direction": "https://maps.google.com/?q=18.4159831,76.5356299",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Lonavala",
+        "location": [
+          {
+            "name": "Hotel Casa Fedora, Lonavala",
+            "adderss": "Gate No 262/1 Beside Ashoka stambh, Kusgaon Lonavala Maharashtra",
+            "direction": "https://maps.google.com/?q=18.738021,73.429905",
+            "ratings": "3.5"
+          },
+          {
+            "name": "HPCL Autocare Sajgaon",
+            "adderss": "Dahivati Tarf Boreti, Maharashtra 410203",
+            "direction": "https://www.google.com/maps?q=18.79320299,73.29699392",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Lonavala Wax museum",
+            "adderss": "69/1 near Lonavla College, opp. neeta volvo, Valvan, Lonavla, Maharashtra 410403",
+            "direction": "https://www.google.com/maps?q=18.76462773,73.42930725",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Mahabaleshwar",
+        "location": [
+          {
+            "name": "Hotel Dreamland, ST Main Market Mahabaleshwar",
+            "adderss": "BUS STAND, MAIN MARKET, behind S.T, Mahabaleshwar, Maharashtra 412806",
+            "direction": "https://maps.google.com/?q=17.92564438,73.65552014",
+            "ratings": "3.5"
+          },
+          {
+            "name": "The Grand Legacy, Panchgani-Mahabaleshwar Road",
+            "adderss": "Panchgani-Mahabaleshwar Road, Post. Met-Gutad, behind Saj Resort by Club Mahindra, Mahabaleshwar, Maharashtra 412806",
+            "direction": "https://www.google.com/maps?q=17.92655754,73.69586565",
+            "ratings": "3.5"
+          },
+          {
+            "name": "The Grand Legacy, Panchgani-Mahabaleshwar Road",
+            "adderss": "Panchgani-Mahabaleshwar Road, Post. Met-Gutad, behind Saj Resort by Club Mahindra, Mahabaleshwar, Maharashtra 412806",
+            "direction": "https://maps.google.com/?q=17.92655754,73.69586565",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Hotel Dreamland Mahableshwar Charger",
+            "adderss": "Hotel dream land, behind ST bus stand, Mahableshwar, Maharashtra",
+            "direction": "https://www.google.com/maps?q=17.9258532005629,73.6555440323019",
+            "ratings": "3.5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "state": "Bihar",
+    "citys": [
+      {
+        "cityName": "Bhagalpur",
+        "location": [
+          {
+            "name": "Shankar Motors, Prem Nagar",
+            "adderss": "Ground Floor, Sabour Rd, near Engineering College, Prem Nagar, Bhagalpur, Bihar 812002",
+            "direction": "https://maps.google.com/?q=25.2522094,87.0450289",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Patna",
+        "location": [
+          {
+            "name": "Ananya Auto Agency",
+            "adderss": "Danapur Khagual Road, Near Gayatri Hospital and SSB Camp, Patna, Bihar - 801503",
+            "direction": "https://maps.google.com/?q=25.61264,85.046591",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Shankar Motors, Deedarganj",
+            "adderss": "NH30 - Gaushala, Deedarganj Near Police Check Post, Patna, Bihar 800008",
+            "direction": "https://maps.google.com/?q=25.571198,85.258655",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Shankar Motors, Patliputra Industrial Area",
+            "adderss": "Shankar Motors Patna, C1, behind P & M Mall, Patliputra Industrial Area, Patliputra Colony, Patna, Bihar 800013",
+            "direction": "https://www.google.com/maps?q=25.634199,85105514",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Gaya",
+        "location": [
+          {
+            "name": "Sara Automobile Surajmandal Charging station",
+            "adderss": "Grand Trunk Rd, Nanhu Bigha, Bihar 824220",
+            "direction": "https://www.google.com/maps?q=24.5251309,84.93219058",
+            "ratings": "3.5"
+          },
+          {
+            "name": "TML Sara Automobile dobhi charging station",
+            "adderss": "Sara Automobile Pvt Ltd Eicher agency, , opp punjab national bank, bihar 824201",
+            "direction": "https://www.google.com/maps?q=24.5250847233714,84.9321118724815",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Sara Automobile, Dobhi",
+            "adderss": "Sara Automobile Pvt Ltd, Eicher agency,NH-2 Opp: Punjab National Bank, Suramandal near check post, Dobhi, Gaya PIN 824201",
+            "direction": "https://www.google.com/maps?q=24.525355,84.932182",
+            "ratings": "3.5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "state": "Assam",
+    "citys": [
+      {
+        "cityName": "Guwahati",
+        "location": [
+          {
+            "name": "Utkarsh Mototech, Assam Trunk Rd",
+            "adderss": "Kamakhya Gate, Swastik Ayodhya Complex, Assam Trunk Rd, Guwahati, Assam 781009",
+            "direction": "https://maps.google.com/?q=26.164406,91.715516",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Sarawgi Motors, Saukuchi",
+            "adderss": "Sarusajai Stadium Garalia NH 37, Basistha, Saukuchi, near National Games Stadium, Assam 781040",
+            "direction": "https://maps.google.com/?q=26.111877,91.759799",
+            "ratings": "3.5"
+          },
+          {
+            "name": "Ather Space, Guwahati",
+            "adderss": "2nd Floor, JKON building, opp. Sonaram School, Bharalumukh",
+            "direction": "https://www.google.com/maps?q=26.172606,91.7293442",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Jorhat",
+        "location": [
+          {
+            "name": "Pragati Trading, NH 37",
+            "adderss": "NH37, Jorhat, Assam 785006",
+            "direction": "https://maps.google.com/?q=26.7470487,94.1680718",
+            "ratings": "3.5"
+          }
+        ]
+      },
+      {
+        "cityName": "Nagaon",
+        "location": [
+          {
+            "name": "Ashutosh Motors, near NHPC Godown",
+            "adderss": "Biroh Bebejia Sensowa, near NHPC Godown, Nagaon, Assam 782002",
+            "direction": "https://maps.google.com/?q=26.3123315,92.6401864",
+            "ratings": "3.5"
+          }
+        ]
+      }
+    ]
+  }
+]
