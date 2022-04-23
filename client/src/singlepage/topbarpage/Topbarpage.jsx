@@ -37,9 +37,6 @@ const Topbarpage = () => {
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse className='midDiv' id='responsive-navbar-nav'>
               <Nav>
-                <Nav.Link as={Link} href='#features' to='/'>
-                  Home
-                </Nav.Link>
                 <Nav.Link as={Link} to='/quickBites'>
                   Quick Bites
                 </Nav.Link>
@@ -59,16 +56,16 @@ const Topbarpage = () => {
                   <NavDropdown.Item as={Link} to='/trendingnews'>
                     Trending News
                   </NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.1'>Videos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to='/videos'>Videos</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title='Knowledge Hub' id='basic-nav-dropdown'>
-                  <NavDropdown.Item href='#action/3.1'>
+                  <NavDropdown.Item as={Link} to='/freecourses'>
                     Free Courses
                   </NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.1'>
+                  <NavDropdown.Item as={Link} to='/knowevpage'>
                     Know EV
                   </NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.1'>
+                  <NavDropdown.Item as={Link} to='/gov_ev_policies'>
                     Government EV Policies
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -76,8 +73,8 @@ const Topbarpage = () => {
             </Navbar.Collapse>
             <NavbarCollapse className='searchBar lastDiv'>
               <Nav>
-                <Nav.Link href='#deets'>
-                  <FaSearch className='searchIcon' />
+                <Nav.Link as={Link} to='/charging_stations'>
+                  <FaSearch className='searchIcon' /> Find Charging Stations
                 </Nav.Link>
               </Nav>
             </NavbarCollapse>

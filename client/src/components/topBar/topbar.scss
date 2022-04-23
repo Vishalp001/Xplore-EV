@@ -71,16 +71,19 @@
   width: 20%;
   // border: 1px solid black;
 }
+// .searchBar {
+//   justify-content: flex-end;
+//   cursor: pointer;
+//   .searchDiv {
+//     display: flex;
+//     span {
+//       white-space: nowrap;
+//       margin-right: 15px;
+//     }
+//   }
+// }
 .searchBar {
-  justify-content: flex-end;
-  cursor: pointer;
-  .searchDiv {
-    display: flex;
-    span {
-      white-space: nowrap;
-      margin-right: 15px;
-    }
-  }
+  white-space: nowrap;
 }
 @media only screen and (min-width: 992px) {
   .navBar {

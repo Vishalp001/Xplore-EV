@@ -38,9 +38,6 @@ const Topbar = () => {
             <Navbar.Toggle aria-controls='responsive-navbar-nav' />
             <Navbar.Collapse className='midDiv' id='responsive-navbar-nav'>
               <Nav>
-                <Nav.Link className='link' to='/'>
-                  Home
-                </Nav.Link>
                 <Nav.Link href='#quickBites'>Quick Bites</Nav.Link>
                 <NavDropdown title='Electric Vehicles' id='basic-nav-dropdown'>
                   <NavDropdown.Item href='#electriccars'>
@@ -58,7 +55,7 @@ const Topbar = () => {
                   <NavDropdown.Item as={Link} to='trendingnews'>
                     Trending News
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to='videos'>
+                  <NavDropdown.Item href='#videos' >
                     Videos
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -77,8 +74,8 @@ const Topbar = () => {
               <Nav>
                 <Nav.Link as={Link} to='/charging_stations'>
                   <div className='searchDiv'>
-                    <span> Find Charging Stations</span>
                     <FaSearch className='searchIcon' />
+                    <span> Find Charging Stations</span>
                   </div>
                 </Nav.Link>
               </Nav>

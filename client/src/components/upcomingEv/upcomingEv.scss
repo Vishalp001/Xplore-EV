@@ -4,9 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  .count2 {
-    background-color: red;
-  }
+
   h2 {
     margin: 0 0 20px 0;
   }
@@ -16,17 +14,16 @@
     padding: 5px 15px;
     margin-left: 10px;
   }
-  .active {
-    border: red;
-  }
+
 }
 .upcoming {
   .swiper {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
+    display: none;
   }
-
+  
   .swiper-slide {
     background-position: center;
     background-size: cover;
@@ -114,4 +111,8 @@ font-family: 'Quicksand', sans-serif; */
       }
     }
   }
+}
+.active{
+  background-color: #2eb40f;
+  color: #ffffff;
 }

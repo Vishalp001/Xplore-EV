@@ -14,38 +14,50 @@ import { EffectCoverflow } from 'swiper'
 
 export default function App(props) {
   const [getProps, setGetProps] = useState()
+  const [isActiveAll, setisActiveAll] = useState(true)
+  const [isActiveCar, setisActiveCar] = useState(false)
+  const [isActiveBike, setisActiveBike] = useState(false)
 
-  // let header = document.getElementById('myDIV')
-  // let btns = header.getElementsByClassName('btn')
-  // for (let i = 0; i < btns.length; i++) {
-  //   btns[i].addEventListener('onClick', function () {
-  //     let current = document.getElementsByClassName('active')
-  //     current[0].className = current[0].className.replace(' active', '')
-  //     this.className += ' active'
-  //   })
-  // }
 
   useEffect(() => {
     setGetProps(props.upcoming)
   }, [props.upcoming])
+  
+  const allUpcoming = (type) =>{ 
+    if(type == 'all'){
+      setisActiveAll(true)
+      setisActiveCar(false)
+      setisActiveBike(false)
+    }
+    if(type == 'bikes'){
+      setisActiveAll(false)
+      setisActiveCar(false)
+      setisActiveBike(true)
+    }
+    if(type == 'cars'){
+      setisActiveAll(false)
+      setisActiveCar(true)
+      setisActiveBike(false)
+    }
+  }
 
   return (
     <>
       <div className='upcomingHeader container'>
         <h2>We have a list of all the upcoming Ev's.</h2>
         <div id='myDIV'>
-          <button className='btn' onClick={(e) => setGetProps(props.upcoming)}>
+          <button className={ isActiveAll ? "active" : "" } onClick={(e) => [setGetProps(props.upcoming),   allUpcoming("all")  ]  }>
             Upcoming Evs
           </button>
           <button
-            className='btn'
-            onClick={(e) => setGetProps(props.upcomingBike)}
+            className={ isActiveBike ? "active" : "" }
+            onClick={(e) => [setGetProps(props.upcomingBike), allUpcoming("bikes") ]}
           >
             Upcoming Bikes
           </button>
           <button
-            className='btn active'
-            onClick={(e) => setGetProps(props.upcomingCar)}
+            className={ isActiveCar ? "active" : "" }  
+            onClick={(e) => [setGetProps(props.upcomingCar), allUpcoming("cars")]}
           >
             Upcoming Cars
           </button>
@@ -57,6 +69,20 @@ export default function App(props) {
         spaceBetween={30}
         keyboard={{
           enabled: true,
+        }}
+         breakpoints={{
+          210: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
         }}
         effect={'coverflow'}
         grabCursor={true}

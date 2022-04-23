@@ -36,8 +36,7 @@ const Trending = ({ trendings }) => {
                 <div
                   className='sliderDiv'
                   style={{
-                    backgroundImage: `url(${t.photo})`,
-                    height: '90vh',
+                    backgroundImage: `url(${t.photo})`
                   }}
                 >
                   <div className='blogContainer'>
@@ -54,7 +53,7 @@ const Trending = ({ trendings }) => {
                         }}
                         className='desc'
                       ></p>
-                      <button className='readMore'>
+                      <button className='readBtn'>
                         <Link to={`/blog/${t._id}?trending`}>Read More</Link>
                       </button>
                     </div>
