@@ -41,21 +41,31 @@ const CarSpecificationBlog = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className='carspecificationSwiper container'
       >
-        <SwiperSlide>
-          <img src={post.imgOne} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgTwo} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgThree} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgFour} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgFive} />
-        </SwiperSlide>
+        {post.imgOne && (
+          <SwiperSlide>
+            <img src={post.imgOne} />
+          </SwiperSlide>
+        )}
+        {post.imgTwo && (
+          <SwiperSlide>
+            <img src={post.imgTwo} />
+          </SwiperSlide>
+        )}
+        {post.imgThree && (
+          <SwiperSlide>
+            <img src={post.imgThree} />
+          </SwiperSlide>
+        )}
+        {post.imgFour && (
+          <SwiperSlide>
+            <img src={post.imgFour} />
+          </SwiperSlide>
+        )}
+        {post.imgFive && (
+          <SwiperSlide>
+            <img src={post.imgFive} />
+          </SwiperSlide>
+        )}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -67,21 +77,31 @@ const CarSpecificationBlog = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className='carspecificationThumb container'
       >
-        <SwiperSlide>
-          <img src={post.imgOne} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgTwo} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgThree} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgFour} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={post.imgFive} />
-        </SwiperSlide>
+        {post.imgOne && (
+          <SwiperSlide>
+            <img src={post.imgOne} />
+          </SwiperSlide>
+        )}
+        {post.imgTwo && (
+          <SwiperSlide>
+            <img src={post.imgTwo} />
+          </SwiperSlide>
+        )}
+        {post.imgThree && (
+          <SwiperSlide>
+            <img src={post.imgThree} />
+          </SwiperSlide>
+        )}
+        {post.imgFour && (
+          <SwiperSlide>
+            <img src={post.imgFour} />
+          </SwiperSlide>
+        )}
+        {post.imgFour && (
+          <SwiperSlide>
+            <img src={post.imgFour} />
+          </SwiperSlide>
+        )}
       </Swiper>
 
       {/* -----Specifications & Key Features--------- */}

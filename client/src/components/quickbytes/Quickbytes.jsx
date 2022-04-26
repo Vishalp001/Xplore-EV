@@ -9,6 +9,33 @@ import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  FacebookShareButton,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LinkedinShareButton,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  TwitterShareButton,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon,
+} from 'react-share'
+
 const Quickbytes = ({ quickBites }) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
@@ -87,10 +114,42 @@ const Quickbytes = ({ quickBites }) => {
                       <GrTwitter />
                     </p>
                     <p>
-                      <FaLinkedin />
+                      <LinkedinShareButton
+                        title={q.title}
+                        url='https://e-vehicleinfo.com/ev-homologation-cost-process-requirements-and-testing/'
+                        summary={q.title}
+                      >
+                        <LinkedinIcon size={32} round={true} />
+                      </LinkedinShareButton>
                     </p>
                     <p>
-                      <GrFacebook />
+                      <FacebookShareButton
+                        quote={q.title}
+                        url='https://e-vehicleinfo.com/ev-homologation-cost-process-requirements-and-testing/'
+                        hashtags={[
+                          'goelectric',
+                          'electricvehicles',
+                          'electricmobility',
+                          'electriccar',
+                        ]}
+                      >
+                        <FacebookIcon size={32} round={true} />
+                      </FacebookShareButton>
+                    </p>
+                    <p>
+                      <TwitterShareButton
+                        title={q.title}
+                        via='EvXplor'
+                        hashtags={[
+                          'goelectric',
+                          'electricvehicles',
+                          'electricmobility',
+                          'electriccar',
+                        ]}
+                        url='https://e-vehicleinfo.com/ev-homologation-cost-process-requirements-and-testing/'
+                      >
+                        <TwitterIcon size={32} round={true} />
+                      </TwitterShareButton>
                     </p>
                   </div>
                 </div>

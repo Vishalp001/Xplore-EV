@@ -5,12 +5,14 @@
 }
 body {
   background-color: #fcfcff;
+  font-family: 'Quicksand', sans-serif;
 }
 a {
   text-decoration: none;
   color: inherit;
 }
-a:visited, a:hover {
+a:visited,
+a:hover {
   color: inherit !important;
 }
 /* font-family: 'Nunito', sans-serif;

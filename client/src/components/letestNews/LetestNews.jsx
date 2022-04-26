@@ -13,7 +13,7 @@ const LetestNews = (props) => {
     <>
       <div id='latestnews' className='container'>
         <div className='heading'>
-          <h1>Letest News</h1>
+          <h1>Latest News</h1>
           <div className='hrline'></div>
           <Link to='/latestnews'>View All </Link>
         </div>
