@@ -15,8 +15,8 @@ const freeCourseRoute = require('./routes/freeCourse')
 const electricVehicleRoute = require('./routes/ev')
 const EvPoliciesRoute = require('./routes/evPolicies')
 const ChargingRoute = require('./routes/charging')
-// const PORT = process.env.PORT || 5000
-const PORT = 5000
+const PORT = process.env.PORT || 5000
+// const PORT = 5000
 
 const cloudinary = require('./Utils/cloudinary')
 const upload = require('./Utils/multer')

@@ -13,36 +13,24 @@ import OurVideos from '../../components/ourVideos/OurVideos'
 import UpcomingEv from '../../components/upcomingEv/UpcomingEv'
 import Footer from '../../components/footer/Footer'
 
-const Home = ({
-  trendings,
-  quickBites,
-  eCar,
-  eBike,
-  video,
-  news,
-  blog,
-  freeCourse,
-  upcoming,
-  upcomingBike,
-  upcomingCar,
-}) => {
+const Home = (props) => {
   return (
     <>
       <Topbar />
-      <Trending trendings={trendings} />
+      <Trending trendings={props.trendings} />
       <UpcomingEv
-        upcoming={upcoming}
-        upcomingBike={upcomingBike}
-        upcomingCar={upcomingCar}
+        upcoming={props.upcoming}
+        upcomingBike={props.upcomingBike}
+        upcomingCar={props.upcomingCar}
       />
       {/* <Find /> */}
-      <Quickbytes quickBites={quickBites} />
-      <ElectricCar eCar={eCar} />
-      <ElectricBikes eBike={eBike} />
-      <OurVideos video={video} />
-      <LetestNews news={news} />
-      <Evknowledge freeCourse={freeCourse} />
-      <KnowEv blog={blog} />
+      <Quickbytes quickBites={props.quickBites} />
+      <ElectricCar eCar={props.eCar} />
+      <ElectricBikes eBike={props.eBike} />
+      <OurVideos video={props.video} />
+      <LetestNews news={props.news} />
+      <Evknowledge freeCourse={props.freeCourse} />
+      <KnowEv blog={props.blog} />
       <Subscribe />
       <Footer />
     </>
