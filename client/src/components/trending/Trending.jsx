@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import { Axios } from '../../Utility'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import 'swiper/css'
 import 'swiper/css'
@@ -9,11 +10,20 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import './trending.scss'
-// import required modules
 import { Pagination } from 'swiper'
 
-const Trending = ({ trendings }) => {
+const Trending = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  const [trengings, setTrengings] = useState(null)
+  const { search } = useLocation()
+  useEffect(() => {
+    const fetchTrendingPost = async () => {
+      const res = await Axios.get('/trending' + search)
+      setTrengings(res.data)
+    }
+    fetchTrendingPost()
+  }, [search])
+
   return (
     <>
       <div className='trendindContainer'>
@@ -30,13 +40,13 @@ const Trending = ({ trendings }) => {
           modules={[FreeMode, Navigation, Thumbs]}
           className='trendingSwiper'
         >
-          {trendings &&
-            trendings.slice(0, 3).map((t) => (
+          {trengings &&
+            trengings.slice(0, 3).map((t) => (
               <SwiperSlide key={t._id}>
                 <div
                   className='sliderDiv'
                   style={{
-                    backgroundImage: `url(${t.photo})`
+                    backgroundImage: `url(${t.photo})`,
                   }}
                 >
                   <div className='blogContainer'>
@@ -73,8 +83,8 @@ const Trending = ({ trendings }) => {
           modules={[Navigation, Thumbs]}
           className='trendingThumb'
         >
-          {trendings &&
-            trendings.slice(0, 3).map((p) => (
+          {trengings &&
+            trengings.slice(0, 3).map((p) => (
               <SwiperSlide key={p._id} className='thumbCard'>
                 <div className='innerThumb'>
                   <h6 className='cats'>{p.categories}</h6>

@@ -17,6 +17,10 @@ const EvPoliciesRoute = require('./routes/evPolicies')
 const ChargingRoute = require('./routes/charging')
 const PORT = process.env.PORT || 5000
 // const PORT = 5000
+const cors = require('cors')
+app.use(cors())
+
+app.use(express.static(__dirname))
 
 const cloudinary = require('./Utils/cloudinary')
 const upload = require('./Utils/multer')
@@ -62,4 +66,8 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log('Backend is running.')
+})
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'))
 })

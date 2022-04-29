@@ -1,3 +1,5 @@
+import { Axios } from './Utility'
+
 import './App.css'
 import Home from './singlepage/home/Home.jsx'
 import React, { useContext, useEffect, useState } from 'react'
@@ -13,7 +15,7 @@ import Latestnews from './singlepage/latestnewspage/Latestnewspage'
 import Knowevpage from './singlepage/knowEv/Knowevpage'
 import Trendingpage from './singlepage/trandingpage/Trendingpage'
 import Videos from './singlepage/videos/Videos'
-import Latestnewsblog from './singlepage/latestnewspage/latestnewsblog/Latestnewsblog'
+// import Latestnewsblog from './singlepage/latestnewspage/latestnewsblog/Latestnewsblog'
 import Footer from './components/footer/Footer.jsx'
 import Subscribe from './components/subscribe/Subscribe'
 import ScrollToTop from './components/ScrollToTop'
@@ -21,7 +23,6 @@ import FreecoursePage from './singlepage/freecourses/FreecoursePage'
 import Freecourseblog from './singlepage/freecourses/freecourse blog/Freecoureblog.jsx'
 import GovEvPolicies from './singlepage/govEVpolicies/GovEvPolicies'
 import Dashboard from './admin/dashboard/Dashboard.jsx'
-import axios from 'axios'
 import TrendingAdminPost from './admin/trending/trendingAdminPost/TrendingAdminPost'
 import WriteTrendingPost from './admin/trending/writeTrendingPost/WriteTrendingPost'
 import Register from './auth/register/Register'
@@ -78,40 +79,40 @@ function App() {
   useEffect(() => {
     const fetchTrendingPost = async () => {
       setLoading(true)
-      const res = await axios.get('/trending' + search)
+      const res = await Axios.get('/trending' + search)
       setTrengings(res.data)
     }
     const fetchQuickBitesPost = async () => {
       setLoading(true)
 
-      const res = await axios.get('/quickbyte' + search)
+      const res = await Axios.get('/quickbyte' + search)
       setQuickBites(res.data)
     }
     const fetchVideoPost = async () => {
       setLoading(true)
-      const res = await axios.get('/video')
+      const res = await Axios.get('/video')
       setVideo(res.data)
     }
     const fetchNewsPost = async () => {
       setLoading(true)
 
-      const res = await axios.get('/news' + search)
+      const res = await Axios.get('/news' + search)
       setNews(res.data)
     }
     const fetchBlogPost = async () => {
       setLoading(true)
 
-      const res = await axios.get('/blog' + search)
+      const res = await Axios.get('/blog' + search)
       setBlog(res.data)
     }
     const fetchFreeCourse = async () => {
       setLoading(true)
 
-      const res = await axios.get('/freecourse')
+      const res = await Axios.get('/freecourse')
       setFreeCourse(res.data)
     }
     const fetchECar = async () => {
-      const res = await axios.get('/ev')
+      const res = await Axios.get('/ev')
       setECar(res.data[0].car)
       setEBike(res.data[0].bike)
       setupcoming(res.data[0].upcoming)
@@ -120,11 +121,11 @@ function App() {
     }
 
     const fetchPolicies = async () => {
-      const res = await axios.get('/evpolicies')
+      const res = await Axios.get('/evpolicies')
       setPolicies(res.data)
     }
     // const fetchStations = async () => {
-    //   const res = await axios.get('/charging')
+    //   const res = await Axios.get('/charging')
     //   setStation(res.data)
     // }
 
@@ -148,23 +149,19 @@ function App() {
           exact
           path='/'
           element={
-            loading ? (
-              <Loader />
-            ) : (
-              <Home
-                trendings={trendings}
-                quickBites={quickBites}
-                eCar={eCar}
-                eBike={eBike}
-                video={video}
-                news={news}
-                blog={blog}
-                freeCourse={freeCourse}
-                upcoming={upcoming}
-                upcomingBike={upcomingBike}
-                upcomingCar={upcomingCar}
-              />
-            )
+            <Home
+              trendings={trendings}
+              quickBites={quickBites}
+              eCar={eCar}
+              eBike={eBike}
+              video={video}
+              news={news}
+              blog={blog}
+              freeCourse={freeCourse}
+              upcoming={upcoming}
+              upcomingBike={upcomingBike}
+              upcomingCar={upcomingCar}
+            />
           }
         />
         <Route
@@ -187,7 +184,7 @@ function App() {
           path='/freecourses'
           element={<FreecoursePage freeCourse={freeCourse} />}
         />
-        <Route exact path='/latestnewsblog' element={<Latestnewsblog />} />
+        {/* <Route exact path='/latestnewsblog' element={<Latestnewsblog />} /> */}
         <Route
           exact
           path='/freecoursesblog/:id'
@@ -209,10 +206,10 @@ function App() {
           element={<CarSpecificationAll eCar={eCar} />}
         />
         {/* <Route
-            exact
-            path='/e_car/:id'
-            element={<CarSpecificationBlog eCar={eCar} />}
-          /> */}
+          exact
+          path='/e_car/:id'
+          element={<CarSpecificationBlog eCar={eCar} />}
+        /> */}
         <Route exact path='/ev_spec/:id' element={<EvSpecification />} />
         <Route
           exact
@@ -241,10 +238,10 @@ function App() {
           element={<BikeSpecificationAll eBike={eBike} />}
         />
         {/* <Route
-            exact
-            path='/e_bike/:id'
-            element={<BikeSpecificationBlog eBike={eBike} />}
-          /> */}
+          exact
+          path='/e_bike/:id'
+          element={<BikeSpecificationBlog eBike={eBike} />}
+        /> */}
         {/* --------------SINGLE PAGES-------- */}
         <Route exact path='/register' element={<Register />} />
         <Route exact path='/login' element={<Login />} />
@@ -253,9 +250,7 @@ function App() {
           path='/charging_stations'
           element={<ChargingStations station={station} />}
         />
-
         {/* -----------------------------ADMIN ROUTES------------- */}
-
         <Route
           exact
           path='/admin'
@@ -281,7 +276,6 @@ function App() {
           }
         />
 
-        {/* --------Admin Trending Route------ */}
         <Route
           exact
           path='/trending_admin_post/:id'
@@ -292,7 +286,6 @@ function App() {
           path='/create_trending_post'
           element={<WriteTrendingPost />}
         />
-        {/* --------Admin QuickBites Route------ */}
         <Route
           exact
           path='/quick_bites_admin_post/:id'
@@ -305,7 +298,6 @@ function App() {
           element={<WriteQuickBitesPost />}
         />
 
-        {/* --------Admin Video Route------ */}
         <Route
           exact
           path='/video_admin_post/:id'
@@ -314,17 +306,14 @@ function App() {
 
         <Route exact path='/create_video_post' element={<WriteVideodPost />} />
 
-        {/* --------Admin News Route------ */}
         <Route exact path='/news_admin_post/:id' element={<NewsAdminPost />} />
 
         <Route exact path='/create_news_post' element={<WriteNewsPost />} />
 
-        {/* --------Admin Blog Route------ */}
         <Route exact path='/blog_admin_post/:id' element={<BlogAdminPost />} />
 
         <Route exact path='/create_blog_post' element={<WriteBlogPost />} />
 
-        {/* --------Admin FreeCourse Route------ */}
         <Route
           exact
           path='/free_course_admin_post/:id'
@@ -337,12 +326,10 @@ function App() {
           element={<WriteFreeCoursePost />}
         />
 
-        {/* --------Admin E Car Route------ */}
         <Route exact path='/ev_admin_post/:id' element={<EvPost />} />
 
         <Route exact path='/create_ev_post' element={<WriteEvPost />} />
 
-        {/* --------Admin E Bike Route------ */}
         <Route
           exact
           path='/e_bike_admin_post/:id'
@@ -351,7 +338,6 @@ function App() {
 
         <Route exact path='/create_e_bike_post' element={<WriteEBikePost />} />
 
-        {/* --------Admin evpolicies Route------ */}
         <Route
           exact
           path='/evpolicies_admin_post/:id'
@@ -363,8 +349,6 @@ function App() {
           element={<WriteEvPolicies />}
         />
       </Routes>
-      {/* <Subscribe /> */}
-      {/* <Footer /> */}
     </>
   )
 }
