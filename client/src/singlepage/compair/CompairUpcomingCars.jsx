@@ -5,7 +5,8 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { Axios } from '../../Utility'
 import { BsPeaceFill } from 'react-icons/bs'
 import { useLocation } from 'react-router-dom'
-
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 const CompairUpcomingCars = (props) => {
   const location = useLocation()
   const path = location.pathname.split('/')[2]
@@ -93,15 +94,14 @@ const CompairUpcomingCars = (props) => {
         <div className='compairHeader'>
           <div className='imgDiv'>
             <img src={carOneData.imgOne} alt='' />
+            <div className='evName'>{carOneData.evName}</div>
           </div>
           <div className='carName'>
-            <span className='nameOne'>{carOneData.evName}</span>
             <span className='vs'>VS</span>
-            <span className='nameTwo'>{carTwoData.evName}</span>
           </div>
-
           <div className='imgDiv'>
             <img src={carTwoData.imgOne} alt='' />
+            <div className='evName'>{carTwoData.evName}</div>
           </div>
         </div>
 
@@ -194,6 +194,10 @@ const CompairUpcomingCars = (props) => {
             </tr>
           </table>
         </div>
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

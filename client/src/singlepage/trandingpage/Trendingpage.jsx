@@ -3,6 +3,8 @@ import ReactPaginate from 'react-paginate'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import Topbarpage from '../topbarpage/Topbarpage'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 
 const Trendingpage = (props) => {
   const [pageNumber, setPageNumber] = useState(0)
@@ -73,6 +75,10 @@ const Trendingpage = (props) => {
             activeClassName={'paginationActive'}
           />
         </div>
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

@@ -15,6 +15,7 @@ const freeCourseRoute = require('./routes/freeCourse')
 const electricVehicleRoute = require('./routes/ev')
 const EvPoliciesRoute = require('./routes/evPolicies')
 const ChargingRoute = require('./routes/charging')
+const EmailRoute = require('./routes/email')
 const PORT = process.env.PORT || 5000
 // const PORT = 5000
 const cors = require('cors')
@@ -59,6 +60,7 @@ app.use('/api/freecourse', freeCourseRoute)
 app.use('/api/ev', electricVehicleRoute)
 app.use('/api/evpolicies', EvPoliciesRoute)
 app.use('/api/charging', ChargingRoute)
+app.use('/api/email', EmailRoute)
 
 app.get('/', (req, res) => {
   res.send('Hello to Blog API')

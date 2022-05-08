@@ -19,41 +19,36 @@
         .onImgCard {
           position: absolute;
           background-color: #66c600;
-          height: 100px;
+          height: 80px;
           width: 80%;
           margin: 0 10%;
           border-radius: 0px 50px 0px 50px;
           bottom: -10%;
           display: flex;
+          align-items: center;
+          transition: 0.3s ease;
+          &:hover {
+            border-radius: 50px 0px 50px 0px;
+          }
           .socialIcons {
-            width: 50%;
+            width: 60%;
             padding: 2em;
             display: flex;
             justify-content: space-around;
             align-items: center;
             p {
               margin: 0 !important;
-              font-size: 20px;
               cursor: pointer;
               background-color: #ffffff;
               border-radius: 50px;
-              width: 50px;
-              height: 50px;
+              width: 40px;
+              height: 40px;
               display: flex;
               justify-content: center;
               align-items: center;
               &:hover {
-                background: #d7e6c7;
-                transition: 0.3s ease-in;
-              }
-              .twitter {
-                color: #0096fa;
-              }
-              .linkdin {
-                color: #008aca;
-              }
-              .fb {
-                color: #1f64ed;
+                background: #66c600;
+                transition: 0.1s ease-in;
               }
             }
           }
@@ -63,7 +58,7 @@
             color: white;
             /*font-family: 'Quicksand', sans-serif; */
             p {
-              font-size: 18px;
+              font-size: 16px;
               margin: 0;
               font-family: 'Nunito', sans-serif;
             }
@@ -156,19 +151,6 @@
                 justify-content: center;
                 align-items: center;
                 margin-right: 10px;
-                &:hover {
-                  background: #d7e6c7;
-                  transition: 0.3s ease-in;
-                }
-                .twitter {
-                  color: #0096fa;
-                }
-                .linkdin {
-                  color: #008aca;
-                }
-                .fb {
-                  color: #1f64ed;
-                }
               }
             }
             .dateTime {

@@ -49,22 +49,16 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
+      .evName {
+        font-size: 25px;
+        margin-top: 18px;
+      }
     }
-    .carName {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-      font-family: 'Quicksand', sans-serif;
-      span {
-        margin: 0 10px;
-        font-size: 28px;
-      }
-      .nameOne,
-      .nameTwo {
-        width: 40%;
-        font-size: 35px;
-      }
+    .vs {
+      font-size: 25px;
+      margin: 0 25px;
+      font-weight: bold;
+      text-transform: uppercase;
     }
   }
   .tableHead {

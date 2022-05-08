@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavDropdown, Nav, Navbar, Container } from 'react-bootstrap'
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
 import { FaSearch } from 'react-icons/fa'
@@ -9,8 +9,17 @@ import newLogo from '../../assets/images/carlogo.png'
 import { HiLocationMarker } from 'react-icons/hi'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+import { MdAccessTimeFilled } from 'react-icons/md'
 
 const Topbarpage = () => {
+  const [dateState, setDateState] = useState()
+
+  useEffect(() => {
+    setInterval(() => {
+      const date = new Date()
+      setDateState(date.toLocaleTimeString())
+    }, 1000)
+  }, [])
   return (
     <>
       <div className='navbarWrapper'>
@@ -23,7 +32,10 @@ const Topbarpage = () => {
               <BsFillTelephoneFill className='icon' /> 123-456-789
             </div>
           </div>
-          <div className='colTwo'>Mon-Fri | 08:00 - 17:00</div>
+          <div className='colTwo'>
+            <MdAccessTimeFilled className='icon' />
+            {dateState}
+          </div>
         </div>
         <Navbar collapseOnSelect expand='lg' className='navBar'>
           <Container className='navBarContainer'>
@@ -56,7 +68,9 @@ const Topbarpage = () => {
                   <NavDropdown.Item as={Link} to='/trendingnews'>
                     Trending News
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to='/videos'>Videos</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to='/videos'>
+                    Videos
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title='Knowledge Hub' id='basic-nav-dropdown'>
                   <NavDropdown.Item as={Link} to='/freecourses'>

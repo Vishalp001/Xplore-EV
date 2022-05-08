@@ -4,6 +4,9 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import './BikeSpecificationAll.scss'
 import TopBarPage from '../../topbarpage/Topbarpage'
 import { Link } from 'react-router-dom'
+import Subscribe from '../../../components/subscribe/Subscribe'
+import Footer from '../../../components/footer/Footer'
+
 const BikeSpecificationAll = (props) => {
   const [pageNumber, setPageNumber] = useState(0)
   const usersPerpage = 3
@@ -15,18 +18,20 @@ const BikeSpecificationAll = (props) => {
       return (
         <div className='allCarItems'>
           <div className='imgDiv'>
-            <img src={eC.imgOne} alt={eC.evName} />
+            <Link to={`/ev_spec/${eC._id}`}>
+              <img src={eC.imgOne} alt={eC.evName} />
+            </Link>
           </div>
           <div className='carInfo'>
             <div className='carName'>{eC.evName}</div>
             <div className='carPrice'>Rs {eC.evPrice}*</div>
             <div className='carBtns'>
-              <button className='specificationBtn'>
-                <Link to={`/ev_spec/${eC._id}`}>Specification</Link>
-              </button>
-              <button className='compair'>
-                <Link to={`/compair_bikes/${eC._id}`}>Compair</Link>
-              </button>
+              <Link to={`/ev_spec/${eC._id}`}>
+                <button className='specificationBtn'>Specification</button>
+              </Link>
+              <Link to={`/compair_bikes/${eC._id}`}>
+                <button className='compair'>Compair</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -68,6 +73,10 @@ const BikeSpecificationAll = (props) => {
           disabledClassName={'paginationDIsabled'}
           activeClassName={'paginationActive'}
         />
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

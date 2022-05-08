@@ -1,12 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './writeFreeCoursePost.scss'
-// import Topbarpage from '../../topbarpage/Topbarpage'
-import Box from '@mui/material/Box'
-import Tab from '@mui/material/Tab'
-import TabContext from '@mui/lab/TabContext'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
-import ReactQuill from 'react-quill'
+import ReactQuill from 'react-quill-with-table'
 import 'react-quill/dist/quill.snow.css'
 import { Axios } from '../../../Utility'
 import { Context } from '../../../context/Context'
@@ -17,7 +11,7 @@ const modules = {
     [{ header: '1' }, { header: '2' }, { header: [3, 4, 5, 6] }, { font: [] }],
     [{ size: [] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    ['list', 'image', 'video'],
+    ['list'],
     ['clean']['code-block'],
   ],
 }
@@ -34,8 +28,6 @@ const formats = [
   'list',
   'bullet',
   'link',
-  'image',
-  'video',
   'code-block',
 ]
 

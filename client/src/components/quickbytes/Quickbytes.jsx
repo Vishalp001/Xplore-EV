@@ -10,30 +10,14 @@ import { FaLinkedin } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 
 import {
-  EmailIcon,
   FacebookIcon,
-  FacebookMessengerIcon,
   FacebookShareButton,
-  HatenaIcon,
-  InstapaperIcon,
-  LineIcon,
   LinkedinIcon,
   LinkedinShareButton,
-  LivejournalIcon,
-  MailruIcon,
-  OKIcon,
-  PinterestIcon,
-  PocketIcon,
-  RedditIcon,
-  TelegramIcon,
-  TumblrIcon,
   TwitterIcon,
   TwitterShareButton,
-  ViberIcon,
-  VKIcon,
-  WeiboIcon,
   WhatsappIcon,
-  WorkplaceIcon,
+  WhatsappShareButton,
 } from 'react-share'
 
 const Quickbytes = ({ quickBites }) => {
@@ -111,13 +95,19 @@ const Quickbytes = ({ quickBites }) => {
                   </div>
                   <div className='shareIcons'>
                     <p>
-                      <GrTwitter />
+                      <WhatsappShareButton
+                        title={q.title}
+                        url='https://xplore-new.web.app'
+                      >
+                        <WhatsappIcon size={32} round={true} />
+                      </WhatsappShareButton>
                     </p>
                     <p>
                       <LinkedinShareButton
                         title={q.title}
-                        url='https://e-vehicleinfo.com/ev-homologation-cost-process-requirements-and-testing/'
+                        url='https://xplore-new.web.app'
                         summary={q.title}
+                        source='By XplorEV'
                       >
                         <LinkedinIcon size={32} round={true} />
                       </LinkedinShareButton>
@@ -125,7 +115,7 @@ const Quickbytes = ({ quickBites }) => {
                     <p>
                       <FacebookShareButton
                         quote={q.title}
-                        url='https://e-vehicleinfo.com/ev-homologation-cost-process-requirements-and-testing/'
+                        url='https://xplore-new.web.app'
                         hashtags={[
                           'goelectric',
                           'electricvehicles',
@@ -146,7 +136,7 @@ const Quickbytes = ({ quickBites }) => {
                           'electricmobility',
                           'electriccar',
                         ]}
-                        url='https://e-vehicleinfo.com/ev-homologation-cost-process-requirements-and-testing/'
+                        url='https://xplore-new.web.app'
                       >
                         <TwitterIcon size={32} round={true} />
                       </TwitterShareButton>

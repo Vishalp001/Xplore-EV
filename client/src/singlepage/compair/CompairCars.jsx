@@ -4,6 +4,8 @@ import Topbar from '../../components/topBar/Topbar'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { Axios } from '../../Utility'
 import { useLocation } from 'react-router-dom'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 
 const CompairCars = (props) => {
   const location = useLocation()
@@ -92,15 +94,12 @@ const CompairCars = (props) => {
         <div className='compairHeader'>
           <div className='imgDiv'>
             <img src={carOneData.imgOne} alt='' />
+            <div className='evName'>{carOneData.evName}</div>
           </div>
-          <div className='carName'>
-            <span className='nameOne'>{carOneData.evName}</span>
-            <span className='vs'>VS</span>
-            <span className='nameTwo'>{carTwoData.evName}</span>
-          </div>
-
+          <div className='vs'>V/S</div>
           <div className='imgDiv'>
             <img src={carTwoData.imgOne} alt='' />
+            <div className='evName'>{carTwoData.evName}</div>
           </div>
         </div>
 
@@ -193,6 +192,10 @@ const CompairCars = (props) => {
             </tr>
           </table>
         </div>
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

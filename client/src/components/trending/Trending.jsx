@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation, Thumbs } from 'swiper'
 import { Link, useLocation } from 'react-router-dom'
-
+import Loader from '../../components/loader/Loader'
 import 'swiper/css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -12,17 +12,8 @@ import 'swiper/css/thumbs'
 import './trending.scss'
 import { Pagination } from 'swiper'
 
-const Trending = () => {
+const Trending = ({ trendings }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
-  const [trengings, setTrengings] = useState(null)
-  const { search } = useLocation()
-  useEffect(() => {
-    const fetchTrendingPost = async () => {
-      const res = await Axios.get('/trending' + search)
-      setTrengings(res.data)
-    }
-    fetchTrendingPost()
-  }, [search])
 
   return (
     <>
@@ -40,8 +31,8 @@ const Trending = () => {
           modules={[FreeMode, Navigation, Thumbs]}
           className='trendingSwiper'
         >
-          {trengings &&
-            trengings.slice(0, 3).map((t) => (
+          {trendings &&
+            trendings.slice(0, 3).map((t) => (
               <SwiperSlide key={t._id}>
                 <div
                   className='sliderDiv'
@@ -63,9 +54,9 @@ const Trending = () => {
                         }}
                         className='desc'
                       ></p>
-                      <button className='readBtn'>
-                        <Link to={`/blog/${t._id}?trending`}>Read More</Link>
-                      </button>
+                      <Link to={`/blog/${t._id}?trending`}>
+                        <button className='readBtn'>Read More</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -83,12 +74,12 @@ const Trending = () => {
           modules={[Navigation, Thumbs]}
           className='trendingThumb'
         >
-          {trengings &&
-            trengings.slice(0, 3).map((p) => (
+          {trendings &&
+            trendings.slice(0, 3).map((p) => (
               <SwiperSlide key={p._id} className='thumbCard'>
                 <div className='innerThumb'>
                   <h6 className='cats'>{p.categories}</h6>
-                  <h1 className='title'>{p.title}</h1>
+                  <p className='title'>{p.title}</p>
                 </div>
               </SwiperSlide>
             ))}

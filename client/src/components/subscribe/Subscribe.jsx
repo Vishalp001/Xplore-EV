@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './subscribe.scss'
 import subs from '../../assets/images/subs.png'
+import { Axios } from '../../Utility'
 
 const Subscribe = () => {
+  const [email, setEmail] = useState('')
+  const [msg, setmsg] = useState(false)
+  const [err, setErr] = useState(false)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setmsg(false)
+    const newEmail = {
+      email,
+    }
+    try {
+      const res = await Axios.post('/email', newEmail)
+      console.log(res)
+      setmsg(true)
+    } catch (error) {
+      setErr(true)
+      console.log('You Cannot Subscribe')
+    }
+  }
   return (
     <>
       <div className='container'>
@@ -26,11 +46,21 @@ const Subscribe = () => {
             <p className='subHead'>
               Get special offer untill end of this month
             </p>
-            <p className='desc'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <button className='readMoreReverse'>Call Us Now</button>
+            <form onSubmit={handleSubmit}>
+              {!msg && (
+                <div className='subForm'>
+                  <input
+                    type='email'
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <button type='submit'>Subscribe</button>
+                  {err && (
+                    <p>You are allready subscribed to ExplorEv Thankyou</p>
+                  )}
+                </div>
+              )}
+              {msg && <h2>You Are subscribed successfully</h2>}
+            </form>
           </div>
         </div>
       </div>

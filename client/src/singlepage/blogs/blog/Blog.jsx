@@ -2,10 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import './blog.scss'
 import Topbarpage from '../../topbarpage/Topbarpage'
 import Loader from '../../../components/loader/Loader'
-import { GrTwitter, GrFacebook } from 'react-icons/gr'
-import { FaLinkedinIn, FaFacebookF } from 'react-icons/fa'
-import { IoLogoWhatsapp } from 'react-icons/io'
-import { HiMail } from 'react-icons/hi'
 import ReadingBar from '../../../components/readingbar/ReadingBar'
 import { Axios } from '../../../Utility'
 import { useLocation } from 'react-router-dom'
@@ -15,6 +11,18 @@ import 'swiper/css/navigation'
 import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
 import { Link } from 'react-router-dom'
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from 'react-share'
+import Subscribe from '../../../components/subscribe/Subscribe'
+import Footer from '../../../components/footer/Footer'
 
 const Blog = (props) => {
   const location = useLocation()
@@ -25,7 +33,7 @@ const Blog = (props) => {
   const nextRef = useRef(null)
 
   let { search } = useLocation()
-  console.log(search)
+  const url = window.location.href
 
   useEffect(() => {
     const GetPost = async () => {
@@ -47,7 +55,6 @@ const Blog = (props) => {
       ) : (
         <>
           <ReadingBar />
-
           <div className='lnBlog'>
             <div className='lnHead'>
               <h1 className='title'>{post.title}</h1>
@@ -55,7 +62,7 @@ const Blog = (props) => {
                 <p className='lndate'>
                   {new Date(post.createdAt).toDateString()}
                 </p>
-                <p className='lncat'>{post.categories}</p>
+                {/* <p className='lncat'>{post.categories}</p>   */}
               </div>
             </div>
             <div className='lnImgDiv'>
@@ -71,22 +78,51 @@ const Blog = (props) => {
               ></div>
               <div className='lnShare'>
                 <div className='lnShareDiv'>
-                  <p className='lnshareText'>Share this</p>
+                  <p className='lnshareText'>Share this article</p>
                   <div className='lnShareIcons'>
                     <p>
-                      <GrTwitter />
+                      <WhatsappShareButton title={post.title} url={url}>
+                        <WhatsappIcon size={40} round={true} />
+                      </WhatsappShareButton>
                     </p>
                     <p>
-                      <FaLinkedinIn />
+                      <LinkedinShareButton
+                        title={post.title}
+                        url={url}
+                        summary={post.title}
+                        source='By XplorEV'
+                      >
+                        <LinkedinIcon size={40} round={true} />
+                      </LinkedinShareButton>
                     </p>
                     <p>
-                      <FaFacebookF />
+                      <FacebookShareButton
+                        quote={post.title}
+                        url={url}
+                        hashtags={[
+                          'goelectric',
+                          'electricvehicles',
+                          'electricmobility',
+                          'electriccar',
+                        ]}
+                      >
+                        <FacebookIcon size={40} round={true} />
+                      </FacebookShareButton>
                     </p>
                     <p>
-                      <IoLogoWhatsapp />
-                    </p>
-                    <p>
-                      <HiMail />
+                      <TwitterShareButton
+                        title={post.title}
+                        via='EvXplor'
+                        hashtags={[
+                          'goelectric',
+                          'electricvehicles',
+                          'electricmobility',
+                          'electriccar',
+                        ]}
+                        url={url}
+                      >
+                        <TwitterIcon size={40} round={true} />
+                      </TwitterShareButton>
                     </p>
                   </div>
                 </div>
@@ -347,6 +383,10 @@ const Blog = (props) => {
           )}
         </>
       )}
+      <div>
+        <Subscribe />
+        <Footer />
+      </div>
     </>
   )
 }

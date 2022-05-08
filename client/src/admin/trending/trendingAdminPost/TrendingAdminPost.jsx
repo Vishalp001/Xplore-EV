@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
-import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
+import ReactQuill from 'react-quill-with-table'
 import { useLocation } from 'react-router-dom'
 import { Axios } from '../../../Utility'
 import './trendingAdminPost.scss'
@@ -11,7 +11,7 @@ const modules = {
     [{ header: '1' }, { header: '2' }, { header: [3, 4, 5, 6] }, { font: [] }],
     [{ size: [] }],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    ['list', 'image', 'video'],
+    ['list'],
     ['clean']['code-block'],
   ],
 }
@@ -28,8 +28,6 @@ const formats = [
   'list',
   'bullet',
   'link',
-  'image',
-  'video',
   'code-block',
 ]
 

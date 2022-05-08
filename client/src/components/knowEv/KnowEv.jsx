@@ -17,7 +17,9 @@ const KnowEv = (props) => {
           <h2>Article that might help</h2>
           <h1>Read our latest article</h1>
           <p>
-            <Link to='/knowevpage'> View All</Link>
+            <Link to='/knowevpage'>
+              <button className='viewAllBtn'>View All</button>
+            </Link>
           </p>
         </div>
 
@@ -50,7 +52,7 @@ const KnowEv = (props) => {
             swiper.navigation.update()
           }}
           autoplay={{
-            delay: 2500,
+            delay: 6000,
             disableOnInteraction: true,
           }}
           modules={[Keyboard, Navigation, Autoplay]}

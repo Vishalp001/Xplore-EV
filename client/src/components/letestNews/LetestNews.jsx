@@ -7,6 +7,16 @@ import { Pagination, Autoplay, Keyboard } from 'swiper'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from 'react-share'
 
 const LetestNews = (props) => {
   return (
@@ -25,7 +35,7 @@ const LetestNews = (props) => {
           clickable: true,
         }}
         autoplay={{
-          delay: 2500,
+          delay: 6000,
           disableOnInteraction: true,
         }}
         keyboard={{
@@ -44,13 +54,53 @@ const LetestNews = (props) => {
                     <div className='onImgCard'>
                       <div className='socialIcons'>
                         <p>
-                          <GrTwitter className='twitter' />
+                          <WhatsappShareButton
+                            title={n.title}
+                            url={`https://xplore-new.web.app/blog/${n._id}?news`}
+                          >
+                            <WhatsappIcon size={32} round={true} />
+                          </WhatsappShareButton>
                         </p>
                         <p>
-                          <FaLinkedin className='linkdin' />
+                          <TwitterShareButton
+                            className='twitter'
+                            title={n.title}
+                            via='EvXplor'
+                            hashtags={[
+                              'goelectric',
+                              'electricvehicles',
+                              'electricmobility',
+                              'electriccar',
+                            ]}
+                            url={`https://xplore-new.web.app/blog/${n._id}?news`}
+                          >
+                            <TwitterIcon size={32} round={true} />
+                          </TwitterShareButton>
                         </p>
                         <p>
-                          <GrFacebook className='fb' />
+                          <LinkedinShareButton
+                            className='linkdin'
+                            title={n.title}
+                            url={`https://xplore-new.web.app/blog/${n._id}?news`}
+                            summary={n.title}
+                          >
+                            <LinkedinIcon size={32} round={true} />
+                          </LinkedinShareButton>
+                        </p>
+                        <p>
+                          <FacebookShareButton
+                            className='fb'
+                            quote={n.title}
+                            url={`https://xplore-new.web.app/blog/${n._id}?news`}
+                            hashtags={[
+                              'goelectric',
+                              'electricvehicles',
+                              'electricmobility',
+                              'electriccar',
+                            ]}
+                          >
+                            <FacebookIcon size={32} round={true} />
+                          </FacebookShareButton>
                         </p>
                       </div>
                       <div className='dateTime'>

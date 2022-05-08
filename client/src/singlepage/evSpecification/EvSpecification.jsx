@@ -9,6 +9,8 @@ import 'swiper/css/thumbs'
 import { FreeMode, Navigation, Thumbs } from 'swiper'
 import { useLocation } from 'react-router-dom'
 import { Axios } from '../../Utility'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 
 const CarSpecificationBlog = () => {
   const location = useLocation()
@@ -221,6 +223,11 @@ const CarSpecificationBlog = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

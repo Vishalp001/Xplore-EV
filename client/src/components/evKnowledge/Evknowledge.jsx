@@ -50,7 +50,7 @@ const Evknowledge = (props) => {
           swiper.navigation.update()
         }}
         autoplay={{
-          delay: 2500,
+          delay: 6000,
           disableOnInteraction: true,
         }}
         modules={[Keyboard, Navigation, Autoplay]}

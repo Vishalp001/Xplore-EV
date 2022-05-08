@@ -59,19 +59,21 @@ const ElectricCar = (props) => {
           props.eCar.map((eC) => (
             <SwiperSlide key={eC._id}>
               <div className='imgDiv'>
-                <img src={eC.imgOne} alt='imgOne' />
-                <div className='imgDivGradient'></div>
+                <Link to={`/ev_spec/${eC._id}`}>
+                  <img src={eC.imgOne} alt='imgOne' />
+                  <div className='imgDivGradient'></div>
+                </Link>
               </div>
               <div className='detailsSection'>
                 <h1 className='carName'>{eC.evName}</h1>
                 <p className='carPrice'>Rs {eC.evPrice}*</p>
                 <div className='carsBtn'>
-                  <button className='compair'>
-                    <Link to={`/ev_spec/${eC._id}`}>Specification</Link>
-                  </button>
-                  <button className='compair'>
-                    <Link to={`/compair_cars/${eC._id}`}>Compair</Link>
-                  </button>
+                  <Link to={`/ev_spec/${eC._id}`}>
+                    <button className='compair'>Specification</button>
+                  </Link>
+                  <Link to={`/compair_cars/${eC._id}`}>
+                    <button className='compair'>Compair</button>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>

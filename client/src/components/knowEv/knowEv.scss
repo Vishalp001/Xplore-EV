@@ -10,8 +10,21 @@
     }
     h1 {
       color: #252525;
-      font-size: 48px;
+      font-size: 38px;
       font-family: 'Quicksand', sans-serif;
+    }
+    .viewAllBtn {
+      border: none;
+      outline: none;
+      background: #539f01;
+      transition: 0.2s ease-in-out;
+      border-radius: 4px;
+      padding: 7px 20px;
+      color: #fff;
+      &:hover {
+        border-radius: 0;
+        background: #252525;
+      }
     }
   }
   .knowEvSlider {

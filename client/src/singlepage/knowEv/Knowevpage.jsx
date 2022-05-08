@@ -6,6 +6,8 @@ import Topbarpage from '../topbarpage/Topbarpage'
 import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 const Knowevpage = ({ blog }) => {
   const [pageNumber, setPageNumber] = useState(0)
   const usersPerpage = 3
@@ -25,7 +27,7 @@ const Knowevpage = ({ blog }) => {
               <p
                 className='desc'
                 dangerouslySetInnerHTML={{
-                  __html: `${q.desc.substring(0, 300)}`,
+                  __html: `${q.desc.substring(0, 150)}`,
                 }}
               ></p>
             </Link>
@@ -34,17 +36,7 @@ const Knowevpage = ({ blog }) => {
             <div className='cat'>
               <Link to={`?cat=${q.categories}`}>{q.categories}</Link>
             </div>
-            <div className='shareIcons'>
-              <p>
-                <GrTwitter />
-              </p>
-              <p>
-                <FaLinkedin />
-              </p>
-              <p>
-                <GrFacebook />
-              </p>
-            </div>
+            <div className='date'>{new Date(q.createdAt).toDateString()}</div>
           </div>
         </div>
       )
@@ -87,6 +79,10 @@ const Knowevpage = ({ blog }) => {
             activeClassName={'paginationActive'}
           />
         </div>
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

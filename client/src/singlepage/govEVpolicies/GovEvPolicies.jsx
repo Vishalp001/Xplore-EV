@@ -30,9 +30,9 @@ const GovEvPolicies = (props) => {
                           __html: `${p.desc.substring(0, 100)}...`,
                         }}
                       ></p>
-                      <button className='readGovPBtn'>
-                        <Link to={`/blog/${p._id}?policies`}> Read Here </Link>
-                      </button>
+                      <Link to={`/blog/${p._id}?policies`}>
+                        <button className='readGovPBtn'>Read Here</button>
+                      </Link>
                     </div>
                   </div>
                 ))}

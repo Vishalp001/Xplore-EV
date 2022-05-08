@@ -16,8 +16,6 @@ import Knowevpage from './singlepage/knowEv/Knowevpage'
 import Trendingpage from './singlepage/trandingpage/Trendingpage'
 import Videos from './singlepage/videos/Videos'
 // import Latestnewsblog from './singlepage/latestnewspage/latestnewsblog/Latestnewsblog'
-import Footer from './components/footer/Footer.jsx'
-import Subscribe from './components/subscribe/Subscribe'
 import ScrollToTop from './components/ScrollToTop'
 import FreecoursePage from './singlepage/freecourses/FreecoursePage'
 import Freecourseblog from './singlepage/freecourses/freecourse blog/Freecoureblog.jsx'
@@ -73,7 +71,7 @@ function App() {
   const [upcomingCar, setupcomingCar] = useState([])
   const [policies, setPolicies] = useState([])
   const [station, setStation] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const { search } = useLocation()
 
   useEffect(() => {
@@ -81,53 +79,60 @@ function App() {
       setLoading(true)
       const res = await Axios.get('/trending' + search)
       setTrengings(res.data)
+      setLoading(false)
     }
+
     const fetchQuickBitesPost = async () => {
       setLoading(true)
 
       const res = await Axios.get('/quickbyte' + search)
       setQuickBites(res.data)
+      setLoading(false)
     }
     const fetchVideoPost = async () => {
       setLoading(true)
       const res = await Axios.get('/video')
       setVideo(res.data)
+      setLoading(false)
     }
     const fetchNewsPost = async () => {
       setLoading(true)
 
       const res = await Axios.get('/news' + search)
       setNews(res.data)
+      setLoading(false)
     }
     const fetchBlogPost = async () => {
       setLoading(true)
 
       const res = await Axios.get('/blog' + search)
       setBlog(res.data)
+      setLoading(false)
     }
     const fetchFreeCourse = async () => {
       setLoading(true)
 
       const res = await Axios.get('/freecourse')
       setFreeCourse(res.data)
+      setLoading(false)
     }
     const fetchECar = async () => {
+      setLoading(true)
       const res = await Axios.get('/ev')
       setECar(res.data[0].car)
       setEBike(res.data[0].bike)
       setupcoming(res.data[0].upcoming)
       setupcomingBike(res.data[0].upcomingBike)
       setupcomingCar(res.data[0].upcomingCar)
+      setLoading(false)
     }
 
     const fetchPolicies = async () => {
+      setLoading(true)
       const res = await Axios.get('/evpolicies')
       setPolicies(res.data)
+      setLoading(false)
     }
-    // const fetchStations = async () => {
-    //   const res = await Axios.get('/charging')
-    //   setStation(res.data)
-    // }
 
     fetchTrendingPost()
     fetchQuickBitesPost()
@@ -137,10 +142,7 @@ function App() {
     fetchFreeCourse()
     fetchECar()
     fetchPolicies()
-    // fetchStations()
-    setLoading(false)
   }, [search])
-
   return (
     <>
       <ScrollToTop />
@@ -149,19 +151,23 @@ function App() {
           exact
           path='/'
           element={
-            <Home
-              trendings={trendings}
-              quickBites={quickBites}
-              eCar={eCar}
-              eBike={eBike}
-              video={video}
-              news={news}
-              blog={blog}
-              freeCourse={freeCourse}
-              upcoming={upcoming}
-              upcomingBike={upcomingBike}
-              upcomingCar={upcomingCar}
-            />
+            loading ? (
+              <Loader />
+            ) : (
+              <Home
+                trendings={trendings}
+                quickBites={quickBites}
+                eCar={eCar}
+                eBike={eBike}
+                video={video}
+                news={news}
+                blog={blog}
+                freeCourse={freeCourse}
+                upcoming={upcoming}
+                upcomingBike={upcomingBike}
+                upcomingCar={upcomingCar}
+              />
+            )
           }
         />
         <Route

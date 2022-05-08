@@ -4,8 +4,9 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import Topbar from '../topbarpage/Topbarpage'
 import './latestnewspage.scss'
-import { GrTwitter, GrFacebook } from 'react-icons/gr'
-import { FaLinkedin } from 'react-icons/fa'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
+
 const Latestnews = (props) => {
   const [pageNumber, setPageNumber] = useState(0)
   const usersPerpage = 3
@@ -15,7 +16,7 @@ const Latestnews = (props) => {
     .slice(pagesVisited, pagesVisited + usersPerpage)
     .map((n) => {
       return (
-        <div className='gridItem'>
+        <div className='gridItem latestNewsCard'>
           <Link to={`/blog/${n._id}?news`}>
             <div className='imgDiv'>
               <img src={n.photo} alt={n.title} />
@@ -24,7 +25,7 @@ const Latestnews = (props) => {
               <h1 className='title'>{n.title}</h1>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: `${n.desc.substring(0, 300)}...`,
+                  __html: `${n.desc.substring(0, 150)}...`,
                 }}
                 className='desc'
               ></p>
@@ -33,17 +34,7 @@ const Latestnews = (props) => {
               <div className='cat'>
                 <Link to={`?cat=${n.categories}`}>{n.categories}</Link>
               </div>
-              <div className='shareIcons'>
-                <p>
-                  <GrTwitter />
-                </p>
-                <p>
-                  <FaLinkedin />
-                </p>
-                <p>
-                  <GrFacebook />
-                </p>
-              </div>
+              <div className='date'>{new Date(n.createdAt).toDateString()}</div>
             </div>
           </Link>
         </div>
@@ -88,6 +79,11 @@ const Latestnews = (props) => {
             activeClassName={'paginationActive'}
           />
         </div>
+      </div>
+
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

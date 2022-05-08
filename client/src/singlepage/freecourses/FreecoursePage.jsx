@@ -4,6 +4,8 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import './freecoursePage.scss'
 import { Link } from 'react-router-dom'
 import Topbarpage from '../topbarpage/Topbarpage'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 
 const FreecoursePage = (props) => {
   const [pageNumber, setPageNumber] = useState(0)
@@ -22,7 +24,7 @@ const FreecoursePage = (props) => {
             <h1 className='title'>{c.title}</h1>
             <p
               dangerouslySetInnerHTML={{
-                __html: `${c.desc.substring(0, 350)}...`,
+                __html: `${c.desc.substring(0, 150)}...`,
               }}
               className='desc'
             ></p>
@@ -71,6 +73,10 @@ const FreecoursePage = (props) => {
             activeClassName={'paginationActive'}
           />
         </div>
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

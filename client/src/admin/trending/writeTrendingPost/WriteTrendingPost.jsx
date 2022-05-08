@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import './writeTrendingPost.scss'
-import ReactQuill from 'react-quill'
+import ReactQuill from 'react-quill-with-table'
 import 'react-quill/dist/quill.snow.css'
 import { Axios } from '../../../Utility'
 import { Context } from '../../../context/Context'
@@ -10,8 +10,8 @@ const modules = {
   toolbar: [
     [{ header: '1' }, { header: '2' }, { header: [3, 4, 5, 6] }, { font: [] }],
     [{ size: [] }],
+    ['list'],
     ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    ['list', 'image', 'video'],
     ['clean']['code-block'],
   ],
 }
@@ -28,8 +28,6 @@ const formats = [
   'list',
   'bullet',
   'link',
-  'image',
-  'video',
   'code-block',
 ]
 

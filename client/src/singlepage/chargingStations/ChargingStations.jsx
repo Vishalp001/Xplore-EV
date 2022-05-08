@@ -5,8 +5,11 @@ import { Axios } from '../../Utility'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 import { Rating } from '@mui/material'
-import { MdOutlineBolt } from 'react-icons/md'
+import { RiChargingPileFill } from 'react-icons/ri'
 import { BsArrowRightShort } from 'react-icons/bs'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
+
 const ChargingStations = () => {
   const [station, setStation] = useState([])
   const [citys, setCitys] = useState([])
@@ -79,7 +82,9 @@ const ChargingStations = () => {
               <div className='cSCard'>
                 <div style={{ padding: '12px' }}>
                   <div className='name'>
-                    <MdOutlineBolt className='boltIcon' />
+                    <span>
+                      <RiChargingPileFill className='boltIcon' />
+                    </span>
                     <p>{s.name}</p>
                   </div>
                   <p className='adderss'>{s.adderss}</p>
@@ -101,6 +106,11 @@ const ChargingStations = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

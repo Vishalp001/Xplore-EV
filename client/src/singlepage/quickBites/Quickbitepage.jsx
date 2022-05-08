@@ -6,6 +6,18 @@ import { GrTwitter, GrFacebook } from 'react-icons/gr'
 import { FaLinkedin } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from 'react-share'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 const Quickbites = ({ quickBites }) => {
   const [pageNumber, setPageNumber] = useState(0)
   const usersPerpage = 3
@@ -16,7 +28,7 @@ const Quickbites = ({ quickBites }) => {
     .map((q) => {
       return (
         <>
-          <div className='gridItem'>
+          <div className='gridItem quickbiteItem'>
             <div className='imgDiv'>
               <img src={q.photo} alt={q.title} />
             </div>
@@ -35,13 +47,51 @@ const Quickbites = ({ quickBites }) => {
               </div>
               <div className='shareIcons'>
                 <p>
-                  <GrTwitter />
+                  <WhatsappShareButton
+                    title={q.title}
+                    url='https://xplore-new.web.app'
+                  >
+                    <WhatsappIcon size={32} round={true} />
+                  </WhatsappShareButton>
                 </p>
                 <p>
-                  <FaLinkedin />
+                  <LinkedinShareButton
+                    title={q.title}
+                    url='https://xplore-new.web.app'
+                    summary={q.title}
+                    source='By XplorEV'
+                  >
+                    <LinkedinIcon size={32} round={true} />
+                  </LinkedinShareButton>
                 </p>
                 <p>
-                  <GrFacebook />
+                  <FacebookShareButton
+                    quote={q.title}
+                    url='https://xplore-new.web.app'
+                    hashtags={[
+                      'goelectric',
+                      'electricvehicles',
+                      'electricmobility',
+                      'electriccar',
+                    ]}
+                  >
+                    <FacebookIcon size={32} round={true} />
+                  </FacebookShareButton>
+                </p>
+                <p>
+                  <TwitterShareButton
+                    title={q.title}
+                    via='EvXplor'
+                    hashtags={[
+                      'goelectric',
+                      'electricvehicles',
+                      'electricmobility',
+                      'electriccar',
+                    ]}
+                    url='https://xplore-new.web.app'
+                  >
+                    <TwitterIcon size={32} round={true} />
+                  </TwitterShareButton>
                 </p>
               </div>
             </div>
@@ -86,6 +136,10 @@ const Quickbites = ({ quickBites }) => {
             activeClassName={'paginationActive'}
           />
         </div>
+      </div>
+      <div>
+        <Subscribe />
+        <Footer />
       </div>
     </>
   )

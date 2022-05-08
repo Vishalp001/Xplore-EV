@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavDropdown, Nav, Navbar, Container } from 'react-bootstrap'
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
 import './topbar.scss'
@@ -8,10 +8,20 @@ import darkLogo from '../../assets/images/darkLogo.png'
 import newLogo from '../../assets/images/carlogo.png'
 
 import { HiLocationMarker } from 'react-icons/hi'
+import { MdAccessTimeFilled } from 'react-icons/md'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 const Topbar = () => {
+  const [dateState, setDateState] = useState()
+
+  useEffect(() => {
+    setInterval(() => {
+      const date = new Date()
+      setDateState(date.toLocaleTimeString())
+    }, 1000)
+  }, [])
+
   return (
     <>
       <div className='navbarWrapper'>
@@ -24,7 +34,10 @@ const Topbar = () => {
               <BsFillTelephoneFill className='icon' /> 123-456-789
             </div>
           </div>
-          <div className='colTwo'>Mon-Fri | 08:00 - 17:00</div>
+          <div className='colTwo'>
+            <MdAccessTimeFilled className='icon' />
+            {dateState}
+          </div>
         </div>
         <Navbar collapseOnSelect expand='lg' className='navBar'>
           <Container className='navBarContainer'>
@@ -55,9 +68,7 @@ const Topbar = () => {
                   <NavDropdown.Item as={Link} to='trendingnews'>
                     Trending News
                   </NavDropdown.Item>
-                  <NavDropdown.Item href='#videos' >
-                    Videos
-                  </NavDropdown.Item>
+                  <NavDropdown.Item href='#videos'>Videos</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title='Knowledge Hub' id='basic-nav-dropdown'>
                   <NavDropdown.Item href='#freecourses'>

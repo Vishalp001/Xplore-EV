@@ -92,12 +92,16 @@ font-family: 'Quicksand', sans-serif; */
       .name {
         display: flex;
         color: #fff;
-        align-items: center;
+        align-items: flex-start;
+        span {
+          margin-right: 5px;
+        }
         p {
           font-weight: 600;
-          font-size: 23px;
+          font-size: 24px;
           line-height: 28px;
           font-family: 'Quicksand', sans-serif;
+          text-decoration: underline;
         }
         .boltIcon {
           font-size: 50px;

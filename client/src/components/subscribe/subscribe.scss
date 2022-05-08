@@ -67,6 +67,37 @@ font-family: 'Quicksand', sans-serif; */
       color: #ffffff;
     }
   }
+  .subForm {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    input {
+      height: 38px;
+      outline: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      width: 320px;
+      border: 1px solid #66c600;
+      margin-right: 15px;
+    }
+    button {
+      border: none;
+      outline: none;
+      background-color: #252525;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 25px;
+      line-height: 1em;
+      box-shadow: 0px 4px 3px 0px rgb(0 0 0 / 12%);
+      border-radius: 30px 30px 30px 0px;
+      color: #ffffff;
+      transition: all 0.3s;
+      &:hover {
+        border-radius: 30px 0px 30px 30px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1200px) {

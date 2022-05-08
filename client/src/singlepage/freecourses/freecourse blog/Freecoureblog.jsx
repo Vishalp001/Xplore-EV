@@ -1,4 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Keyboard, Navigation, Autoplay } from 'swiper'
+import { TiArrowSortedDown } from 'react-icons/ti'
+import { Link } from 'react-router-dom'
 import './freecoureblog.scss'
 import Topbarpage from '../../topbarpage/Topbarpage'
 import Box from '@mui/material/Box'
@@ -10,6 +16,8 @@ import { useLocation } from 'react-router-dom'
 import { Axios } from '../../../Utility'
 
 const Freecoureblog = (props) => {
+  const prevRef = useRef(null)
+  const nextRef = useRef(null)
   const location = useLocation()
   const path = location.pathname.split('/')[2]
   const [post, setPost] = useState({})
@@ -31,7 +39,6 @@ const Freecoureblog = (props) => {
 
     GetPost()
   }, [path])
-  console.log(post)
 
   return (
     <>
@@ -41,11 +48,9 @@ const Freecoureblog = (props) => {
           <div className='nameAndBtn'>
             <h1 className='courseName'>{post.title}</h1>
             <p className='enrollNo'>{post.enrollNo} already enrolled</p>
-            <button className='enrollBtn animate__flash'>
-              <a href={post.courseLink} target='_blank'>
-                Enroll For Free
-              </a>
-            </button>
+            <a href={post.courseLink} target='_blank'>
+              <button className='enrollBtn'>Enroll For Free</button>
+            </a>
           </div>
           <div className='offerBy'>
             <h1 className='instructor'>Course Instructor</h1>
@@ -101,6 +106,77 @@ const Freecoureblog = (props) => {
             </TabContext>
           </Box>
         </div>
+      </div>
+      <hr />
+      <div className='container'>
+        <h2>Related Courses</h2>
+
+        <Swiper
+          loop={true}
+          slidesPerView={3}
+          spaceBetween={30}
+          keyboard={{
+            enabled: true,
+          }}
+          breakpoints={{
+            210: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current
+            swiper.params.navigation.nextEl = nextRef.current
+            swiper.navigation.init()
+            swiper.navigation.update()
+          }}
+          autoplay={{
+            delay: 6000,
+            disableOnInteraction: true,
+          }}
+          modules={[Keyboard, Navigation, Autoplay]}
+          className='evKnowledgeSlider container'
+        >
+          {props.freeCourse &&
+            props.freeCourse.map((fC) => (
+              <SwiperSlide key={fC._id}>
+                <Link to={`/freecoursesblog/${fC._id}`}>
+                  <div className='cardConatiner'>
+                    <div className='imgDiv'>
+                      <img src={fC.coursePhoto} alt='coursePhoto' />
+                    </div>
+                    <h1 className='title'>
+                      <a href=''> {fC.title}</a>
+                    </h1>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: `${fC.desc.substring(0, 200)}...`,
+                      }}
+                      className='desc'
+                    ></p>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+
+          <div className='arrow'>
+            <div className='' ref={prevRef}>
+              <TiArrowSortedDown className='prev' /> <span>Prev</span>
+            </div>
+            <div className='' ref={nextRef}>
+              <span>Next</span>
+              <TiArrowSortedDown className='next' />
+            </div>
+          </div>
+        </Swiper>
       </div>
     </>
   )
