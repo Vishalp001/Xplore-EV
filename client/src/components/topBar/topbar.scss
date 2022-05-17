@@ -9,8 +9,20 @@
   font-family: 'Nunito', sans-serif;
   padding: 30px 5px;
   font-weight: 400;
+  @media only screen and (max-width: 992px) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 20px 5px;
+  }
   .colOne {
     display: flex;
+    @media only screen and (max-width: 992px) {
+      flex-direction: column;
+      div:nth-child(2) {
+        margin: 10px 0;
+      }
+    }
     .location {
       margin-right: 35px;
     }
@@ -46,6 +58,10 @@
     &:hover {
       color: #000000 !important;
       transition: 0.3.5s ease-in;
+    }
+    @media only screen and (max-width: 992px) {
+      margin-top: 15px;
+      text-align: center;
     }
   }
 }

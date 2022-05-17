@@ -6,7 +6,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
-import { IoLogoYoutube } from 'react-icons/io'
+import { MdVideoLibrary } from 'react-icons/md'
 
 const OurVideos = (props) => {
   const prevRef = useRef(null)
@@ -61,7 +61,7 @@ const OurVideos = (props) => {
               <a target='_blank' href={v.url}>
                 <div className='imgDiv'>
                   <div className='ytThumble'>
-                    <IoLogoYoutube className='ytIocn' />
+                    <MdVideoLibrary className='ytIocn' />
                   </div>
 
                   <img src={v.photo} alt={v.title} />

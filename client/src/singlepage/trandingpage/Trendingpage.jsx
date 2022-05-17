@@ -25,12 +25,20 @@ const Trendingpage = (props) => {
               <p
                 className='desc'
                 dangerouslySetInnerHTML={{
-                  __html: `${t.desc.substring(0, 350)}...`,
+                  __html: `${t.desc.substring(0, 150)}...`,
                 }}
               ></p>
             </Link>
+          </div>
+          <div className='iconAndCats'>
             <p className='cat'>
               <Link to={`?cat=${t.categories}`}>{t.categories}</Link>
+            </p>
+            <p
+              className='shareIcons'
+              style={{ fontSize: '16px', paddingRight: '20px' }}
+            >
+              {new Date(t.createdAt).toDateString()}
             </p>
           </div>
         </div>

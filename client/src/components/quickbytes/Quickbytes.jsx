@@ -28,7 +28,7 @@ const Quickbytes = ({ quickBites }) => {
     <>
       <div id='quickBites' className='container'>
         <div className='heading'>
-          <h1>Quick Bytes</h1>
+          <h1>Quick Bites</h1>
           <div className='hrline'></div>
           <Link to='/quickBites'>View All </Link>
         </div>

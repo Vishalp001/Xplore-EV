@@ -52,7 +52,7 @@ export default function App(props) {
             className={isActiveAll ? 'active' : ''}
             onClick={(e) => [setGetProps(props.upcoming), allUpcoming('all')]}
           >
-            Upcoming Evs
+            Upcoming EVs
           </button>
           <button
             className={isActiveBike ? 'active' : ''}

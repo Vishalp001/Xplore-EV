@@ -42,10 +42,11 @@ const Subscribe = () => {
             </div>
           </div>
           <div className='subDuv'>
-            <h1>Have a car Problem ? don't worry we here</h1>
-            <p className='subHead'>
-              Get special offer untill end of this month
-            </p>
+            <h1>
+              Want to be updated with the latest news and knowledge in the EV
+              industry?
+            </h1>
+            <p className='subHead'>Subscribe to our newsletter!</p>
             <form onSubmit={handleSubmit}>
               {!msg && (
                 <div className='subForm'>
@@ -59,7 +60,7 @@ const Subscribe = () => {
                   )}
                 </div>
               )}
-              {msg && <h2>You Are subscribed successfully</h2>}
+              {msg && <h2>Thankyou for Subscribed 😄</h2>}
             </form>
           </div>
         </div>

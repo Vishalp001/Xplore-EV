@@ -1,4 +1,10 @@
 .CCompair {
+  td,
+  th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+  }
   .selectCar {
     margin: 25px 0;
     width: 100%;
@@ -52,6 +58,7 @@
       .evName {
         font-size: 25px;
         margin-top: 18px;
+        text-align: center;
       }
     }
     .vs {

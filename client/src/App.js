@@ -71,6 +71,7 @@ function App() {
   const [upcomingCar, setupcomingCar] = useState([])
   const [policies, setPolicies] = useState([])
   const [station, setStation] = useState([])
+  const [email, setEmail] = useState([])
   const [loading, setLoading] = useState(false)
   const { search } = useLocation()
 
@@ -79,6 +80,12 @@ function App() {
       setLoading(true)
       const res = await Axios.get('/trending' + search)
       setTrengings(res.data)
+      setLoading(false)
+    }
+    const fetchEmails = async () => {
+      setLoading(true)
+      const res = await Axios.get('/email')
+      setEmail(res.data)
       setLoading(false)
     }
 
@@ -135,6 +142,7 @@ function App() {
     }
 
     fetchTrendingPost()
+    fetchEmails()
     fetchQuickBitesPost()
     fetchVideoPost()
     fetchNewsPost()
@@ -143,6 +151,7 @@ function App() {
     fetchECar()
     fetchPolicies()
   }, [search])
+
   return (
     <>
       <ScrollToTop />
@@ -263,6 +272,7 @@ function App() {
           element={
             user ? (
               <Dashboard
+                email={email}
                 trendings={trendings}
                 quickBites={quickBites}
                 video={video}

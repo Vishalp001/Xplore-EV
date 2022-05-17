@@ -1,0 +1,13 @@
+.adminEmail {
+  width: calc(100vw - 248px);
+  .exportbtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}

@@ -13,53 +13,68 @@ const Footer = () => {
               <img src={newLogo} alt='newLogo' />
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              XplorEV is the fastest growing one-stop electric vehicle platform
+              that brings the latest news, videos and quality courses to spread
+              awareness and knowledge in our society.
             </p>
           </div>
           <div className='quickContact'>
             <h1>Quick Contact</h1>
+
             <p>
-              <span></span> Rometheme Studio
+              <span></span> <a href='tel:8319979800'>831 997 9800</a>
             </p>
             <p>
-              <span></span>99th, Arround St, Pku City
-            </p>
-            <p>
-              <span></span> 012 345 6789
-            </p>
-            <p>
-              <span></span> Info@yourdomain.com
+              <span></span>
+              <a href='mailto: xplorev3@gmail.com'>xplorev3@gmail.com</a>
             </p>
           </div>
           <div className='otherPage'>
-            <h1>Other Page</h1>
+            <h1>Overview</h1>
             <p>
-              <span></span> Privacy Policy
+              <span></span>About us
             </p>
             <p>
               <span></span>Term Of Service
             </p>
             <p>
-              <span></span> Disclaimer
-            </p>
-            <p>
-              <span></span> Credit
+              <span></span> Privacy Policy
             </p>
           </div>
           <div className='socialMedia'>
             <h1>Our Social Media</h1>
             <p>
-              <span></span> Facebook
+              <span></span>
+              <a href='https://www.instagram.com/xplor.ev/' target='_blank'>
+                Instagram
+              </a>
             </p>
             <p>
-              <span></span>Instagram
+              <span></span>
+              <a href='https://www.youtube.com/c/XplorEV' target='_blank'>
+                YouTube
+              </a>
             </p>
             <p>
-              <span></span> Pinterest
+              <span></span>
+              <a href='https://m.facebook.com/xplorev1/?_rdr' target='_blank'>
+                Facebook
+              </a>
             </p>
             <p>
-              <span></span>Linkedin
+              <span></span>
+              <a
+                href='https://www.linkedin.com/company/xplorev/'
+                target='_blank'
+              >
+                Linkedin
+              </a>
+            </p>
+            <p>
+              <span></span>
+              <a href='https://twitter.com/EvXplor' target='_blank'>
+                Twitter
+              </a>
             </p>
           </div>
         </div>

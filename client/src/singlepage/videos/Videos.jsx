@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import Topbarpage from '../topbarpage/Topbarpage'
 import './videos.scss'
-import { IoLogoYoutube } from 'react-icons/io'
+import { MdVideoLibrary } from 'react-icons/md'
 
 const Videos = (props) => {
   const [pageNumber, setPageNumber] = useState(0)
@@ -18,7 +18,7 @@ const Videos = (props) => {
           <a href={v.url} target='_blank'>
             <div className='imgDiv'>
               <div className='ytThumble'>
-                <IoLogoYoutube className='ytIocn' />
+                <MdVideoLibrary className='ytIocn' />
               </div>
               <img src={v.photo} alt={v.title} />
             </div>

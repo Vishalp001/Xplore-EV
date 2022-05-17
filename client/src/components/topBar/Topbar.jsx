@@ -3,11 +3,9 @@ import { NavDropdown, Nav, Navbar, Container } from 'react-bootstrap'
 import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse'
 import './topbar.scss'
 import { FaSearch } from 'react-icons/fa'
-import Logo from '../../assets/images/logo.png'
-import darkLogo from '../../assets/images/darkLogo.png'
 import newLogo from '../../assets/images/carlogo.png'
 
-import { HiLocationMarker } from 'react-icons/hi'
+import { MdEmail } from 'react-icons/md'
 import { MdAccessTimeFilled } from 'react-icons/md'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
@@ -28,10 +26,12 @@ const Topbar = () => {
         <div className='topBar'>
           <div className='colOne'>
             <div className='location'>
-              <HiLocationMarker className='icon' /> 99 Roving St., Big City
+              <MdEmail className='icon' />
+              <a href='mailto: xplorev3@gmail.com'>xplorev3@gmail.com</a>
             </div>
             <div className='contact'>
-              <BsFillTelephoneFill className='icon' /> 123-456-789
+              <BsFillTelephoneFill className='icon' />
+              <a href='tel:8319979800'>831-997-9800</a>
             </div>
           </div>
           <div className='colTwo'>

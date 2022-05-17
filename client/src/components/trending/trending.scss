@@ -3,6 +3,9 @@ font-family: 'Quicksand', sans-serif; */
 .trendindContainer {
   position: relative;
   height: 110vh;
+  @media only screen and (max-width: 992px) {
+    height: 460px;
+  }
   .trendingSwiper {
     .swiper {
       width: 100%;
