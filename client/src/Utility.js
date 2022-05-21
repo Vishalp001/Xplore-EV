@@ -1,6 +1,6 @@
 import axios from 'axios'
 export const Axios = axios.create({
-  baseURL: 'https://xplorev.herokuapp.com/api/',
+  baseURL: 'https://xplor-ev.herokuapp.com/api/',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
