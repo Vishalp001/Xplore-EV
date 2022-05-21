@@ -47,9 +47,7 @@ const Videos = (props) => {
           <div className='spHeader'>
             <h1>Videos</h1>
             <p>
-              3 Min Videos, insightful and easy to understand.
-              <br />
-              This is Xplore Ev as you know it.
+              Reading Seems Boring? Watch Our Latest Videos On Electric Vehicles
             </p>
           </div>
 

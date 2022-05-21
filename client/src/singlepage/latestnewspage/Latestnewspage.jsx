@@ -57,11 +57,7 @@ const Latestnews = (props) => {
         <div className='container spQuickbites'>
           <div className='spHeader'>
             <h1>Latest News</h1>
-            <p>
-              3 Min reads that are fun, insightful and easy to understand.
-              <br />
-              This is Finshots as you know it.
-            </p>
+            <p>Well Researched, Latest News for your daily EV updates:</p>
           </div>
 
           <div className='spQBCards'>

@@ -57,11 +57,7 @@ const Knowevpage = ({ blog }) => {
         <div className='container spQuickbites'>
           <div className='spHeader'>
             <h1>Read our latest article</h1>
-            <p>
-              3 Min reads that are fun, insightful and easy to understand.
-              <br />
-              This is Finshots as you know it.
-            </p>
+            <p>Special Blogs on Electric Vehicle Technology</p>
           </div>
 
           <div className='spQBCards'>

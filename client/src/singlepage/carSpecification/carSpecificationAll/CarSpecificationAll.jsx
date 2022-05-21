@@ -51,11 +51,7 @@ const CarSpecificationAll = (props) => {
       <div className='container'>
         <div className='spHeader'>
           <h1>Electric Cars</h1>
-          <p>
-            3 Min reads that are fun, insightful and easy to understand.
-            <br />
-            This is Finshots as you know it.
-          </p>
+          <p>Latest Electric Cars Available in India</p>
         </div>
 
         {/* ------------ */}

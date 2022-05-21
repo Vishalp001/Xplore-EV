@@ -51,11 +51,7 @@ const FreecoursePage = (props) => {
         <div className='container spQuickbites'>
           <div className='spHeader'>
             <h1>Free Courses</h1>
-            <p>
-              Advanced Industry Relevant Courses
-              <br />
-              Top Job Leading Courses
-            </p>
+            <p>Top FREE EV Courses Offered by Reputed Organizations</p>
           </div>
 
           <div className='spQBCards'>

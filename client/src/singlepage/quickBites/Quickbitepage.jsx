@@ -114,11 +114,7 @@ const Quickbites = ({ quickBites }) => {
         <div className='container spQuickbites'>
           <div className='spHeader'>
             <h1>Quick Bites</h1>
-            <p>
-              3 Min reads that are fun, insightful and easy to understand.
-              <br />
-              This is Finshots as you know it.
-            </p>
+            <p>Quick Short News for your daily EV dose:</p>
           </div>
 
           <div className='spQBCards'>
