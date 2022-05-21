@@ -1,5 +1,5 @@
 .knowEvContainer {
-  margin-top: 30px;
+  margin-top: 60px;
   .knowEvheader {
     text-align: center;
     h2 {
@@ -13,22 +13,9 @@
       font-size: 38px;
       font-family: 'Quicksand', sans-serif;
     }
-    .viewAllBtn {
-      border: none;
-      outline: none;
-      background: #539f01;
-      transition: 0.2s ease-in-out;
-      border-radius: 4px;
-      padding: 7px 20px;
-      color: #fff;
-      &:hover {
-        border-radius: 0;
-        background: #252525;
-      }
-    }
   }
   .knowEvSlider {
-    margin-top: 72px;
+    margin-top: 40px;
     padding: 5px !important;
 
     .knowEvCardContainer {
@@ -90,6 +77,19 @@
           }
         }
       }
+    }
+  }
+  .viewAllBtn {
+    border: none;
+    outline: none;
+    background: #539f01;
+    transition: 0.2s ease-in-out;
+    border-radius: 4px;
+    padding: 7px 20px;
+    color: #fff;
+    &:hover {
+      border-radius: 0;
+      background: #252525;
     }
   }
 }

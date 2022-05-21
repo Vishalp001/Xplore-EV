@@ -15,12 +15,12 @@ const KnowEv = (props) => {
       <div id='knowev' className='container knowEvContainer'>
         <div className='knowEvheader'>
           <h2>Article that might help</h2>
-          <h1>Read our latest article</h1>
-          <p>
+          <h1>Know EV: Our Special Blogs</h1>
+          {/* <p>
             <Link to='/knowevpage'>
               <button className='viewAllBtn'>View All</button>
             </Link>
-          </p>
+          </p> */}
         </div>
 
         {/* ---------------- */}
@@ -95,6 +95,11 @@ const KnowEv = (props) => {
             <div className='' ref={prevRef}>
               <TiArrowSortedDown className='prev' /> <span>Prev</span>
             </div>
+            <p>
+              <Link to='/knowevpage'>
+                <button className='viewAllBtn'>View All</button>
+              </Link>
+            </p>
             <div className='' ref={nextRef}>
               <span>Next</span>
               <TiArrowSortedDown className='next' />

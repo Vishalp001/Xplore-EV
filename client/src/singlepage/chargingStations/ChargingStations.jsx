@@ -14,19 +14,7 @@ const ChargingStations = () => {
   const [station, setStation] = useState([])
   const [citys, setCitys] = useState([])
   const [location, setLocation] = useState([])
-
-  // const color = [
-  //   'radial-gradient(#60efbc, #58d5c9)',
-  //   'radial-gradient(#f588d8, #c0a3e5)',
-  //   'radial-gradient(#76b2fe, #b69efe)',
-  //   'radial-gradient(#fbc1cc, #fa99b2)',
-  //   'radial-gradient(#1fe4f5, #3fbafe)',
-  // ]
-  // var colorLength = color.length
-  // for (var i = 0; i < colorLength; i++) {
-  //   console.log(color[i])
-  //   //Do something
-  // }
+  const [locationText, setLocationText] = useState(false)
 
   useEffect(() => {
     const fetchStations = async () => {
@@ -47,6 +35,7 @@ const ChargingStations = () => {
 
   const getLocation = (loc) => {
     setLocation(loc.location)
+    setLocationText(true)
   }
 
   return (
@@ -59,6 +48,7 @@ const ChargingStations = () => {
         <div className='container'>
           <div className='inputBoxs'>
             <Autocomplete
+              className='autocomplete'
               disablePortal
               options={station}
               sx={{ width: 300 }}
@@ -67,6 +57,7 @@ const ChargingStations = () => {
             />
 
             <Autocomplete
+              className='autocomplete'
               disablePortal
               options={citys}
               getOptionLabel={(option) => option.cityName}
@@ -75,8 +66,11 @@ const ChargingStations = () => {
               onChange={(e, value) => getLocation(value)}
             />
           </div>
-
-          <h2>Locations in a City</h2>
+          {locationText ? (
+            <h2>We found {location.length} Charging Stations in your city</h2>
+          ) : (
+            <h2>Find Charging Stations in your city</h2>
+          )}
           <div className=' cSCards'>
             {location.map((s) => (
               <div className='cSCard'>

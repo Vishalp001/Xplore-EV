@@ -17,20 +17,20 @@ export default function App(props) {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   const [getProps, setGetProps] = useState()
-  const [isActiveAll, setisActiveAll] = useState(true)
-  const [isActiveCar, setisActiveCar] = useState(false)
+  const [isActiveAll, setisActiveAll] = useState(false)
+  const [isActiveCar, setisActiveCar] = useState(true)
   const [isActiveBike, setisActiveBike] = useState(false)
 
   useEffect(() => {
-    setGetProps(props.upcoming)
-  }, [props.upcoming])
+    setGetProps(props.upcomingCar)
+  }, [props.upcomingCar])
 
   const allUpcoming = (type) => {
-    if (type == 'all') {
-      setisActiveAll(true)
-      setisActiveCar(false)
-      setisActiveBike(false)
-    }
+    // if (type == 'all') {
+    //   setisActiveAll(true)
+    //   setisActiveCar(false)
+    //   setisActiveBike(false)
+    // }
     if (type == 'bikes') {
       setisActiveAll(false)
       setisActiveCar(false)
@@ -46,23 +46,14 @@ export default function App(props) {
   return (
     <>
       <div className='upcomingHeader container'>
-        <h2>We have a list of all the upcoming EV's.</h2>
+        <h2>Upcoming Electric Vehicles</h2>
         <div id='myDIV'>
-          <button
+          {/* <button
             className={isActiveAll ? 'active' : ''}
             onClick={(e) => [setGetProps(props.upcoming), allUpcoming('all')]}
           >
             Upcoming EVs
-          </button>
-          <button
-            className={isActiveBike ? 'active' : ''}
-            onClick={(e) => [
-              setGetProps(props.upcomingBike),
-              allUpcoming('bikes'),
-            ]}
-          >
-            Upcoming Bikes
-          </button>
+          </button> */}
           <button
             className={isActiveCar ? 'active' : ''}
             onClick={(e) => [
@@ -71,6 +62,16 @@ export default function App(props) {
             ]}
           >
             Upcoming Cars
+          </button>
+
+          <button
+            className={isActiveBike ? 'active' : ''}
+            onClick={(e) => [
+              setGetProps(props.upcomingBike),
+              allUpcoming('bikes'),
+            ]}
+          >
+            Upcoming Bikes
           </button>
         </div>
       </div>

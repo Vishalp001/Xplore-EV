@@ -3,7 +3,9 @@ import ReactPaginate from 'react-paginate'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 import Topbarpage from '../topbarpage/Topbarpage'
 import './videos.scss'
-import { MdVideoLibrary } from 'react-icons/md'
+import { BsPlayCircle } from 'react-icons/bs'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
 
 const Videos = (props) => {
   const [pageNumber, setPageNumber] = useState(0)
@@ -18,7 +20,7 @@ const Videos = (props) => {
           <a href={v.url} target='_blank'>
             <div className='imgDiv'>
               <div className='ytThumble'>
-                <MdVideoLibrary className='ytIocn' />
+                <BsPlayCircle className='ytIocn' />
               </div>
               <img src={v.photo} alt={v.title} />
             </div>
@@ -65,6 +67,8 @@ const Videos = (props) => {
           activeClassName={'paginationActive'}
         />
       </div>
+      <Subscribe />
+      <Footer />
     </>
   )
 }

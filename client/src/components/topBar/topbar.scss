@@ -1,5 +1,8 @@
 .navbarWrapper {
   background-color: #252525;
+  @media only screen and (max-width: 992px) {
+    height: 169px;
+  }
 }
 .topBar {
   color: #ffffff;
@@ -63,6 +66,9 @@
       margin-top: 15px;
       text-align: center;
     }
+  }
+  .dropdown-item {
+    text-align: center;
   }
 }
 .navbar-toggler:focus {

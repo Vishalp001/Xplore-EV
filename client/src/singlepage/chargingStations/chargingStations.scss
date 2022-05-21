@@ -27,6 +27,13 @@ font-family: 'Quicksand', sans-serif; */
     margin-top: 50px;
     display: flex;
     justify-content: space-evenly;
+    @media only screen and (max-width: 900px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      .autocomplete {
+        margin-bottom: 25px;
+      }
+    }
   }
   h2 {
     font-family: 'Nunito', sans-serif;
@@ -47,6 +54,9 @@ font-family: 'Quicksand', sans-serif; */
       border-radius: 10px;
       box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
       transition: all 0.2s;
+      @media only screen and (max-width: 900px) {
+        margin: 20px 0;
+      }
       &:hover {
         box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
         transform: scale(1.01);

@@ -12,14 +12,14 @@ import { Link } from 'react-router-dom'
 import { MdAccessTimeFilled } from 'react-icons/md'
 
 const Topbarpage = () => {
-  const [dateState, setDateState] = useState()
+  // const [dateState, setDateState] = useState()
 
-  useEffect(() => {
-    setInterval(() => {
-      const date = new Date()
-      setDateState(date.toLocaleTimeString())
-    }, 1000)
-  }, [])
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     const date = new Date()
+  //     setDateState(date.toLocaleTimeString())
+  //   }, 1000)
+  // }, [])
   return (
     <>
       <div className='navbarWrapper'>
@@ -29,14 +29,10 @@ const Topbarpage = () => {
               <MdEmail className='icon' />
               <a href='mailto: xplorev3@gmail.com'>xplorev3@gmail.com</a>
             </div>
-            <div className='contact'>
-              <BsFillTelephoneFill className='icon' />
-              <a href='tel:8319979800'>831-997-9800</a>
-            </div>
           </div>
           <div className='colTwo'>
-            <MdAccessTimeFilled className='icon' />
-            {dateState}
+            <BsFillTelephoneFill className='icon' />
+            <a href='tel:8319979800'>831-997-9800</a>
           </div>
         </div>
         <Navbar collapseOnSelect expand='lg' className='navBar'>

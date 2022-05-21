@@ -42,11 +42,14 @@
       .ytThumble {
         position: absolute;
         top: 40%;
-        left: 30%;
+        left: 38%;
         z-index: 1;
+        border-radius: 50%;
+        overflow: hidden;
         svg {
-          color: #ff0000;
-          font-size: 100px;
+          color: #fff;
+          font-size: 75px;
+          background-color: rgba(0, 0, 0, 0.641);
         }
       }
     }

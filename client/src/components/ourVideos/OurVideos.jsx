@@ -6,7 +6,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Keyboard, Navigation, Autoplay } from 'swiper'
 import { TiArrowSortedDown } from 'react-icons/ti'
-import { MdVideoLibrary } from 'react-icons/md'
+import { BsPlayCircle } from 'react-icons/bs'
 
 const OurVideos = (props) => {
   const prevRef = useRef(null)
@@ -61,7 +61,7 @@ const OurVideos = (props) => {
               <a target='_blank' href={v.url}>
                 <div className='imgDiv'>
                   <div className='ytThumble'>
-                    <MdVideoLibrary className='ytIocn' />
+                    <BsPlayCircle className='ytIocn' />
                   </div>
 
                   <img src={v.photo} alt={v.title} />

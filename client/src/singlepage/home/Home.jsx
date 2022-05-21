@@ -19,7 +19,7 @@ const Home = (props) => {
       <Topbar />
       <Trending trendings={props.trendings} />
       <UpcomingEv
-        upcoming={props.upcoming}
+        // upcoming={props.upcoming}
         upcomingBike={props.upcomingBike}
         upcomingCar={props.upcomingCar}
       />

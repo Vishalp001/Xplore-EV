@@ -2,6 +2,9 @@ import React from 'react'
 import './govEvPolicies.scss'
 import Topbarpage from '../topbarpage/Topbarpage'
 import { Link } from 'react-router-dom'
+import Subscribe from '../../components/subscribe/Subscribe'
+import Footer from '../../components/footer/Footer'
+
 const GovEvPolicies = (props) => {
   return (
     <>
@@ -40,6 +43,9 @@ const GovEvPolicies = (props) => {
           </div>
         </div>
       </div>
+
+      <Subscribe />
+      <Footer />
     </>
   )
 }

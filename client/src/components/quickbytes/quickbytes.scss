@@ -139,6 +139,10 @@ font-family: 'Quicksand', sans-serif; */
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
+  align-items: center;
+  p {
+    margin: 0;
+  }
   span {
     font-size: 20px;
   }
@@ -155,6 +159,19 @@ font-family: 'Quicksand', sans-serif; */
     color: #66c600;
     transition: 0.2s;
     cursor: pointer;
+  }
+  @media only screen and (max-width: 900px) {
+    span {
+      font-size: 16px;
+    }
+    .prev {
+      transform: rotate(90deg);
+      font-size: 45px;
+    }
+    .next {
+      transform: rotate(-90deg);
+      font-size: 45px;
+    }
   }
 }
 @media only screen and (max-width: 1000px) {
